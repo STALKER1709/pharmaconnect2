@@ -48,7 +48,11 @@ class CommandePolicy
         return $user->estClient()
             && $commande->client
             && $commande->client->user_id === $user->id
-            && ! $commande->paiement;
+            && (
+                ! $commande->paiement
+                // Re-paiement autorisé après un échec (commande annulée)
+                || $commande->paiement->statut === \App\Enums\PaiementStatut::Echoue
+            );
     }
 
     public function chatter(User $user, Commande $commande): bool

@@ -7,6 +7,9 @@ use App\Enums\LivraisonStatut;
 use App\Events\CommandeStatutChange;
 use App\Models\Avis;
 use App\Models\Commande;
+use App\Models\Livreur;
+use App\Models\Medicament;
+use App\Models\Pharmacie;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -57,11 +60,13 @@ class CommandeController extends Controller
     {
         $this->authorize('confirmerReception', $commande);
 
+        $ancien = $commande->statut->value;
+
         $commande->update(['statut' => CommandeStatut::Livree, 'livree_at' => now()]);
         $commande->livraison?->update(['statut' => LivraisonStatut::Livree, 'livree_at' => now()]);
         $commande->livreur?->update(['disponibilite' => 'disponible']);
 
-        event(new CommandeStatutChange($commande, $commande->statut->value));
+        event(new CommandeStatutChange($commande, $ancien));
 
         return back()->with('succes', 'Réception confirmée — merci ! Vous pouvez laisser un avis.');
     }
@@ -104,8 +109,10 @@ class CommandeController extends Controller
             $existant->update(['note' => $data['note'], 'commentaire' => $data['commentaire']]);
         } else {
             Avis::create($data);
-            $this->recalculerNoteMoyenne($validated['type'], $data[$validated['type'].'_id']);
         }
+
+        // Recalcul de la note moyenne (création ET mise à jour)
+        $this->recalculerNoteMoyenne($validated['type'], $data[$validated['type'].'_id']);
 
         return back()->with('succes', 'Merci pour votre avis ⭐');
     }

@@ -4,20 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 /**
- * Gestion du profil pour tous les rôles :
- * — champs communs users (nom, téléphone)
- * — profil métier 1-1 (clients / pharmacies / livreurs)
+ * Profil de l'utilisateur connecté (tous rôles) :
+ * informations communes + profil métier 1-1 + mot de passe.
  */
 class ProfileController extends Controller
 {
     public function edit(Request $request)
     {
         $user = $request->user();
-        $user->load($user->estClient() ? 'client' : ($user->estPharmacie() ? 'pharmacie.horaires' : ($user->estLivreur() ? 'livreur' : '')));
+
+        // Charge le profil métier 1-1 (pas de relation vide pour les admins)
+        if ($user->estClient()) {
+            $user->load('client');
+        } elseif ($user->estPharmacie()) {
+            $user->load('pharmacie.horaires');
+        } elseif ($user->estLivreur()) {
+            $user->load('livreur');
+        }
 
         return view('profil.edit', compact('user'));
     }
@@ -70,5 +78,20 @@ class ProfileController extends Controller
         }
 
         return back()->with('succes', 'Profil mis à jour.');
+    }
+
+    /** Mise à jour du mot de passe (formulaire dédié du profil). */
+    public function updatePassword(Request $request): RedirectResponse
+    {
+        $validated = $request->validateWithBag('updatePassword', [
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', Password::defaults(), 'confirmed'],
+        ]);
+
+        $request->user()->update([
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        return back()->with('succes', 'Mot de passe mis à jour.');
     }
 }

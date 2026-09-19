@@ -7,19 +7,23 @@ use App\Models\Commande;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/** Suivi des livraisons des commandes de la pharmacie. */
 class LivraisonController extends Controller
 {
-    /** Suivi des livraisons de la pharmacie. */
     public function index(Request $request): View
     {
         $pharmacie = $request->user()->pharmacie;
 
-        $commandes = Commande::where('pharmacie_id', $pharmacie->id)
+        $commandes = Commande::query()
+            ->where('pharmacie_id', $pharmacie->id)
             ->whereHas('livraison')
-            ->with(['livraison.livreur.user', 'client.user'])
+            ->with(['client.user', 'livraison.livreur.user'])
             ->latest()
             ->paginate(15);
 
-        return view('pharmacie.livraisons', compact('commandes'));
+        return view('pharmacie.livraisons', [
+            'pharmacie' => $pharmacie,
+            'commandes' => $commandes,
+        ]);
     }
 }

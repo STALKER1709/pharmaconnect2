@@ -10,8 +10,11 @@ use App\Models\Commande;
 use App\Models\Livreur;
 use App\Models\Medicament;
 use App\Models\Pharmacie;
+use App\Models\PharmacieMedicament;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class CommandeController extends Controller
@@ -49,8 +52,22 @@ class CommandeController extends Controller
     {
         $this->authorize('annuler', $commande);
 
-        $commande->update(['statut' => CommandeStatut::Annulee, 'annulee_at' => now()]);
-        event(new CommandeStatutChange($commande, 'annulee'));
+        $ancien = $commande->statut->value;
+
+        // Restituer le stock réservé au moment du paiement, puis annuler.
+        DB::transaction(function () use ($commande) {
+            foreach ($commande->lignes as $ligne) {
+                PharmacieMedicament::query()
+                    ->where('pharmacie_id', $ligne->pharmacie_id)
+                    ->where('medicament_id', $ligne->medicament_id)
+                    ->increment('quantite', $ligne->quantite);
+            }
+
+            $commande->update(['statut' => CommandeStatut::Annulee, 'annulee_at' => now()]);
+            $commande->livraison?->update(['statut' => LivraisonStatut::Annulee]);
+        });
+
+        event(new CommandeStatutChange($commande, $ancien));
 
         return back()->with('succes', 'Commande annulée. Le remboursement Mobile Money sera traité sous 72 h.');
     }
@@ -80,7 +97,10 @@ class CommandeController extends Controller
             'type' => ['required', 'in:pharmacie,medicament,livreur'],
             'note' => ['required', 'integer', 'between:1,5'],
             'commentaire' => ['nullable', 'string', 'max:1000'],
-            'medicament_id' => ['required_if:type,medicament', 'nullable', 'integer'],
+            // Le médicament noté doit faire partie de la commande
+            'medicament_id' => ['required_if:type,medicament', 'nullable', 'integer', Rule::in(
+                $commande->lignes->pluck('medicament_id')->all()
+            )],
         ]);
 
         $data = [

@@ -11,6 +11,7 @@ enum LivraisonStatut: string
     case Arrivee = 'arrivee';
     case Livree = 'livree';
     case Echec = 'echec';
+    case Annulee = 'annulee';
 
     public function label(): string
     {
@@ -22,6 +23,7 @@ enum LivraisonStatut: string
             self::Arrivee => 'Arrivé sur place',
             self::Livree => 'Livrée',
             self::Echec => 'Échec',
+            self::Annulee => 'Annulée',
         };
     }
 }

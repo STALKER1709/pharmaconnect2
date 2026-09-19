@@ -192,7 +192,5 @@ Route::middleware(['auth', \App\Http\Middleware\EnsureUserActif::class])->group(
         Route::post('/utilisateurs/{user}/suspendre', [Admin\UtilisateurController::class, 'suspendre'])->name('utilisateurs.suspendre');
         Route::post('/utilisateurs/{user}/reactiver', [Admin\UtilisateurController::class, 'reactiver'])->name('utilisateurs.reactiver');
         Route::delete('/utilisateurs/{user}', [Admin\UtilisateurController::class, 'destroy'])->name('utilisateurs.destroy');
-        Route::post('/categories', [Admin\ParametreController::class, 'storeCategorie'])->name('categories.store');
-        Route::delete('/categories/{categorie}', [Admin\ParametreController::class, 'destroyCategorie'])->name('categories.destroy');
     });
 });

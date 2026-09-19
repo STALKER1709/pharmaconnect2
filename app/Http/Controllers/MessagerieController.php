@@ -87,14 +87,28 @@ class MessagerieController extends Controller
         $moi = $request->user();
         abort_if($user->id === $moi->id, 422, 'Impossible de discuter avec soi-même.');
 
-        // Client ↔ pharmacie ou client ↔ livreur (ou via commande)
-        [$a, $b] = $moi->estClient() ? [$moi->id, $user->id] : [$user->id, $moi->id];
+        // Conversation existante avec exactement cet interlocuteur ?
+        $conversation = Conversation::query()
+            ->where(fn ($q) => $q
+                ->where(fn ($w) => $w->where('client_id', $moi->id)->where(fn ($x) => $x
+                    ->where('pharmacie_user_id', $user->id)
+                    ->orWhere('livreur_user_id', $user->id)))
+                ->orWhere(fn ($w) => $w->where('client_id', $user->id)->where(fn ($x) => $x
+                    ->where('pharmacie_user_id', $moi->id)
+                    ->orWhere('livreur_user_id', $moi->id))))
+            ->first();
 
-        $conversation = Conversation::where(function ($q) use ($a, $b) {
-            $q->where('client_id', $a)->where(fn ($w) => $w
-                ->where('pharmacie_user_id', $b)
-                ->orWhere('livreur_user_id', $b));
-        })->first();
+        if (! $conversation && ($moi->estPharmacie() || $moi->estLivreur()) && ($user->estPharmacie() || $user->estLivreur())) {
+            // Conversation inter-professionnels (ex. pharmacie ↔ livreur), sans client
+            $conversation = Conversation::where(function ($q) use ($moi, $user) {
+                $q->where('pharmacie_user_id', $moi->id)->where('livreur_user_id', $user->id);
+            })->orWhere(function ($q) use ($moi, $user) {
+                $q->where('pharmacie_user_id', $user->id)->where('livreur_user_id', $moi->id);
+            })->first();
+        }
+
+        // Un admin n'est pas un participant possible ; on refuse proprement.
+        abort_if($moi->estAdmin() || $user->estAdmin(), 422, 'La messagerie relie clients, pharmacies et livreurs.');
 
         if (! $conversation) {
             $data = ['client_id' => null, 'pharmacie_user_id' => null, 'livreur_user_id' => null];

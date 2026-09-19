@@ -8,8 +8,10 @@ use App\Events\LivraisonAssignee;
 use App\Http\Controllers\Controller;
 use App\Models\Commande;
 use App\Models\Livreur;
+use App\Models\PharmacieMedicament;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class CommandeController extends Controller
@@ -98,7 +100,18 @@ class CommandeController extends Controller
         } elseif ($nouveau === CommandeStatut::Prete) {
             $commande->update(['statut' => $nouveau, 'prete_at' => now()]);
         } elseif ($nouveau === CommandeStatut::Refusee) {
-            $commande->update(['statut' => $nouveau]);
+            // La commande était payée (stock déjà décrémenté) : on le restitue.
+            DB::transaction(function () use ($commande) {
+                foreach ($commande->lignes as $ligne) {
+                    PharmacieMedicament::query()
+                        ->where('pharmacie_id', $commande->pharmacie_id)
+                        ->where('medicament_id', $ligne->medicament_id)
+                        ->increment('quantite', $ligne->quantite);
+                }
+
+                $commande->update(['statut' => $nouveau]);
+                $commande->livraison?->update(['statut' => \App\Enums\LivraisonStatut::Annulee]);
+            });
         }
 
         event(new CommandeStatutChange($commande, $ancien->value));

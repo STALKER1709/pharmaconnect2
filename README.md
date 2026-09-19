@@ -29,6 +29,7 @@ livraison géolocalisée en temps réel, messagerie instantanée, avis et chatbo
 1. **Prérequis** : PHP 8.2+, Composer, Node 20+, MySQL (ou rien du tout avec SQLite).
 2. Copier le template d'environnement :
    ```bash
+   composer install
    cp env.example .env
    php artisan key:generate
    ```

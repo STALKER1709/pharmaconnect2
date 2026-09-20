@@ -10,26 +10,33 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-menthe-50">
-<div class="flex min-h-screen">
-    <div class="hidden flex-1 bg-gradient-to-br from-menthe-600 to-menthe-800 p-12 text-white lg:flex lg:flex-col lg:justify-between">
-        <a href="{{ route('accueil') }}" class="text-2xl font-black">💊 PharmaConnect</a>
-        <div class="space-y-4">
-            <h2 class="text-3xl font-black leading-tight">Vos médicaments livrés<br>à Douala, en quelques minutes.</h2>
-            <p class="max-w-md text-menthe-100">
+<body>
+<div class="auth-ecran">
+    <div class="auth-panneau">
+        <a href="{{ route('accueil') }}" class="logo" style="color:#fff;"><span class="logo-icone">💊</span> PharmaConnect</a>
+        <div>
+            <h2 style="color:#fff; font-size:28px;">Vos médicaments livrés<br>à Douala, en quelques minutes.</h2>
+            <p style="margin-top:12px; color:var(--vert-100); max-width:420px;">
                 Pharmacies vérifiées, paiement MTN MoMo &amp; Orange Money, suivi de livraison en temps réel sur la carte.
             </p>
-            <div class="flex gap-6 text-sm text-menthe-100">
-                <div><span class="block text-2xl font-black text-white">🛵</span>Livraison rapide</div>
-                <div><span class="block text-2xl font-black text-white">🔒</span>Pharmacies agréées</div>
-                <div><span class="block text-2xl font-black text-white">📱</span>MoMo &amp; OM</div>
+            <div class="auth-atouts">
+                <div><span>🛵</span>Livraison rapide</div>
+                <div><span>🛡️</span>Pharmacies agréées</div>
+                <div><span>📱</span>MoMo &amp; OM</div>
             </div>
         </div>
-        <p class="text-xs text-menthe-200">Prix en FCFA · Fuseau Africa/Douala</p>
+        <p class="texte-petit" style="color:var(--vert-200);">Prix en FCFA · Fuseau Africa/Douala</p>
     </div>
 
-    <div class="flex flex-1 items-center justify-center px-4 py-12">
-        <div class="w-full max-w-md">
+    <div class="auth-formulaire">
+        <div style="width:100%; max-width:440px;">
+            @if (session('succes'))
+                <div class="flash flash-succes">{{ session('succes') }}</div>
+            @endif
+            @if (session('erreur'))
+                <div class="flash flash-erreur">{{ session('erreur') }}</div>
+            @endif
+
             @yield('contenu')
         </div>
     </div>

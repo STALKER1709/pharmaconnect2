@@ -14,7 +14,8 @@ Homestead.yaml
 /vendor
 /database/database.sqlite
 /database/database.sqlite-journal
-/public/hot
 /public/storage
-/public/build
 /storage/pail
+# public/build est versionne : le projet est livre pret a l'emploi, avec le
+# manifest Vite deja genere (installs Windows / Laragon / XAMPP sans npm).
+/public/hot

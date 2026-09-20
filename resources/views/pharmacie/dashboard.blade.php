@@ -3,84 +3,89 @@
 @section('titre', 'Espace pharmacie')
 
 @section('contenu')
-<div class="space-y-6">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-        <div>
-            <h1 class="text-2xl font-black">🏥 {{ $pharmacie->nom }}</h1>
-            <p class="text-sm text-slate-500">{{ $pharmacie->quartier }}, {{ $pharmacie->ville }} · ⭐ {{ number_format($pharmacie->note_moyenne, 1) }}</p>
-        </div>
-        <div class="flex gap-2">
-            <span class="badge {{ $pharmacie->estOuverte() ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-600' }}">{{ $pharmacie->statutOuverture() }}</span>
-            <a href="{{ route('pharmacie.horaires') }}" class="btn-secondary text-sm">Gérer horaires</a>
-        </div>
+<div class="rangee-entre mb-6">
+    <div>
+        <h1 class="titre-page">🏥 {{ $pharmacie->nom }}</h1>
+        <p class="sous-titre">{{ $pharmacie->quartier }}, {{ $pharmacie->ville }} · ⭐ {{ number_format($pharmacie->note_moyenne, 1) }}</p>
     </div>
-
-    <dl class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="card p-5">
-            <dt class="text-sm text-slate-500">CA aujourd'hui</dt>
-            <dd class="text-2xl font-black text-menthe-700">{{ \App\Support\Fcfa::montant($caJour) }}</dd>
-        </div>
-        <div class="card p-5">
-            <dt class="text-sm text-slate-500">CA ce mois</dt>
-            <dd class="text-2xl font-black">{{ \App\Support\Fcfa::montant($caMois) }}</dd>
-        </div>
-        <div class="card p-5">
-            <dt class="text-sm text-slate-500">Commandes en attente</dt>
-            <dd class="text-2xl font-black text-amber-600">{{ $nbEnAttente }}</dd>
-        </div>
-        <div class="card p-5">
-            <dt class="text-sm text-slate-500">Commandes livrées</dt>
-            <dd class="text-2xl font-black">{{ $nbLivrees }}</dd>
-        </div>
-    </dl>
-
-    <div class="grid gap-6 lg:grid-cols-2">
-        <div class="card p-5">
-            <h2 class="mb-3 font-bold">Chiffre d'affaires — 7 derniers jours</h2>
-            <div class="h-56">
-                <canvas id="graph-ca"></canvas>
-            </div>
-        </div>
-
-        <div class="space-y-4">
-            <div class="card p-5">
-                <h2 class="mb-2 font-bold">⚠️ Stock bas</h2>
-                @forelse($stockBas as $stock)
-                    <div class="flex justify-between border-b border-menthe-50 py-1.5 text-sm">
-                        <span>{{ $stock->medicament->nom }}</span>
-                        <span class="font-bold text-red-600">{{ $stock->quantite }} restant(s)</span>
-                    </div>
-                @empty
-                    <p class="text-sm text-slate-400">Aucune alerte 🎉</p>
-                @endforelse
-            </div>
-
-            <div class="card p-5">
-                <h2 class="mb-2 font-bold">⏳ Péremption proche</h2>
-                @forelse($peremption as $stock)
-                    <div class="flex justify-between border-b border-menthe-50 py-1.5 text-sm">
-                        <span>{{ $stock->medicament->nom }}</span>
-                        <span class="text-amber-600">{{ $stock->date_peremption->format('m/Y') }}</span>
-                    </div>
-                @empty
-                    <p class="text-sm text-slate-400">Rien à signaler ✓</p>
-                @endforelse
-            </div>
-        </div>
-    </div>
-
-    <div class="card p-5">
-        <h2 class="mb-3 font-bold">Top médicaments vendus</h2>
-        @forelse($topMedicaments as $ligne)
-            <div class="flex justify-between border-b border-menthe-50 py-1.5 text-sm">
-                <span>{{ $ligne->nom_medicament }}</span>
-                <span>{{ $ligne->total_vendus }} vendus · {{ \App\Support\Fcfa::montant($ligne->recette) }}</span>
-            </div>
-        @empty
-            <p class="text-sm text-slate-400">Pas encore de ventes.</p>
-        @endforelse
+    <div class="rangée">
+        <span class="badge {{ $pharmacie->estOuverte() ? 'badge-vert' : 'badge-gris' }}">{{ $pharmacie->statutOuverture() }}</span>
+        <a href="{{ route('pharmacie.horaires') }}" class="btn btn-secondaire btn-petit">Gérer horaires</a>
     </div>
 </div>
+
+<div class="grille grille-4 mb-6">
+    <div class="carte carte-corps">
+        <div class="stat-libelle">CA aujourd'hui</div>
+        <div class="stat-valeur" style="color:var(--vert-600);">{{ \App\Support\Fcfa::montant($caJour) }}</div>
+    </div>
+    <div class="carte carte-corps">
+        <div class="stat-libelle">CA ce mois</div>
+        <div class="stat-valeur">{{ \App\Support\Fcfa::montant($caMois) }}</div>
+    </div>
+    <div class="carte carte-corps">
+        <div class="stat-libelle">Commandes en attente</div>
+        <div class="stat-valeur" style="color:var(--ambre-700);">{{ $nbEnAttente }}</div>
+    </div>
+    <div class="carte carte-corps">
+        <div class="stat-libelle">Commandes livrées</div>
+        <div class="stat-valeur">{{ $nbLivrees }}</div>
+    </div>
+</div>
+
+<div class="grille" style="grid-template-columns:1fr; gap:24px;">
+    <div class="carte carte-corps">
+        <h2 class="carte-titre" style="font-size:16px;">Chiffre d'affaires — 7 derniers jours</h2>
+        <div style="height:224px; margin-top:12px;">
+            <canvas id="graph-ca"></canvas>
+        </div>
+    </div>
+
+    <div class="grille grille-2">
+        <div class="carte carte-corps">
+            <h2 class="carte-titre" style="font-size:16px;">⚠️ Stock bas</h2>
+            <div class="mt-4" style="display:grid; gap:6px; font-size:14px;">
+                @forelse($stockBas as $stock)
+                    <div class="rangee-entre" style="border-bottom:1px solid #f1f5f9; padding:6px 0;">
+                        <span>{{ $stock->medicament->nom }}</span>
+                        <span style="font-weight:700; color:var(--rouge-600);">{{ $stock->quantite }} restant(s)</span>
+                    </div>
+                @empty
+                    <p class="texte-doux">Aucune alerte 🎉</p>
+                @endforelse
+            </div>
+        </div>
+
+        <div class="carte carte-corps">
+            <h2 class="carte-titre" style="font-size:16px;">⏳ Péremption proche</h2>
+            <div class="mt-4" style="display:grid; gap:6px; font-size:14px;">
+                @forelse($peremption as $stock)
+                    <div class="rangee-entre" style="border-bottom:1px solid #f1f5f9; padding:6px 0;">
+                        <span>{{ $stock->medicament->nom }}</span>
+                        <span style="color:var(--ambre-700);">{{ $stock->date_peremption->format('m/Y') }}</span>
+                    </div>
+                @empty
+                    <p class="texte-doux">Rien à signaler ✓</p>
+                @endforelse
+            </div>
+        </div>
+    </div>
+
+    <div class="carte carte-corps">
+        <h2 class="carte-titre" style="font-size:16px;">Top médicaments vendus</h2>
+        <div class="mt-4" style="display:grid; gap:6px; font-size:14px;">
+            @forelse($topMedicaments as $ligne)
+                <div class="rangee-entre" style="border-bottom:1px solid #f1f5f9; padding:6px 0;">
+                    <span>{{ $ligne->nom_medicament }}</span>
+                    <span>{{ $ligne->total_vendus }} vendus · {{ \App\Support\Fcfa::montant($ligne->recette) }}</span>
+                </div>
+            @empty
+                <p class="texte-doux">Pas encore de ventes.</p>
+            @endforelse
+        </div>
+    </div>
+</div>
+@endsection
 
 @push('scripts')
 <script type="module">
@@ -91,4 +96,3 @@
     );
 </script>
 @endpush
-@endsection

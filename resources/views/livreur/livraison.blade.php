@@ -3,7 +3,7 @@
 @section('titre', 'Livraison '.$livraison->commande?->numero)
 
 @section('contenu')
-<div class="mx-auto max-w-3xl space-y-6"
+<div style="max-width:820px; margin:0 auto;"
      x-data="PharmaConnect.suivi({
          commandeId: {{ $livraison->commande?->id ?? 0 }},
          statut: '{{ $livraison->statut->value }}',
@@ -23,69 +23,69 @@
      })"
      x-init="init()" @beforeunload.window="destroy()">
 
-    <div class="flex flex-wrap items-center justify-between gap-3">
+    <div class="rangee-entre mb-6">
         <div>
-            <h1 class="text-2xl font-black">Course {{ $livraison->commande?->numero }}</h1>
-            <p class="text-sm text-slate-500">🏥 {{ $livraison->commande?->pharmacie?->nom }} → 📍 {{ $livraison->commande?->adresse_livraison }}</p>
+            <h1 class="titre-page">Course {{ $livraison->commande?->numero }}</h1>
+            <p class="sous-titre">🏥 {{ $livraison->commande?->pharmacie?->nom }} → 📍 {{ $livraison->commande?->adresse_livraison }}</p>
         </div>
-        <span class="badge px-3 py-1.5 text-sm bg-cyan-100 text-cyan-800" x-text="statutLabel"></span>
+        <span class="badge badge-bleu" style="font-size:14px; padding:6px 14px;" x-text="statutLabel"></span>
     </div>
 
-    <div class="card overflow-hidden">
-        <div id="carte-suivi" class="h-80 w-full"></div>
+    <div class="carte mb-6" style="overflow:hidden;">
+        <div id="carte-suivi" class="carte-carte" style="height:320px;"></div>
     </div>
 
-    <div class="card p-5">
-        <h2 class="mb-2 font-bold">Articles à livrer</h2>
-        <ul class="text-sm text-slate-600">
+    <div class="carte carte-corps mb-6">
+        <h2 class="carte-titre" style="font-size:16px;">Articles à livrer</h2>
+        <ul style="list-style:none; margin:8px 0 0; padding:0; font-size:14px;">
             @foreach($livraison->commande?->lignes ?? [] as $ligne)
-                <li class="flex justify-between py-1">
+                <li class="rangee-entre" style="padding:6px 0;">
                     <span>{{ $ligne->nom_medicament }} × {{ $ligne->quantite }}</span>
                 </li>
             @endforeach
         </ul>
         @if($livraison->commande?->notes)
-            <p class="mt-2 rounded-lg bg-amber-50 p-2 text-xs text-amber-800">📝 {{ $livraison->commande->notes }}</p>
+            <div class="alerte alerte-ambre mt-4">📝 {{ $livraison->commande->notes }}</div>
         @endif
     </div>
 
     {{-- Flux d'actions --}}
-    <div class="card space-y-3 p-5">
-        <h2 class="font-bold">Actions</h2>
+    <div class="carte carte-corps mb-6" style="display:grid; gap:12px;">
+        <h2 class="carte-titre" style="font-size:16px;">Actions</h2>
 
         @if($livraison->statut === \App\Enums\LivraisonStatut::Assignee)
             <form action="{{ route('livreur.livraisons.accepter', $livraison) }}" method="POST">
                 @csrf
-                <button class="btn-primary w-full">✓ Accepter cette course</button>
+                <button class="btn btn-primaire" style="width:100%;">✓ Accepter cette course</button>
             </form>
         @elseif($livraison->statut === \App\Enums\LivraisonStatut::Acceptee)
             <form action="{{ route('livreur.livraisons.demarrer', $livraison) }}" method="POST">
                 @csrf
-                <button class="btn-primary w-full">🛵 Démarrer la livraison (partage GPS activé)</button>
+                <button class="btn btn-primaire" style="width:100%;">🛵 Démarrer la livraison (partage GPS activé)</button>
             </form>
         @elseif($livraison->statut === \App\Enums\LivraisonStatut::EnRoute)
-            <p class="rounded-lg bg-cyan-50 p-3 text-sm text-cyan-800">📡 Position partagée automatiquement toutes les 10 s.</p>
+            <div class="alerte alerte-info">📡 Position partagée automatiquement toutes les 10 s.</div>
             <form action="{{ route('livreur.livraisons.arrivee', $livraison) }}" method="POST">
                 @csrf
-                <button class="btn-primary w-full">📍 Je suis arrivé sur place</button>
+                <button class="btn btn-primaire" style="width:100%;">📍 Je suis arrivé sur place</button>
             </form>
         @elseif($livraison->statut === \App\Enums\LivraisonStatut::Arrivee)
             <form action="{{ route('livreur.livraisons.livrer', $livraison) }}" method="POST">
                 @csrf
-                <button class="btn-primary w-full">✅ Colis remis au client</button>
+                <button class="btn btn-primaire" style="width:100%;">✅ Colis remis au client</button>
             </form>
         @elseif($livraison->statut === \App\Enums\LivraisonStatut::Livree)
-            <p class="text-sm text-emerald-700">✅ Livrée — en attente de la confirmation du client.</p>
+            <p style="color:var(--vert-700); font-weight:600;">✅ Livrée — en attente de la confirmation du client.</p>
         @endif
     </div>
 
     @auth
-        <div class="flex flex-wrap gap-2">
+        <div class="rangée">
             @if($livraison->commande?->pharmacie?->user)
-                <a href="{{ route('messagerie.demarrer', $livraison->commande->pharmacie->user) }}" class="btn-secondary text-sm">💬 Pharmacien</a>
+                <a href="{{ route('messagerie.demarrer', $livraison->commande->pharmacie->user) }}" class="btn btn-secondaire btn-petit">💬 Pharmacien</a>
             @endif
             @if($livraison->commande?->client?->user)
-                <a href="{{ route('messagerie.demarrer', $livraison->commande->client->user) }}" class="btn-secondary text-sm">💬 Client</a>
+                <a href="{{ route('messagerie.demarrer', $livraison->commande->client->user) }}" class="btn btn-secondaire btn-petit">💬 Client</a>
             @endif
         </div>
     @endauth

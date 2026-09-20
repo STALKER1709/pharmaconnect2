@@ -3,71 +3,73 @@
 @section('titre', 'Utilisateurs')
 
 @section('contenu')
-<div class="rangee-entre mb-6">
-    <h1 class="titre-page">👥 Gestion des comptes</h1>
-    <div class="rangée">
-        @foreach(['en_attente' => '⏳ En attente', 'actif' => '✅ Actifs', 'suspendu' => '🚫 Suspendus', '' => 'Tous'] as $s => $label)
-            <a href="{{ route('admin.utilisateurs', ['statut' => $s]) }}"
-               class="badge {{ $statut === $s ? 'badge-vert' : 'badge-gris' }}" style="padding:6px 12px;">{{ $label }}</a>
-        @endforeach
+<div class="space-y-6">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+        <h1 class="text-2xl font-black">👥 Gestion des comptes</h1>
+        <div class="flex gap-2">
+            @foreach(['en_attente' => '⏳ En attente', 'actif' => '✅ Actifs', 'suspendu' => '🚫 Suspendus', '' => 'Tous'] as $s => $label)
+                <a href="{{ route('admin.utilisateurs', ['statut' => $s]) }}"
+                   class="badge {{ $statut === $s ? 'bg-menthe-600 text-white' : 'bg-white text-slate-600 ring-1 ring-menthe-100' }} px-3 py-1.5">{{ $label }}</a>
+            @endforeach
+        </div>
     </div>
-</div>
 
-<div class="carte tableau-scroll">
-    <table class="tableau" style="min-width:680px;">
-        <thead>
-            <tr>
-                <th>Utilisateur</th>
-                <th>Rôle</th>
-                <th>Inscription</th>
-                <th>Statut</th>
-                <th class="texte-droit">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse($users as $user)
+    <div class="card overflow-x-auto">
+        <table class="w-full min-w-[640px] text-sm">
+            <thead class="bg-menthe-50 text-left text-xs uppercase text-slate-500">
                 <tr>
-                    <td>
-                        <div style="font-weight:600; color:var(--encre);">{{ $user->name }}</div>
-                        <div class="texte-petit texte-doux">{{ $user->email }} · {{ $user->telephone }}</div>
-                    </td>
-                    <td>
-                        @if($user->estPharmacie()) 🏥 {{ $user->pharmacie?->nom }}
-                        @elseif($user->estLivreur()) 🛵 {{ $user->livreur?->vehiculeLabel() }}
-                        @else 👤 Client
-                        @endif
-                    </td>
-                    <td class="texte-petit texte-doux">{{ $user->created_at->format('d/m/Y') }}</td>
-                    <td>
-                        <span class="badge {{ $user->statut === 'actif' ? 'badge-vert' : ($user->statut === 'en_attente' ? 'badge-ambre' : 'badge-rouge') }}">{{ ucfirst($user->statut) }}</span>
-                    </td>
-                    <td>
-                        <div class="rangée" style="justify-content:flex-end;">
-                            @if($user->statut === 'en_attente')
-                                <form action="{{ route('admin.utilisateurs.valider', $user) }}" method="POST">
-                                    @csrf <button class="btn btn-primaire btn-petit">Valider</button>
-                                </form>
-                            @endif
-                            @if($user->statut === 'actif')
-                                <form action="{{ route('admin.utilisateurs.suspendre', $user) }}" method="POST" onsubmit="return confirm('Suspendre ce compte ?')">
-                                    @csrf <button class="btn btn-danger btn-petit">Suspendre</button>
-                                </form>
-                            @endif
-                            @if($user->statut === 'suspendu')
-                                <form action="{{ route('admin.utilisateurs.reactiver', $user) }}" method="POST">
-                                    @csrf <button class="btn btn-secondaire btn-petit">Réactiver</button>
-                                </form>
-                            @endif
-                            <a href="{{ route('admin.utilisateurs.show', $user) }}" class="btn btn-secondaire btn-petit">Voir</a>
-                        </div>
-                    </td>
+                    <th class="px-4 py-3">Utilisateur</th>
+                    <th class="px-4 py-3">Rôle</th>
+                    <th class="px-4 py-3">Inscription</th>
+                    <th class="px-4 py-3">Statut</th>
+                    <th class="px-4 py-3 text-right">Actions</th>
                 </tr>
-            @empty
-                <tr><td colspan="5" style="padding:32px; text-align:center;" class="texte-doux">Aucun compte pour ce filtre.</td></tr>
-            @endforelse
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody class="divide-y divide-menthe-50">
+                @forelse($users as $user)
+                    <tr class="hover:bg-menthe-50/40">
+                        <td class="px-4 py-3">
+                            <div class="font-semibold">{{ $user->name }}</div>
+                            <div class="text-xs text-slate-400">{{ $user->email }} · {{ $user->telephone }}</div>
+                        </td>
+                        <td class="px-4 py-3">
+                            @if($user->estPharmacie()) 🏥 {{ $user->pharmacie?->nom }}
+                            @elseif($user->estLivreur()) 🛵 {{ $user->livreur?->vehiculeLabel() }}
+                            @else 👤 Client
+                            @endif
+                        </td>
+                        <td class="px-4 py-3 text-xs text-slate-400">{{ $user->created_at->format('d/m/Y') }}</td>
+                        <td class="px-4 py-3">
+                            <span class="badge {{ $user->statut === 'actif' ? 'bg-emerald-100 text-emerald-800' : ($user->statut === 'en_attente' ? 'bg-amber-100 text-amber-800' : 'bg-red-100 text-red-700') }}">{{ ucfirst($user->statut) }}</span>
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex flex-wrap justify-end gap-1">
+                                @if($user->statut === 'en_attente')
+                                    <form action="{{ route('admin.utilisateurs.valider', $user) }}" method="POST">
+                                        @csrf <button class="btn-primary text-xs">Valider</button>
+                                    </form>
+                                @endif
+                                @if($user->statut === 'actif')
+                                    <form action="{{ route('admin.utilisateurs.suspendre', $user) }}" method="POST" onsubmit="return confirm('Suspendre ce compte ?')">
+                                        @csrf <button class="btn-danger text-xs">Suspendre</button>
+                                    </form>
+                                @endif
+                                @if($user->statut === 'suspendu')
+                                    <form action="{{ route('admin.utilisateurs.reactiver', $user) }}" method="POST">
+                                        @csrf <button class="btn-secondary text-xs">Réactiver</button>
+                                    </form>
+                                @endif
+                                <a href="{{ route('admin.utilisateurs.show', $user) }}" class="btn-secondary text-xs">Voir</a>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr><td colspan="5" class="px-4 py-8 text-center text-slate-400">Aucun compte pour ce filtre.</td></tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 
-{{ $users->links() }}
+    {{ $users->links() }}
+</div>
 @endsection

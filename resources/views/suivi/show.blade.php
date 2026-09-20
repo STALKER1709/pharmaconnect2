@@ -3,7 +3,8 @@
 @section('titre', 'Suivi '.$commande->numero)
 
 @section('contenu')
-<div x-data="PharmaConnect.suivi({
+<div class="space-y-6"
+     x-data="PharmaConnect.suivi({
          commandeId: {{ $commande->id }},
          statut: '{{ $commande->statut->value }}',
          statutLabel: '{{ $commande->statut->label() }}',
@@ -20,43 +21,43 @@
              signalerPosition: '{{ auth()->user()->estLivreur() && $commande->livraison ? route('livreur.livraisons.position', $commande->livraison) : '' }}',
          },
      })"
-     x-init="init()" @beforeunload.window="destroy()">
+     x-init="init()" x-effect="destroy" @beforeunload.window="destroy()">
 
-    <div class="rangee-entre mb-6">
+    <div class="flex flex-wrap items-center justify-between gap-3">
         <div>
-            <h1 class="titre-page">Suivi — {{ $commande->numero }}</h1>
-            <p class="sous-titre">Position du livreur en temps réel (Reverb + OpenStreetMap).</p>
+            <h1 class="text-2xl font-black">Suivi — {{ $commande->numero }}</h1>
+            <p class="text-sm text-slate-500">Position du livreur en temps réel (Reverb + OpenStreetMap).</p>
         </div>
-        <div class="texte-droit">
-            <span class="badge badge-bleu" style="font-size:14px; padding:6px 14px;" x-text="statutLabel"></span>
-            <p class="texte-petit texte-doux mt-2">Commande : {{ $commande->statut->label() }}</p>
-        </div>
-    </div>
-
-    <div class="carte mb-6" style="overflow:hidden;">
-        <div id="carte-suivi" class="carte-carte"></div>
-    </div>
-
-    <div class="grille grille-3 mb-6">
-        <div class="carte carte-corps">
-            <div class="stat-libelle">🏥 Préparée par</div>
-            <div style="font-weight:700; color:var(--encre); margin-top:4px;">{{ $commande->pharmacie->nom }}</div>
-        </div>
-        <div class="carte carte-corps">
-            <div class="stat-libelle">🛵 Livreur</div>
-            <div style="font-weight:700; color:var(--encre); margin-top:4px;">{{ $commande->livreur?->user?->name ?? 'En attente d\'assignation' }}</div>
-        </div>
-        <div class="carte carte-corps">
-            <div class="stat-libelle">📍 Destination</div>
-            <div style="font-weight:700; color:var(--encre); margin-top:4px;">{{ $commande->adresse_livraison }}</div>
+        <div class="text-right">
+            <span class="badge px-3 py-1.5 text-sm bg-cyan-100 text-cyan-800" x-text="statutLabel"></span>
+            <p class="mt-1 text-xs text-slate-400">Commande : {{ $commande->statut->label() }}</p>
         </div>
     </div>
 
-    <div class="rangée">
-        <button type="button" @click="partagerMaPosition()" class="btn btn-primaire">📍 Partager / affiner ma position</button>
-        <a href="{{ route('commandes.show', $commande) }}" class="btn btn-secondaire">← Détails de la commande</a>
+    <div class="card overflow-hidden">
+        <div id="carte-suivi" class="h-96 w-full"></div>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-3">
+        <div class="card p-4 text-sm">
+            <div class="text-slate-500">🏥 Préparée par</div>
+            <div class="font-bold">{{ $commande->pharmacie->nom }}</div>
+        </div>
+        <div class="card p-4 text-sm">
+            <div class="text-slate-500">🛵 Livreur</div>
+            <div class="font-bold">{{ $commande->livreur?->user?->name ?? 'En attente d\'assignation' }}</div>
+        </div>
+        <div class="card p-4 text-sm">
+            <div class="text-slate-500">📍 Destination</div>
+            <div class="font-bold">{{ $commande->adresse_livraison }}</div>
+        </div>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+        <button @click="partagerMaPosition()" class="btn-primary">📍 Partager / affiner ma position</button>
+        <a href="{{ route('commandes.show', $commande) }}" class="btn-secondary">← Détails de la commande</a>
         @auth
-            <a href="{{ route('messagerie.demarrer', $commande->pharmacie->user) }}" class="btn btn-secondaire">💬 Contacter la pharmacie</a>
+            <a href="{{ route('messagerie.demarrer', $commande->pharmacie->user) }}" class="btn-secondary">💬 Contacter la pharmacie</a>
         @endauth
     </div>
 </div>

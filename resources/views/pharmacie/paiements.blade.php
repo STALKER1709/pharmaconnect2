@@ -3,49 +3,51 @@
 @section('titre', 'Paiements reçus')
 
 @section('contenu')
-<h1 class="titre-page mb-6">💰 Paiements reçus</h1>
+<div class="space-y-6">
+    <h1 class="text-2xl font-black">💰 Paiements reçus</h1>
 
-<div class="grille grille-2 mb-6">
-    <div class="carte carte-corps">
-        <div class="stat-libelle">Total encaissé</div>
-        <div class="stat-valeur" style="color:var(--vert-600);">{{ \App\Support\Fcfa::montant($totalRecu) }}</div>
-    </div>
-    <div class="carte carte-corps">
-        <div class="stat-libelle">Ce mois</div>
-        <div class="stat-valeur">{{ \App\Support\Fcfa::montant($totalMois) }}</div>
-    </div>
-</div>
+    <dl class="grid gap-4 sm:grid-cols-2">
+        <div class="card p-5">
+            <dt class="text-sm text-slate-500">Total encaissé</dt>
+            <dd class="text-2xl font-black text-menthe-700">{{ \App\Support\Fcfa::montant($totalRecu) }}</dd>
+        </div>
+        <div class="card p-5">
+            <dt class="text-sm text-slate-500">Ce mois</dt>
+            <dd class="text-2xl font-black">{{ \App\Support\Fcfa::montant($totalMois) }}</dd>
+        </div>
+    </dl>
 
-<div class="carte tableau-scroll">
-    <table class="tableau" style="min-width:640px;">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Commande</th>
-                <th>Opérateur</th>
-                <th>Référence</th>
-                <th>Statut</th>
-                <th class="texte-droit">Montant</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse($paiements as $paiement)
+    <div class="card overflow-x-auto">
+        <table class="w-full min-w-[600px] text-sm">
+            <thead class="bg-menthe-50 text-left text-xs uppercase text-slate-500">
                 <tr>
-                    <td>{{ $paiement->paye_at?->format('d/m/Y H:i') ?? '—' }}</td>
-                    <td>{{ $paiement->commande?->numero }}</td>
-                    <td>{{ $paiement->operateur->label() }}</td>
-                    <td class="texte-petit texte-doux">{{ $paiement->reference }}</td>
-                    <td>
-                        <span class="badge {{ $paiement->statut->value === 'reussi' ? 'badge-vert' : 'badge-ambre' }}">{{ $paiement->statut->label() }}</span>
-                    </td>
-                    <td class="texte-droit" style="font-weight:700;">{{ $paiement->montantFormate() }}</td>
+                    <th class="px-4 py-3">Date</th>
+                    <th class="px-4 py-3">Commande</th>
+                    <th class="px-4 py-3">Opérateur</th>
+                    <th class="px-4 py-3">Référence</th>
+                    <th class="px-4 py-3">Statut</th>
+                    <th class="px-4 py-3 text-right">Montant</th>
                 </tr>
-            @empty
-                <tr><td colspan="6" style="padding:32px; text-align:center;" class="texte-doux">Aucun paiement.</td></tr>
-            @endforelse
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody class="divide-y divide-menthe-50">
+                @forelse($paiements as $paiement)
+                    <tr class="hover:bg-menthe-50/40">
+                        <td class="px-4 py-3">{{ $paiement->paye_at?->format('d/m/Y H:i') ?? '—' }}</td>
+                        <td class="px-4 py-3">{{ $paiement->commande?->numero }}</td>
+                        <td class="px-4 py-3">{{ $paiement->operateur->label() }}</td>
+                        <td class="px-4 py-3 text-xs text-slate-400">{{ $paiement->reference }}</td>
+                        <td class="px-4 py-3">
+                            <span class="badge {{ $paiement->statut->value === 'reussi' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800' }}">{{ $paiement->statut->label() }}</span>
+                        </td>
+                        <td class="px-4 py-3 text-right font-bold">{{ $paiement->montantFormate() }}</td>
+                    </tr>
+                @empty
+                    <tr><td colspan="6" class="px-4 py-8 text-center text-slate-400">Aucun paiement.</td></tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 
-{{ $paiements->links() }}
+    {{ $paiements->links() }}
+</div>
 @endsection

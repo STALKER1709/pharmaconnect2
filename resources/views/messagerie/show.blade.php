@@ -3,7 +3,7 @@
 @section('titre', 'Conversation')
 
 @section('contenu')
-<div style="max-width:820px; margin:0 auto;"
+<div class="mx-auto max-w-3xl space-y-4"
      x-data="PharmaConnect.messagerie({
          conversationId: {{ $conversation->id }},
          monId: {{ $monId }},
@@ -17,36 +17,36 @@
      })"
      x-init="init()">
 
-    <div class="rangee-entre mb-4">
-        <div class="rangée">
-            <a href="{{ route('messagerie.index') }}" class="btn-lien" style="font-size:18px;">←</a>
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <a href="{{ route('messagerie.index') }}" class="text-slate-400 hover:text-slate-600">←</a>
             <div>
-                <h1 class="titre-section">{{ $interlocuteur?->name ?? 'Conversation' }}</h1>
-                <p class="texte-petit texte-doux">
+                <h1 class="text-xl font-black">{{ $interlocuteur?->name ?? 'Conversation' }}</h1>
+                <p class="text-xs text-slate-500">
                     @if($conversation->commande) 📦 Commande {{ $conversation->commande->numero }} · @endif
-                    <span style="color:var(--vert-600);">● <span x-text="enLigne.length + ' en ligne'"></span></span>
+                    <span class="text-menthe-600">● <span x-text="enLigne.length + ' en ligne'"></span></span>
                 </p>
             </div>
         </div>
         @if($interlocuteur?->telephone)
-            <a href="tel:{{ $interlocuteur->telephone }}" class="btn btn-secondaire btn-petit">📞 Appeler</a>
+            <a href="tel:{{ $interlocuteur->telephone }}" class="btn-secondary text-sm">📞 Appeler</a>
         @endif
     </div>
 
-    <div class="carte" style="display:flex; flex-direction:column; height:60vh;">
-        <div id="fil-messages" style="flex:1; overflow-y:auto; padding:20px; display:grid; gap:12px; align-content:start;">
+    <div class="card flex h-[60vh] flex-col">
+        <div id="fil-messages" class="flex-1 space-y-3 overflow-y-auto p-5">
             <template x-for="message in messages" :key="message.id">
                 <div :class="message.expediteur_id === {{ $monId }} ? 'bulle-moi' : 'bulle-autre'">
                     <span x-text="message.contenu"></span>
-                    <span class="bulle-heure" style="display:block;" x-text="new Date(message.created_at).toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'})"></span>
+                    <span class="mt-1 block text-[10px] opacity-60" x-text="new Date(message.created_at).toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'})"></span>
                 </div>
             </template>
         </div>
 
-        <form @submit.prevent="envoyer()" class="rangée" style="padding:12px; border-top:1px solid var(--vert-100);">
+        <form @submit.prevent="envoyer()" class="flex gap-2 border-t border-menthe-100 p-3">
             <input x-model="message" :disabled="enCours" placeholder="Écrivez votre message…"
-                   class="champ" style="flex:1;" autocomplete="off">
-            <button class="btn btn-primaire" :disabled="enCours || !message.trim()">Envoyer ➤</button>
+                   class="input flex-1" autocomplete="off">
+            <button class="btn-primary" :disabled="enCours || !message.trim()">Envoyer ➤</button>
         </form>
     </div>
 </div>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>PharmaConnect - Santé &amp; Médicaments au Cameroun</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { 'colors': { 'on-secondary-fixed-variant': '#005321', 'on-secondary-container': '#007432', 'surface-container-low': '#f0f3ff', 'on-surface-variant': '#3e4a3d', 'error-container': '#ffdad6', 'on-primary': '#ffffff', 'on-tertiary-fixed-variant': '#8a143c', 'inverse-primary': '#62df7d', 'on-primary-fixed': '#002109', 'secondary-fixed': '#6bff8f', 'secondary-fixed-dim': '#4ae176', 'error': '#ba1a1a', 'tertiary-fixed-dim': '#ffb2bf', 'on-primary-fixed-variant': '#005320', 'inverse-surface': '#263143', 'surface-container-highest': '#d8e3fb', 'surface-bright': '#f9f9ff', 'outline': '#6e7b6c', 'on-secondary': '#ffffff', 'on-error-container': '#93000a', 'inverse-on-surface': '#ecf1ff', 'background': '#f9f9ff', 'secondary-container': '#6bff8f', 'primary': '#006b2c', 'surface': '#f9f9ff', 'primary-container': '#00873a', 'surface-container': '#e7eeff', 'primary-fixed': '#7ffc97', 'surface-container-high': '#dee8ff', 'outline-variant': '#bdcaba', 'on-error': '#ffffff', 'on-primary-container': '#f7fff2', 'on-tertiary-fixed': '#3f0016', 'on-surface': '#111c2d', 'on-tertiary': '#ffffff', 'surface-container-lowest': '#ffffff', 'tertiary-container': '#c74668', 'on-secondary-fixed': '#002109', 'secondary': '#006e2f', 'on-background': '#111c2d', 'surface-variant': '#d8e3fb', 'surface-dim': '#cfdaf2', 'surface-tint': '#006e2d', 'on-tertiary-container': '#fffbff', 'tertiary': '#a72d51', 'tertiary-fixed': '#ffd9de', 'primary-fixed-dim': '#62df7d' }, 'borderRadius': { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, 'spacing': { 'margin': '1rem', 'space-sm': '0.5rem', 'space-xl': '2.5rem', 'space-lg': '1.5rem', 'gutter': '1rem', 'space-xs': '0.25rem', 'space-md': '1rem', 'margin-desktop': '2.5rem', 'gutter-desktop': '1.5rem' }, 'fontFamily': { 'body-lg': ['Inter'], 'headline-lg-mobile': ['Plus Jakarta Sans'], 'label-lg': ['Inter'], 'label-md': ['Inter'], 'body-md': ['Inter'], 'headline-lg': ['Plus Jakarta Sans'], 'currency-display': ['Plus Jakarta Sans'], 'headline-md': ['Plus Jakarta Sans'], 'headline-xl': ['Plus Jakarta Sans'], 'label-sm': ['Inter'], 'headline-sm': ['Plus Jakarta Sans'], 'headline-xl-mobile': ['Plus Jakarta Sans'], 'body-sm': ['Inter'] }, 'fontSize': { 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'headline-lg-mobile': ['24px', { 'lineHeight': '32px', 'fontWeight': '600' }], 'label-lg': ['14px', { 'lineHeight': '20px', 'fontWeight': '600' }], 'label-md': ['12px', { 'lineHeight': '16px', 'fontWeight': '600' }], 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }], 'headline-lg': ['32px', { 'lineHeight': '40px', 'fontWeight': '600' }], 'currency-display': ['20px', { 'lineHeight': '24px', 'fontWeight': '700' }], 'headline-md': ['22px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'headline-xl': ['40px', { 'lineHeight': '48px', 'fontWeight': '700' }], 'label-sm': ['11px', { 'lineHeight': '14px', 'fontWeight': '500' }], 'headline-sm': ['18px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'headline-xl-mobile': ['30px', { 'lineHeight': '38px', 'fontWeight': '700' }], 'body-sm': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }] } } } }</script></head><body class="bg-[#f0fdf6] font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-[#e2e8f0]"><div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-space-sm focus:outline-none" data-path="accueil" href="#"><img alt="PharmaConnect Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdB6pbk4p5JA3WtXZFjA8YnAZKbn0Xw2oHJ_aqQXUQIjJToc_PAdGVDqeAP69oi-KQrWZrKloyAq6Mdsg13ZlQvq6jqDK9M_PIDEBYCEu8NYaAImt_vQ9J3o9FjlETJhc4CoAbhEDuKKVJYw1OtpCDYoYTAV1k8gUmJ5fy8NLhzLpBpirn49yXsYc7gPjY3keik-kawl6iLR0cC6RF4ynj-tpFiRW9v1zrb7Iq6WLpDI7Rbl9SP2ADlvl"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PharmaConnect</span></a></div><nav class="hidden lg:flex items-center gap-space-xs p-1" data-active-classes="bg-surface-container-high text-on-surface font-label-lg rounded-xl"><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="medicaments" href="#">Médicaments</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="pharmacies-de-garde" href="#">Pharmacies de garde</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="ordonnances" href="#">Ordonnances</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="comment-ca-marche" href="#">Comment ça marche</a></nav><div class="flex items-center gap-space-sm"><div class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-full bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span><span>Douala</span></div><a class="hidden sm:inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-surface-container-lowest border border-[#bbf7d0] text-primary font-label-lg text-label-lg hover:bg-[#f0fdf6] transition-colors" data-path="connexion" href="#">Connexion</a><a class="inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors shadow-[0px_4px_20px_-2px_rgba(20,83,45,0.05)]" data-path="creer-un-compte" href="#">Créer un compte</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-[#f0fdf6] min-h-[calc(100vh-20rem)]"><div class="flex flex-col w-full">
+<!-- Content Wrapper with max constraint matching design system desktop margins -->
+<div class="max-w-[1280px] w-full mx-auto px-margin md:px-margin-desktop py-space-md md:py-space-lg flex flex-col gap-space-lg">
+<!-- Fil d'Ariane épuré sans bordure avec micro-contrastes -->
+<nav aria-label="Fil d'Ariane" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md overflow-x-auto whitespace-nowrap">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+        Accueil
+      </a>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Pharmacies de garde</a>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Douala</a>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="text-on-surface font-label-lg text-label-lg">Pharmacie du Centre</span>
+</nav>
+<!-- Header Card Principale Officine -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<!-- Identité & Titres -->
+<div class="flex flex-col sm:flex-row items-start gap-space-md flex-1">
+<!-- Logo de l'officine (Caducée stylisé) -->
+<div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-secondary-container/20 flex items-center justify-center flex-shrink-0">
+<div class="w-16 h-16 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">local_pharmacy</span>
+</div>
+<span class="absolute -bottom-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-primary"></span>
+</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Pharmacie du Centre</h1>
+<span class="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Agréée ONPC #DLA-042
+              </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Officine conventionnée ONPC &amp; MINSANTE · Quartier Bonanjo, Douala (Avenue de Gaulle / Rue Joss)
+            </p>
+<!-- Ligne d'informations & Avis -->
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-2 mt-1">
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full">
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">4,6</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(128 avis vérifiés)</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
+<span>1,2 km d'Akwa / Bonanjo</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+<span>Livraison express : ~25 min</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Boutons d'Action Rapides -->
+<div class="flex flex-wrap sm:flex-nowrap lg:flex-col xl:flex-row gap-2.5 justify-start lg:justify-end items-stretch">
+<a class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-surface-container-low text-primary font-label-lg text-label-lg hover:bg-surface-container transition-colors" href="https://wa.me/237670000000" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>WhatsApp Officiel</span>
+</a>
+<a class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors shadow-sm" href="tel:+237233420000">
+<span class="material-symbols-outlined text-[20px]">call</span>
+<span>+237 233 42 00 00</span>
+</a>
+<a class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#localisation">
+<span class="material-symbols-outlined text-[20px]">directions</span>
+<span>Itinéraire GPS</span>
+</a>
+</div>
+</div>
+<!-- Ruban de Badges d'état temps réel -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs bg-surface-container-low/60 rounded-xl p-space-sm">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-lg text-label-lg">Ouverte actuellement</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">· Lun–Sam 08h00 – 20h00</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">nightlight_round</span>
+<span>De garde ce week-end (24h/24 sans interruption)</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">health_and_safety</span>
+<span>Guichet de nuit sécurisé avec vigile</span>
+</div>
+</div>
+</section>
+<!-- Structure principale à 2 colonnes (12 colonnes layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- ================= COLONNE DE GAUCHE (7/12) ================= -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Bloc 1 : Horaires d'ouverture & Statut de garde -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">calendar_clock</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Horaires d'ouverture &amp; Garde</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm">
+              Semaine 42 · 2024
+            </span>
+</div>
+<!-- Tableau hebdomadaire élégant -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-low/40">
+<!-- Lundi (Aujourd'hui) -->
+<div class="flex items-center justify-between px-space-md py-3 bg-secondary-container/20 text-on-surface font-label-lg text-label-lg">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Lundi (Aujourd'hui)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-primary font-bold">08h00 – 20h00</span>
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm">Ouvert</span>
+</div>
+</div>
+<!-- Mardi -->
+<div class="flex items-center justify-between px-space-md py-2.5 text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-low transition-colors">
+<span>Mardi</span>
+<span>08h00 – 20h00</span>
+</div>
+<!-- Mercredi -->
+<div class="flex items-center justify-between px-space-md py-2.5 text-on-surface-variant font-body-md text-body-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<span>Mercredi</span>
+<span>08h00 – 20h00</span>
+</div>
+<!-- Jeudi -->
+<div class="flex items-center justify-between px-space-md py-2.5 text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-low transition-colors">
+<span>Jeudi</span>
+<span>08h00 – 20h00</span>
+</div>
+<!-- Vendredi -->
+<div class="flex items-center justify-between px-space-md py-2.5 text-on-surface-variant font-body-md text-body-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<span>Vendredi</span>
+<span>08h00 – 20h00</span>
+</div>
+<!-- Samedi -->
+<div class="flex items-center justify-between px-space-md py-2.5 text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-low transition-colors">
+<span>Samedi</span>
+<span>08h00 – 20h00</span>
+</div>
+<!-- Dimanche (Garde) -->
+<div class="flex items-center justify-between px-space-md py-3 bg-surface-container-high/60 text-on-surface font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">local_police</span>
+<span class="font-label-lg text-label-lg">Dimanche (Garde continue)</span>
+</div>
+<div class="flex items-center gap-2 text-right">
+<span class="text-primary font-bold">24h / 24</span>
+<span class="hidden sm:inline px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Guichet nuit</span>
+</div>
+</div>
+</div>
+<!-- Précision d'urgence nocturne -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[22px] flex-shrink-0 mt-0.5">emergency</span>
+<div class="text-on-surface-variant font-body-sm text-body-sm flex flex-col gap-1">
+<p class="font-label-lg text-label-lg text-on-surface">Urgences nocturnes &amp; permanence ordonnances</p>
+<p>Durant le service de garde de 20h00 à 08h00, l'accès se fait via le guichet sécurisé rue Joss (sonnette d'appel à droite de la porte blindée). Présentation de l'ordonnance médicale requise pour les spécialités réglementées.</p>
+</div>
+</div>
+</section>
+<!-- Bloc 2 : Services officinaux & Modalités de paiement -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Services officinaux &amp; Prise en charge</h2>
+</div>
+<!-- Services Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="p-3.5 rounded-xl bg-surface-container-low/50 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">vital_signs</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Tension artérielle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prise automatisée gratuite au comptoir conseil</span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low/50 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">biotech</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Dépistage TDR Paludisme</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Test rapide d'orientation diagnostique sous 15 min</span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low/50 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">prescriptions</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Ordonnances PharmaConnect</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Préparation prioritaire scellée avant retrait</span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low/50 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">contact_support</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Conseils posologiques</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accompagnement diabète, HTA et pédiatrie</span>
+</div>
+</div>
+</div>
+<!-- Moyens de paiement camerounais acceptés -->
+<div class="pt-2 flex flex-col gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Moyens de paiement acceptés au comptoir &amp; en livraison</span>
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="w-3 h-3 rounded-full bg-amber-400"></span>
+<span>MTN Mobile Money (MoMo)</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="w-3 h-3 rounded-full bg-orange-500"></span>
+<span>Orange Money Cameroun</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span>
+<span>Espèces (FCFA)</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">credit_card</span>
+<span>Cartes Bancaires GIMAC</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bloc 3 : Médicaments phares disponibles en rayon -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">pill</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Médicaments phares en rayon</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Inventaire direct synchronisé avec le stock physique de Bonanjo</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm self-start sm:self-auto">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              En stock direct
+            </span>
+</div>
+<!-- Barre de recherche rapide locale -->
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant/70 focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" id="med-search" placeholder="Rechercher un médicament dans cette officine..." type="text"/>
+</div>
+<!-- Grille de 6 Médicaments Phares -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Carte 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-low flex flex-col justify-between gap-3 transition-all">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Antalgique &amp; Antipyrétique</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Paracétamol Biogaran 500mg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Boîte de 16 comprimés sécables</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm whitespace-nowrap">24 en stock</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-currency-display text-currency-display text-primary">2 000 FCFA</span>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+<span>Commander</span>
+</button>
+</div>
+</div>
+<!-- Carte 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-low flex flex-col justify-between gap-3 transition-all">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Antipaludique d'action rapide</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Coartem 80/480mg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Artéméther / Luméfantrine · 6 cpr</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm whitespace-nowrap">15 en stock</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-currency-display text-currency-display text-primary">3 500 FCFA</span>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+<span>Commander</span>
+</button>
+</div>
+</div>
+<!-- Carte 3 (Sur ordonnance) -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-low flex flex-col justify-between gap-3 transition-all">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Antibiotique à large spectre</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Amoxicilline Sandoz 500mg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Boîte de 12 gélules médicales</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">Sur ordonnance</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-currency-display text-currency-display text-primary">2 800 FCFA</span>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">prescriptions</span>
+<span>Commander</span>
+</button>
+</div>
+</div>
+<!-- Carte 4 -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-low flex flex-col justify-between gap-3 transition-all">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hygiène &amp; Soins nasaux</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sérum Physiologique Gilbert</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dosettes unidoses stériles 0.9% · 30 pcs</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm whitespace-nowrap">En stock</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-currency-display text-currency-display text-primary">2 100 FCFA</span>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+<span>Commander</span>
+</button>
+</div>
+</div>
+<!-- Carte 5 -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-low flex flex-col justify-between gap-3 transition-all">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tonus &amp; Vitalité immunitaire</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">C-Vitam 1000mg effervescent</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tube de 20 comprimés goût orange</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm whitespace-nowrap">En stock</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-currency-display text-currency-display text-primary">1 950 FCFA</span>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+<span>Commander</span>
+</button>
+</div>
+</div>
+<!-- Carte 6 -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-low flex flex-col justify-between gap-3 transition-all">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Gamme pédiatrique</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Artéfan 20/120mg pédiatrique</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Comprimés dispersibles pour enfant</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm whitespace-nowrap">En stock</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-currency-display text-currency-display text-primary">2 500 FCFA</span>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+<span>Commander</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lien vers le catalogue complet -->
+<div class="pt-2 text-center">
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-primary-container transition-colors" href="#">
+<span>Voir l'intégralité des 1 420 médicaments disponibles</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</section>
+</div>
+<!-- ================= COLONNE DE DROITE (5/12) ================= -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Bloc 1 : Localisation & Accès à Bonanjo -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md" id="localisation">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">pin_drop</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Localisation &amp; Accès</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Douala 1er</span>
+</div>
+<!-- Carte interactive simulée très soignée via pipeline maps -->
+<div class="relative w-full h-56 rounded-xl overflow-hidden shadow-inner group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-location="Bonanjo, Douala, Cameroon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0n-RIsSIVpougp8-Q8HoBZXW1Ov_qO1xOOjOT3TbehBKfACJhLLuMIAeWBNQhHs5W4jAPnN3GtvnkmOYLQrdKXz7YK3fyrQ9se-w5d9WKsFDvMGCf1736VURSwH8SJ_uAojzpDqao5aL_rE4vIkV9bjKxQbDIWsom0-ARx4gcIWFH93PXOob0SG_08DzMDyxmVPACpgfFwpgMgLna7uo_hzHnNzh_DQfKyBHPZiYkvsK5Ros6ey9MXg')"></div>
+<!-- Pin stylisé au centre -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="relative flex flex-col items-center">
+<div class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-md flex items-center gap-1.5 whitespace-nowrap mb-1">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span>
+<span>Pharmacie du Centre</span>
+</div>
+<div class="w-4 h-4 bg-primary rotate-45 -mt-2"></div>
+</div>
+</div>
+<!-- Contrôles flottants sur la carte -->
+<div class="absolute top-2 right-2 flex flex-col gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface shadow flex items-center justify-center hover:bg-surface-container-low transition-colors" title="Zoomer">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface shadow flex items-center justify-center hover:bg-surface-container-low transition-colors" title="Dézoomer">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+</div>
+<!-- Bouton Agrandir le plan -->
+<a class="absolute bottom-2 left-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm shadow flex items-center gap-1 hover:bg-surface-container-lowest transition-colors" href="https://maps.google.com/?q=Pharmacie+du+Centre+Bonanjo+Douala" target="_blank">
+<span class="material-symbols-outlined text-[16px] text-primary">open_in_new</span>
+<span>Agrandir le plan</span>
+</a>
+</div>
+<!-- Coordonnées et repères urbains -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-start gap-2.5 text-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg">45 Boulevard de la Liberté / Rue Joss</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Bonanjo · BP 1204 Douala 1er, Cameroun</span>
+</div>
+</div>
+<div class="flex items-start gap-2.5 text-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">explore</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-label-md text-label-md text-on-surface">Repères :</span> Face à l'Immeuble Kouam, à 200m du Commissariat Central et de la Préfecture du Wouri.
+              </p>
+</div>
+<!-- Option Click & Collect Express -->
+<div class="p-3.5 rounded-xl bg-secondary-container/20 flex items-start gap-3 mt-1">
+<span class="material-symbols-outlined text-on-secondary-container text-[22px] flex-shrink-0 mt-0.5">timer</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-secondary-container">Retrait Express Click &amp; Collect</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Votre panier ou ordonnance préparé et disponible au comptoir dédié sous 15 minutes sans file d'attente.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bloc 2 : Avis & Témoignages Patients -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">rate_review</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Avis patients vérifiés</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Conformes ONPC
+            </span>
+</div>
+<!-- Note globale & Barres de distribution -->
+<div class="flex items-center gap-space-md p-3.5 rounded-xl bg-surface-container-low/40">
+<div class="flex flex-col items-center justify-center pr-3 border-r border-outline-variant/30">
+<span class="font-headline-xl text-headline-xl text-on-surface">4,6</span>
+<div class="flex text-amber-500 my-0.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant whitespace-nowrap">128 avis</span>
+</div>
+<!-- Barres de répartition -->
+<div class="flex-1 flex flex-col gap-1">
+<!-- 5 étoiles -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-3">5</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 78%;"></div>
+</div>
+<span class="w-8 text-right">78%</span>
+</div>
+<!-- 4 étoiles -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-3">4</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 16%;"></div>
+</div>
+<span class="w-8 text-right">16%</span>
+</div>
+<!-- 3 étoiles -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-3">3</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary/60 rounded-full" style="width: 4%;"></div>
+</div>
+<span class="w-8 text-right">4%</span>
+</div>
+<!-- 2 étoiles -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-3">2</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 1%;"></div>
+</div>
+<span class="w-8 text-right">1%</span>
+</div>
+<!-- 1 étoile -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-3">1</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 1%;"></div>
+</div>
+<span class="w-8 text-right">1%</span>
+</div>
+</div>
+</div>
+<!-- Filtres d'avis -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex-shrink-0">Tous (128)</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container flex-shrink-0 transition-colors">Récents</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container flex-shrink-0 transition-colors">Avec ordonnance</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container flex-shrink-0 transition-colors">Livraison express</button>
+</div>
+<!-- Liste des Témoignages réels et chaleureux -->
+<div class="flex flex-col gap-space-sm divide-y divide-surface-container">
+<!-- Témoignage 1 -->
+<div class="pt-space-sm first:pt-0 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary font-label-md text-label-md flex items-center justify-center">ET</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Dr. Emmanuel T.</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Praticien de santé · Bonanjo</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-1">Il y a 2 j</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                “Pharmacie très professionnelle, ordonnance préparée rapidement et médicaments scellés sous pochette étanche. Très bonne prise en charge.”
+              </p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> Achat vérifié
+                </span>
+</div>
+</div>
+<!-- Témoignage 2 -->
+<div class="pt-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md flex items-center justify-center">HM</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Henriette M.</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Patiente · Quartier Akwa</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-1">Il y a 1 sem</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                “Livraison express reçue à Akwa en 25 minutes chrono par le coursier. Paiement par MTN MoMo très simple.”
+              </p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> Livraison validée
+                </span>
+</div>
+</div>
+<!-- Témoignage 3 -->
+<div class="pt-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md flex items-center justify-center">MT</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Marc-Aurèle T.</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Patient · Bonapriso</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px] text-surface-container">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-1">Il y a 2 sem</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                “Personnel accueillant au comptoir et conseils avisés pour le traitement antipaludique de ma fille.”
+              </p>
+</div>
+<!-- Témoignage 4 -->
+<div class="pt-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary font-label-md text-label-md flex items-center justify-center">SK</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Sandrine K.</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Patiente · Bali / Bonanjo</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-1">Il y a 3 sem</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                “Toujours bien approvisionnée même pour les produits sous tension. Pharmacien disponible au téléphone pour vérifier la posologie.”
+              </p>
+</div>
+</div>
+<!-- Bouton Laisser un avis -->
+<div class="pt-2">
+<button class="w-full py-2.5 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-surface-container-low transition-colors text-center shadow-sm">
+              Laisser un avis vérifié avec mon ordonnance
+            </button>
+</div>
+</section>
+</div>
+</div>
+<!-- Bannière de réassurance déontologique ONPC en bas de page -->
+<aside class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md mt-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Officine certifiée par l'Ordre National des Pharmaciens du Cameroun (ONPC)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Traçabilité intégrale des lots pharmaceutiques, conformité aux chaînes du froid et dispensation sécurisée sous contrôle d'un pharmacien titulaire diplômé.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Licence ministérielle active :</span>
+<span class="px-3 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface">MINSANTE / DPH-2024</span>
+</div>
+</aside>
+</div>
+</div>
+<script>
+  // Simple micro-interaction de filtrage sur la barre de recherche des médicaments phares
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('med-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.grid > div.p-4');
+        cards.forEach((card) => {
+          const title = card.querySelector('h3');
+          if (title) {
+            const text = title.textContent.toLowerCase();
+            if (text.includes(query)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-[#e2e8f0] pt-space-xl pb-space-lg"><div class="max-w-[1280px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-desktop mb-space-xl"><div class="lg:col-span-2 space-y-space-md pr-space-md"><div class="flex items-center gap-space-sm"><img alt="PharmaConnect Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdB6pbk4p5JA3WtXZFjA8YnAZKbn0Xw2oHJ_aqQXUQIjJToc_PAdGVDqeAP69oi-KQrWZrKloyAq6Mdsg13ZlQvq6jqDK9M_PIDEBYCEu8NYaAImt_vQ9J3o9FjlETJhc4CoAbhEDuKKVJYw1OtpCDYoYTAV1k8gUmJ5fy8NLhzLpBpirn49yXsYc7gPjY3keik-kawl6iLR0cC6RF4ynj-tpFiRW9v1zrb7Iq6WLpDI7Rbl9SP2ADlvl"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PharmaConnect</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Plateforme numérique sécurisée pour l'accès aux médicaments homologués, pharmacies de garde et services d'officine au Cameroun.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="inline-flex items-center gap-2 px-space-md py-1.5 rounded-full bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>Officines Agréées MINSANTE</span></div></div></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Plateforme</h4><ul class="space-y-space-sm"><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="a-propos" href="#">À propos</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="pharmacies-partenaires" href="#">Pharmacies partenaires</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="televerser-une-ordonnance" href="#">Téléverser une ordonnance</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="faq-et-aide" href="#">FAQ &amp; Aide</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Légal &amp; Sécurité</h4><ul class="space-y-space-sm"><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="conditions-generales" href="#">Conditions Générales</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="politique-de-confidentialite" href="#">Politique de confidentialité</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="mentions-legales" href="#">Mentions Légales</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="deontologie-pharmaceutique" href="#">Ordre des Pharmaciens</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Assistance locale</h4><div class="space-y-space-sm font-body-md text-body-md text-on-surface-variant"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">support_agent</span><div><p class="font-label-lg text-label-lg text-on-surface">Support Douala</p><p>+237 690 00 00 00</p></div></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">chat</span><div><p class="font-label-lg text-label-lg text-on-surface">WhatsApp Officiel</p><p>+237 670 00 00 00</p></div></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">schedule</span><p>Lun - Sam : 07h30 - 21h00</p></div></div></div></div><div class="pt-space-md border-t border-[#e2e8f0] flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 PharmaConnect Cameroun. Tous droits réservés. Conforme aux directives de l'Ordre National des Pharmaciens du Cameroun (ONPC).</p><div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm"><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>Données Médicales Protégées</span><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">local_shipping</span>Livraison Sécurisée Douala &amp; Yaoundé</span></div></div></div></footer></body></html>

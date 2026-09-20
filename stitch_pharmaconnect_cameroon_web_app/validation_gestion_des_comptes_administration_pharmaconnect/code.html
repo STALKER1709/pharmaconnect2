@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error-container":"#ffdad6","outline-variant":"#bdcaba","on-error-container":"#93000a","primary":"#006b2c","primary-fixed-dim":"#62df7d","surface-container-low":"#f0f3ff","surface-dim":"#cfdaf2","secondary-fixed":"#6bff8f","on-tertiary-fixed-variant":"#8a143c","on-background":"#111c2d","on-tertiary-fixed":"#3f0016","tertiary-container":"#c74668","surface":"#f9f9ff","on-secondary-container":"#007432","tertiary":"#a72d51","primary-fixed":"#7ffc97","on-primary":"#ffffff","outline":"#6e7b6c","inverse-primary":"#62df7d","surface-container-highest":"#d8e3fb","on-surface-variant":"#3e4a3d","on-secondary-fixed":"#002109","on-tertiary":"#ffffff","inverse-on-surface":"#ecf1ff","error":"#ba1a1a","background":"#f9f9ff","on-surface":"#111c2d","secondary-fixed-dim":"#4ae176","surface-bright":"#f9f9ff","on-primary-fixed-variant":"#005320","inverse-surface":"#263143","surface-container-lowest":"#ffffff","tertiary-fixed-dim":"#ffb2bf","surface-container-high":"#dee8ff","on-secondary-fixed-variant":"#005321","on-tertiary-container":"#fffbff","primary-container":"#00873a","secondary":"#006e2f","surface-variant":"#d8e3fb","on-error":"#ffffff","secondary-container":"#6bff8f","on-secondary":"#ffffff","on-primary-container":"#f7fff2","surface-container":"#e7eeff","surface-tint":"#006e2d","on-primary-fixed":"#002109","tertiary-fixed":"#ffd9de"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1rem","gutter-desktop":"1.5rem","margin":"1rem","space-xl":"2.5rem","space-md":"1rem","margin-desktop":"2.5rem","space-sm":"0.5rem"},"fontFamily":{"currency-display":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"label-md":["Inter"],"label-sm":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-lg":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"]},"fontSize":{"currency-display":["20px",{"lineHeight":"24px","fontWeight":"700"}],"headline-xl-mobile":["30px",{"lineHeight":"38px","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","fontWeight":"500"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"600"}],"headline-xl":["40px",{"lineHeight":"48px","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(20,83,45,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="Brand logo. - Primary color: #16a34a - Font: plusJakartaSans - Mode: light - Roundness: rounded-md" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdB6pbk4p5JA3WtXZFjA8YnAZKbn0Xw2oHJ_aqQXUQIjJToc_PAdGVDqeAP69oi-KQrWZrKloyAq6Mdsg13ZlQvq6jqDK9M_PIDEBYCEu8NYaAImt_vQ9J3o9FjlETJhc4CoAbhEDuKKVJYw1OtpCDYoYTAV1k8gUmJ5fy8NLhzLpBpirn49yXsYc7gPjY3keik-kawl6iLR0cC6RF4ynj-tpFiRW9v1zrb7Iq6WLpDI7Rbl9SP2ADlvl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PharmaConnect</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Cameroun Régulation</span></div></div><div class="px-space-md pt-space-md pb-space-sm"><div class="px-space-sm py-space-xs rounded-xl bg-surface-container-low text-on-surface"><p class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Espace Central</p><p class="font-label-lg text-label-lg text-primary">Administration &amp; Modération</p></div></div><nav class="flex flex-col gap-space-xs px-space-md mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-xl shadow-sm"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-all bg-primary-container text-on-primary-container font-semibold rounded-xl shadow-sm" data-path="gestion-des-utilisateurs" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Utilisateurs</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="categories-medicaments" href="#"><span class="material-symbols-outlined text-[20px]">category</span><span>Catégories</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="statistiques-nationales" href="#"><span class="material-symbols-outlined text-[20px]">monitoring</span><span>Statistiques</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="journal-d-audit" href="#"><span class="material-symbols-outlined text-[20px]">history_edu</span><span>Journal d'audit</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="parametres-systeme" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Paramètres</span></a></nav></div><div class="p-space-md"><div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">Cadre Légal</span><span class="font-label-sm text-label-sm text-primary font-bold">Conforme</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">Supervision ONPC &amp; MINSANTE Cameroun active.</div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(20,83,45,0.04)] z-40 px-gutter-desktop flex items-center justify-between"><div class="flex items-center gap-space-md w-96"><div class="flex items-center w-full px-space-sm py-space-xs bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary text-[20px] mr-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Rechercher un utilisateur, ordonnance, pharmacie..." type="search"/></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container/30 text-on-secondary-container"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">MINSANTE / ONPC Direct</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-xl bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-outline text-[18px]">location_on</span><span class="font-label-sm text-label-sm font-medium">Littoral - Douala</span><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div><button aria-label="Alertes Administratives" class="relative p-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-tertiary"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden sm:flex flex-col text-right"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-tight">Admin Principal</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Système Central</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-gutter-desktop pb-space-xl bg-surface"><div class="flex flex-col w-full gap-space-lg">
+<!-- En-tête de section -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Plateforme Régulée • Ordre National des Pharmaciens</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Validation &amp; Gestion des Comptes</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Vérification des agréments ONPC / MINSANTE des officines et accréditation des coursiers partenaires — Douala &amp; Région du Littoral
+      </p>
+</div>
+<!-- Actions Globales -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container-lowest text-primary shadow-sm hover:bg-surface-container-low transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+<span class="font-label-lg text-label-lg">Exporter le registre (CSV)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-primary text-on-primary shadow-sm hover:bg-primary-container transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span class="font-label-lg text-label-lg">Ajouter un compte manuel</span>
+</button>
+</div>
+</div>
+<!-- Statistiques & Indicateurs Clés -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Stat 1: Pharmacies en attente -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Officines en attente</span>
+<div class="font-headline-xl text-headline-xl text-tertiary mt-space-xs">4</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[26px]">local_pharmacy</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-tertiary font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span>Pièces justificatives à vérifier</span>
+</div>
+</div>
+<!-- Stat 2: Livreurs en attente -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Coursiers santé</span>
+<div class="font-headline-xl text-headline-xl text-on-surface mt-space-xs">2</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">two_wheeler</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">id_card</span>
+<span>Permis A &amp; Casier judiciaire</span>
+</div>
+</div>
+<!-- Stat 3: Comptes actifs -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Comptes certifiés</span>
+<div class="font-headline-xl text-headline-xl text-primary mt-space-xs">312</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">how_to_reg</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+18 accrédités ce mois-ci</span>
+</div>
+</div>
+<!-- Stat 4: Conformité ONPC -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Conformité ONPC / MINSANTE</span>
+<div class="font-headline-xl text-headline-xl text-primary mt-space-xs">99.4%</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">verified</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">policy</span>
+<span>Réglementation pharmaceutique valide</span>
+</div>
+</div>
+</div>
+<!-- Inspection Photo Highlight & Banner -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col lg:flex-row items-center gap-space-lg">
+<div class="relative w-full lg:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Modern clinical pharmacy counter in Douala Cameroon with clean glass cabinets, organized certified pharmaceutical boxes, bright hygienic lighting, and official regulatory certificates mounted on the wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXkVd16FJkZmleExE4_t3VUKwN1dFx9tlVvfZes7oGOnnxh5sEP3Jq3aPCLhDd2kJLG6R0qMyQ8SgkRUh3GU7N5QCKOkkg7dGwT1BOfBgAOwGxTQsYQgI_mgYpNEccyWXla49aW4jBGAmrCtjdbldrkMKeFSpIAQEgkNLhpM9pYbphoTniA69vkF-N4n2I-YzAJmiSTI2c4u9iX_Pn1GmojU61bVFKQVZIPAopsdBSuJPMCPDCSX3nJA"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px]"></div>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-space-xs py-0.5 rounded text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> ONPC Littoral
+      </div>
+</div>
+<div class="flex-1 flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm">Protocole Sanitaire 2026</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">• Procédure simplifiée pour le Littoral</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Campagne d'harmonisation des licences d'exploitation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Toute officine souhaitant dispenser les médicaments sous contrôle strict doit obligatoirement charger sa quittance de cotisation ordinale 2026 et l'autorisation d'exercice signée par l'inspecteur régional de la santé.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<button class="px-space-md py-space-sm rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-container transition-all font-label-lg text-label-lg" type="button">
+        Consulter la circulaire
+      </button>
+</div>
+</div>
+<!-- TABLEAU 1 : DEMANDES EN ATTENTE -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<!-- Filtres & Entête du Tableau -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Demandes d'inscription en attente</h2>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-bold">6 à traiter</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="flex bg-surface-container-low p-1 rounded-xl">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-lowest text-primary shadow-xs font-label-sm text-label-sm font-semibold" type="button">Tous (6)</button>
+<button class="px-space-sm py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Pharmacies (4)</button>
+<button class="px-space-sm py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Livreurs (2)</button>
+</div>
+<div class="flex items-center bg-surface-container-low px-space-sm py-1.5 rounded-xl">
+<span class="material-symbols-outlined text-[16px] text-outline mr-space-xs">filter_list</span>
+<input class="bg-transparent text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none w-36" placeholder="Filtrer la liste..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Table Responsive -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l-xl">Type &amp; Statut</th>
+<th class="py-space-sm px-space-md">Raison Sociale / Demandeur</th>
+<th class="py-space-sm px-space-md">Pièces Justificatives</th>
+<th class="py-space-sm px-space-md">Contact &amp; Ville</th>
+<th class="py-space-sm px-space-md">Dépôt</th>
+<th class="py-space-sm px-space-md text-right rounded-r-xl">Décision Régulatoire</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm">
+<!-- Ligne 1: Pharmacie des Cocotiers -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span>
+                Pharmacie
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pharmacie des Cocotiers</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. Françoise Ewandé (Titulaire)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs py-0.5 rounded">ONPC N°441/24</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm" title="Vérifier la licence MINSANTE" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Voir pièces (3)</span>
+</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">+237 690 12 34 56</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">Akwa - Boulevard de la Liberté</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+              14 Oct 2026, 09:42
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Valider</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-on-error font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Refuser</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 2: Pharmacie Deïdo Santé -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span>
+                Pharmacie
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pharmacie Deïdo Santé</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. Christian Motassi</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs py-0.5 rounded">Licence MINSANTE DLA-12</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Voir pièces (2)</span>
+</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">+237 677 45 88 12</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">Deïdo - Rond-point 4 Étages</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+              14 Oct 2026, 10:18
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Valider</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-on-error font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Refuser</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 3: Paul Nguemo Express (Livreur) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">motorcycle</span>
+                Coursier Santé
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Paul Nguemo Express</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Paul Nguemo (Transporteur Indépendant)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs py-0.5 rounded">Permis Cat. A • Casier B3</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Voir pièces (4)</span>
+</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">+237 699 01 23 45</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">Bonapriso &amp; Bali</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+              14 Oct 2026, 11:05
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Valider</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-on-error font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Refuser</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 4: Cabinet Officinal Makèpè -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span>
+                Pharmacie
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Cabinet Officinal Makèpè</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. Sylvie Ndedi Mandeng</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs py-0.5 rounded">ONPC N°512/25</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Voir pièces (2)</span>
+</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">+237 655 89 20 11</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">Makèpè - Carrefour Rhône-Poulenc</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+              14 Oct 2026, 12:40
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Valider</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-on-error font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Refuser</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 5: Livreur Samuel Ekotto -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">motorcycle</span>
+                Coursier Santé
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Samuel Ekotto Coursier</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Samuel Ekotto (Matricule LT-204)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs py-0.5 rounded">Attestation Isotherme • Permis</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Voir pièces (3)</span>
+</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">+237 671 22 33 44</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">Bépanda &amp; Cité SIC</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+              14 Oct 2026, 13:15
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Valider</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-on-error font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Refuser</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 6: Pharmacie de la Passerelle Bonanjo -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span>
+                Pharmacie
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pharmacie de la Passerelle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. Marcelle Bella</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs py-0.5 rounded">ONPC N°309/23</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Voir pièces (2)</span>
+</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">+237 694 00 11 22</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">Bonanjo - Face Palais de Justice</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+              14 Oct 2026, 14:02
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Valider</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-on-error font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Refuser</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pied de tableau avec pagination discrète -->
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Affichage de 6 demandes sur 6 enregistrées à Douala</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm" disabled="" type="button">Précédent</button>
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary text-label-sm font-label-sm" type="button">1</button>
+<button class="px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm" disabled="" type="button">Suivant</button>
+</div>
+</div>
+</div>
+<!-- TABLEAU 2 : RÉPERTOIRE DES PARTENAIRES ACCRÉDITÉS -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<!-- Filtres & Entête du second tableau -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Répertoire des Partenaires Accrédités (Littoral)</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">312 officines et prestataires certifiés conformes</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="flex bg-surface-container-low p-1 rounded-xl">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-lowest text-primary shadow-xs font-label-sm text-label-sm font-semibold" type="button">Tous (312)</button>
+<button class="px-space-sm py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Actifs (308)</button>
+<button class="px-space-sm py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Suspendus (4)</button>
+</div>
+<div class="flex items-center bg-surface-container-low px-space-sm py-1.5 rounded-xl">
+<span class="material-symbols-outlined text-[16px] text-outline mr-space-xs">search</span>
+<input class="bg-transparent text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none w-48" placeholder="Rechercher par nom, quartier..." type="search"/>
+</div>
+</div>
+</div>
+<!-- Tableau Actifs & Historique -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l-xl">Partenaire</th>
+<th class="py-space-sm px-space-md">Rôle &amp; Spécificité</th>
+<th class="py-space-sm px-space-md">Implantation (Douala)</th>
+<th class="py-space-sm px-space-md">Accréditation</th>
+<th class="py-space-sm px-space-md">Statut</th>
+<th class="py-space-sm px-space-md">Dernier Contrôle</th>
+<th class="py-space-sm px-space-md text-right rounded-r-xl">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm">
+<!-- Ligne 1: Pharmacie du Centre -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-label-md">
+                  PC
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pharmacie du Centre</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ordre #0028/LT</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                Pharmacie Titulaire • Garde
+              </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface">
+              Douala 1er - Bonanjo
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm">
+              12 Janv 2024
+            </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                Actif
+              </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm">
+              02 Oct 2026 (Audit annuel)
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="text-error hover:bg-error-container/40 px-space-sm py-1 rounded-lg font-label-md text-label-md transition-colors" type="button">
+                  Suspendre
+                </button>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 2: Paul Nguemo (Coursier certifié) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-label-md">
+                  PN
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Paul Nguemo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Livreur Agréé ClimatExpress</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">ac_unit</span>
+                Chaîne du froid certifiée
+              </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface">
+              Akwa &amp; Bonapriso
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm">
+              04 Mars 2025
+            </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                Actif
+              </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm">
+              28 Sept 2026 (Contrôle boîte iso)
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="text-error hover:bg-error-container/40 px-space-sm py-1 rounded-lg font-label-md text-label-md transition-colors" type="button">
+                  Suspendre
+                </button>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 3: Pharmacie du Wouri (Suspendu) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-error-container/10">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-error-container flex items-center justify-center text-on-error-container font-bold text-label-md">
+                  PW
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pharmacie du Wouri</span>
+<span class="font-body-sm text-body-sm text-error font-medium">Contrôle ONPC en cours</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="text-on-surface">Officine de distribution</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface">
+              Douala 2e - New Bell
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm">
+              18 Juin 2023
+            </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                Suspendu
+              </span>
+</td>
+<td class="py-space-md px-space-md text-error font-label-sm text-label-sm font-medium">
+              11 Oct 2026 (Pièces non conformes)
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="text-primary hover:bg-secondary-container/40 px-space-sm py-1 rounded-lg font-label-md text-label-md transition-colors font-semibold" type="button">
+                  Réactiver
+                </button>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Ligne 4: Pharmacie de la Liberté -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-label-md">
+                  PL
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pharmacie de la Liberté</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ordre #0114/LT</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="text-on-surface">Officine &amp; Préparatoire</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface">
+              Douala 1er - Akwa
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm">
+              09 Sept 2022
+            </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                Actif
+              </span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant font-label-sm text-label-sm">
+              05 Oct 2026 (Audit annuel)
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="text-error hover:bg-error-container/40 px-space-sm py-1 rounded-lg font-label-md text-label-md transition-colors" type="button">
+                  Suspendre
+                </button>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pied Répertoire -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">security</span>
+<span>Registre officiel synchronisé avec le serveur central MINSANTE Yaoundé.</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors" type="button">
+          Voir les 308 autres officines →
+        </button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

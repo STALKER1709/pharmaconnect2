@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>PharmaConnect - Santé &amp; Médicaments au Cameroun</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { 'colors': { 'on-secondary-fixed-variant': '#005321', 'on-secondary-container': '#007432', 'surface-container-low': '#f0f3ff', 'on-surface-variant': '#3e4a3d', 'error-container': '#ffdad6', 'on-primary': '#ffffff', 'on-tertiary-fixed-variant': '#8a143c', 'inverse-primary': '#62df7d', 'on-primary-fixed': '#002109', 'secondary-fixed': '#6bff8f', 'secondary-fixed-dim': '#4ae176', 'error': '#ba1a1a', 'tertiary-fixed-dim': '#ffb2bf', 'on-primary-fixed-variant': '#005320', 'inverse-surface': '#263143', 'surface-container-highest': '#d8e3fb', 'surface-bright': '#f9f9ff', 'outline': '#6e7b6c', 'on-secondary': '#ffffff', 'on-error-container': '#93000a', 'inverse-on-surface': '#ecf1ff', 'background': '#f9f9ff', 'secondary-container': '#6bff8f', 'primary': '#006b2c', 'surface': '#f9f9ff', 'primary-container': '#00873a', 'surface-container': '#e7eeff', 'primary-fixed': '#7ffc97', 'surface-container-high': '#dee8ff', 'outline-variant': '#bdcaba', 'on-error': '#ffffff', 'on-primary-container': '#f7fff2', 'on-tertiary-fixed': '#3f0016', 'on-surface': '#111c2d', 'on-tertiary': '#ffffff', 'surface-container-lowest': '#ffffff', 'tertiary-container': '#c74668', 'on-secondary-fixed': '#002109', 'secondary': '#006e2f', 'on-background': '#111c2d', 'surface-variant': '#d8e3fb', 'surface-dim': '#cfdaf2', 'surface-tint': '#006e2d', 'on-tertiary-container': '#fffbff', 'tertiary': '#a72d51', 'tertiary-fixed': '#ffd9de', 'primary-fixed-dim': '#62df7d' }, 'borderRadius': { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, 'spacing': { 'margin': '1rem', 'space-sm': '0.5rem', 'space-xl': '2.5rem', 'space-lg': '1.5rem', 'gutter': '1rem', 'space-xs': '0.25rem', 'space-md': '1rem', 'margin-desktop': '2.5rem', 'gutter-desktop': '1.5rem' }, 'fontFamily': { 'body-lg': ['Inter'], 'headline-lg-mobile': ['Plus Jakarta Sans'], 'label-lg': ['Inter'], 'label-md': ['Inter'], 'body-md': ['Inter'], 'headline-lg': ['Plus Jakarta Sans'], 'currency-display': ['Plus Jakarta Sans'], 'headline-md': ['Plus Jakarta Sans'], 'headline-xl': ['Plus Jakarta Sans'], 'label-sm': ['Inter'], 'headline-sm': ['Plus Jakarta Sans'], 'headline-xl-mobile': ['Plus Jakarta Sans'], 'body-sm': ['Inter'] }, 'fontSize': { 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'headline-lg-mobile': ['24px', { 'lineHeight': '32px', 'fontWeight': '600' }], 'label-lg': ['14px', { 'lineHeight': '20px', 'fontWeight': '600' }], 'label-md': ['12px', { 'lineHeight': '16px', 'fontWeight': '600' }], 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }], 'headline-lg': ['32px', { 'lineHeight': '40px', 'fontWeight': '600' }], 'currency-display': ['20px', { 'lineHeight': '24px', 'fontWeight': '700' }], 'headline-md': ['22px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'headline-xl': ['40px', { 'lineHeight': '48px', 'fontWeight': '700' }], 'label-sm': ['11px', { 'lineHeight': '14px', 'fontWeight': '500' }], 'headline-sm': ['18px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'headline-xl-mobile': ['30px', { 'lineHeight': '38px', 'fontWeight': '700' }], 'body-sm': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }] } } } }</script></head><body class="bg-[#f0fdf6] font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-[#e2e8f0]"><div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-space-sm focus:outline-none" data-path="accueil" href="#"><img alt="PharmaConnect Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdB6pbk4p5JA3WtXZFjA8YnAZKbn0Xw2oHJ_aqQXUQIjJToc_PAdGVDqeAP69oi-KQrWZrKloyAq6Mdsg13ZlQvq6jqDK9M_PIDEBYCEu8NYaAImt_vQ9J3o9FjlETJhc4CoAbhEDuKKVJYw1OtpCDYoYTAV1k8gUmJ5fy8NLhzLpBpirn49yXsYc7gPjY3keik-kawl6iLR0cC6RF4ynj-tpFiRW9v1zrb7Iq6WLpDI7Rbl9SP2ADlvl"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PharmaConnect</span></a></div><nav class="hidden lg:flex items-center gap-space-xs p-1" data-active-classes="bg-surface-container-high text-on-surface font-label-lg rounded-xl"><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="medicaments" href="#">Médicaments</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="pharmacies-de-garde" href="#">Pharmacies de garde</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="ordonnances" href="#">Ordonnances</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="comment-ca-marche" href="#">Comment ça marche</a></nav><div class="flex items-center gap-space-sm"><div class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-full bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span><span>Douala</span></div><a class="hidden sm:inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-surface-container-lowest border border-[#bbf7d0] text-primary font-label-lg text-label-lg hover:bg-[#f0fdf6] transition-colors" data-path="connexion" href="#">Connexion</a><a class="inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors shadow-[0px_4px_20px_-2px_rgba(20,83,45,0.05)]" data-path="creer-un-compte" href="#">Créer un compte</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-[#f0fdf6] min-h-[calc(100vh-20rem)]"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow -->
+<div class="relative w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop pt-space-md pb-space-xl">
+<!-- Fil d'Ariane -->
+<nav aria-label="Fil d'Ariane" class="flex items-center gap-2 mb-space-md font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="accueil" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Accueil</span>
+</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" data-path="pharmacies" href="#">Pharmacie du Centre</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-label-md text-label-md">Votre panier &amp; Paiement</span>
+</nav>
+<!-- Page Header & Stepper Section -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-lg mb-space-lg border-b border-surface-container">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm mb-space-xs">
+<span class="material-symbols-outlined text-[15px]">verified_user</span>
+<span>Commande Sécurisée &amp; Traçabilité Certifiée</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Finalisation de votre commande</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Officine certifiée ONPC — Livraison express sur Douala et environs</p>
+</div>
+<!-- Stepper Indicator -->
+<div class="bg-surface-container-lowest p-2 sm:p-3 rounded-xl shadow-sm flex items-center gap-2 sm:gap-4 self-start lg:self-auto">
+<!-- Etape 1 -->
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface hidden sm:inline">Panier</span>
+</div>
+<div class="w-6 sm:w-10 h-0.5 bg-primary"></div>
+<!-- Etape 2 (Active) -->
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center font-label-sm text-label-sm ring-2 ring-primary">
+            2
+          </div>
+<span class="font-label-md text-label-md text-primary font-bold">Livraison &amp; Paiement</span>
+</div>
+<div class="w-6 sm:w-10 h-0.5 bg-surface-container-highest"></div>
+<!-- Etape 3 -->
+<div class="flex items-center gap-2 opacity-60">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm">
+            3
+          </div>
+<span class="font-label-md text-label-md text-on-surface-variant hidden sm:inline">Confirmation</span>
+</div>
+</div>
+</div>
+<!-- Main Grid: 2 Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- COLONNE GAUCHE (7 cols) : Panier & Formulaire de Livraison -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- CARTE RÉCAPITULATIF DU PANIER -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-sm">
+<!-- Carte Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md border-b border-surface-container-low">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">local_pharmacy</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Votre panier — Pharmacie du Centre</h2>
+</div>
+<div class="flex flex-wrap items-center gap-2 mt-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                  Bonanjo, Douala
+                </span>
+<span class="text-on-surface-variant font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">schedule</span>
+                  Préparation garantie sous 15 min
+                </span>
+</div>
+</div>
+<span class="self-start sm:self-center font-label-md text-label-md text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-lg">
+              3 articles
+            </span>
+</div>
+<!-- Items List -->
+<div class="divide-y divide-surface-container-low">
+<!-- Article 1 -->
+<div class="py-space-md flex items-center justify-between gap-space-sm" id="cart-item-1">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">medication</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">Paracétamol Biogaran 500mg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Boîte de 16 comprimés sécables</p>
+<p class="font-label-sm text-label-sm text-primary mt-0.5">2 000 FCFA / unité</p>
+</div>
+</div>
+<div class="flex items-center gap-3 sm:gap-5 flex-shrink-0">
+<!-- Stepper -->
+<div class="inline-flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="updateQty(1, -1)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-7 text-center font-label-md text-label-md text-on-surface" id="qty-1">2</span>
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="updateQty(1, 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="font-currency-display text-currency-display text-on-surface w-24 text-right" id="subtotal-1">4 000 FCFA</span>
+<button class="p-1 text-outline hover:text-error hover:bg-error-container/20 rounded-md transition-colors" onclick="removeItem('cart-item-1')" title="Retirer l'article" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Article 2 -->
+<div class="py-space-md flex items-center justify-between gap-space-sm" id="cart-item-2">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">vaccines</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">Sérum Physiologique Gilbert</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Boîte de 30 unidoses stériles</p>
+<p class="font-label-sm text-label-sm text-primary mt-0.5">2 100 FCFA / unité</p>
+</div>
+</div>
+<div class="flex items-center gap-3 sm:gap-5 flex-shrink-0">
+<!-- Stepper -->
+<div class="inline-flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="updateQty(2, -1)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-7 text-center font-label-md text-label-md text-on-surface" id="qty-2">1</span>
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="updateQty(2, 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="font-currency-display text-currency-display text-on-surface w-24 text-right" id="subtotal-2">2 100 FCFA</span>
+<button class="p-1 text-outline hover:text-error hover:bg-error-container/20 rounded-md transition-colors" onclick="removeItem('cart-item-2')" title="Retirer l'article" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Article 3 -->
+<div class="py-space-md flex items-center justify-between gap-space-sm" id="cart-item-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">pill</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">C-Vitam 1000mg effervescent</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tube de 20 comprimés</p>
+<p class="font-label-sm text-label-sm text-primary mt-0.5">900 FCFA / unité</p>
+</div>
+</div>
+<div class="flex items-center gap-3 sm:gap-5 flex-shrink-0">
+<!-- Stepper -->
+<div class="inline-flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="updateQty(3, -1)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-7 text-center font-label-md text-label-md text-on-surface" id="qty-3">1</span>
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="updateQty(3, 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="font-currency-display text-currency-display text-on-surface w-24 text-right" id="subtotal-3">900 FCFA</span>
+<button class="p-1 text-outline hover:text-error hover:bg-error-container/20 rounded-md transition-colors" onclick="removeItem('cart-item-3')" title="Retirer l'article" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Code Promo Discret / Assurance -->
+<div class="mt-space-sm pt-space-sm border-t border-surface-container-low">
+<details class="group">
+<summary class="flex items-center justify-between cursor-pointer font-label-md text-label-md text-primary hover:text-primary-container transition-colors py-1">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">loyalty</span>
+<span>Avez-vous un code de réduction ou bon mutuelle ?</span>
+</span>
+<span class="material-symbols-outlined text-[18px] group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-3 flex gap-2">
+<input class="flex-1 px-3 py-2 text-body-md font-body-md rounded-xl bg-surface-container-low border-0 focus:outline-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline" placeholder="Ex: SANTE-DLA-2024" type="text"/>
+<button class="px-4 py-2 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+                  Appliquer
+                </button>
+</div>
+</details>
+</div>
+<!-- Détail Financier Exact -->
+<div class="mt-space-md pt-space-md border-t border-surface-container flex flex-col gap-2 font-body-md text-body-md">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Sous-total articles</span>
+<span class="font-label-lg text-label-lg text-on-surface" id="total-articles">7 000 FCFA</span>
+</div>
+<div class="flex items-start justify-between text-on-surface-variant">
+<div>
+<span class="block text-on-surface">Livraison coursier express (Douala 1er)</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">inventory_2</span>
+                  Sac isotherme scellé &amp; remise en main propre
+                </span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">1 000 FCFA</span>
+</div>
+<!-- Grand TOTAL -->
+<div class="mt-3 p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Montant net à régler</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">TOTAL À PAYER</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-bold" id="grand-total">8 000 FCFA</span>
+</div>
+</div>
+</section>
+<!-- CARTE FORMULAIRE DE LIVRAISON -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md border-b border-surface-container-low">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">local_shipping</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Informations de livraison à Douala</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Assurez-vous de renseigner un numéro joignable pour le coursier</p>
+</div>
+<!-- Bouton GPS -->
+<button class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#dcfce9] text-[#14532d] hover:bg-[#bbf7d0] transition-colors font-label-md text-label-md self-start sm:self-auto" onclick="simulateGps()" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">my_location</span>
+<span>Utiliser ma position</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-ping ml-0.5"></span>
+</button>
+</div>
+<form class="mt-space-md grid grid-cols-1 sm:grid-cols-2 gap-space-md" onsubmit="return false;">
+<!-- Destinataire -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="recipient-name">
+                Nom complet du destinataire *
+              </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[18px]">person</span>
+<input class="w-full pl-10 pr-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md border-0 focus:ring-2 focus:ring-primary focus:outline-none" id="recipient-name" type="text" value="Marc-Aurèle T."/>
+</div>
+</div>
+<!-- Téléphone -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="recipient-phone">
+                Téléphone de contact direct *
+              </label>
+<div class="relative flex">
+<span class="inline-flex items-center px-3 rounded-l-xl bg-surface-container text-on-surface font-label-md text-label-md">
+                  🇨🇲 +237
+                </span>
+<input class="w-full px-3 py-2.5 rounded-r-xl bg-surface-container-low text-on-surface font-body-md text-body-md border-0 focus:ring-2 focus:ring-primary focus:outline-none" id="recipient-phone" type="tel" value="699 45 88 12"/>
+</div>
+</div>
+<!-- Ville / Arrondissement -->
+<div class="sm:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="delivery-zone">
+                Ville / Zone de distribution *
+              </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[18px]">location_city</span>
+<select class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md border-0 focus:ring-2 focus:ring-primary focus:outline-none appearance-none cursor-pointer" id="delivery-zone">
+<option selected="">Douala 1er (Akwa / Bonanjo / Bonapriso / Koumassi)</option>
+<option>Douala 2e (New Bell / Nkololoun / Babylone)</option>
+<option>Douala 3e (Bassa / Logbaba / Ndogpassi / Nyalla)</option>
+<option>Douala 4e (Bonabéri / Grand Moulin / Mambanda)</option>
+<option>Douala 5e (Makepe / Bonamoussadi / Denver / Kotto)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Adresse exacte & repères -->
+<div class="sm:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="delivery-address">
+                Adresse de livraison &amp; repères visuels camerounais *
+              </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[18px]">pin_drop</span>
+<input class="w-full pl-10 pr-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md border-0 focus:ring-2 focus:ring-primary focus:outline-none" id="delivery-address" type="text" value="Quartier Bonapriso, Rue des Palmiers, face Clinique de l'Aéroport, Portail blanc"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Mentionnez un carrefour, une station-service ou un commerce connu pour faciliter la course.</p>
+</div>
+<!-- Instructions coursier -->
+<div class="sm:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="courier-notes">
+                Instructions pour le coursier (Optionnel)
+              </label>
+<textarea class="w-full p-3 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md border-0 focus:ring-2 focus:ring-primary focus:outline-none resize-none" id="courier-notes" rows="2">Appeler dès l'arrivée à la barrière, sonnerie en panne.</textarea>
+</div>
+</form>
+<!-- Délai estimé badge -->
+<div class="mt-space-md p-3 rounded-xl bg-[#dcfce9] flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px] flex-shrink-0">timer</span>
+<div class="font-body-sm text-body-sm text-[#14532d]">
+<span class="font-label-md text-label-md block">Délai estimé de livraison : 25 à 35 minutes</span>
+              Votre colis médical est pris en charge immédiatement dès la confirmation du paiement.
+            </div>
+</div>
+</section>
+</div>
+<!-- COLONNE DROITE (5 cols) : Paiement Mobile Money & Réassurances -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg lg:sticky lg:top-24">
+<!-- CARTE PAIEMENT MOBILE MONEY -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-md">
+<div class="pb-space-md border-b border-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">contactless</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Paiement Mobile Money</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Débit instantané et sans frais de transaction supplémentaires</p>
+</div>
+<!-- Choix Opérateur -->
+<div class="mt-space-md">
+<span class="font-label-md text-label-md text-on-surface block mb-space-xs">Sélectionnez votre opérateur camerounais</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="operator-selector">
+<!-- Option 1: MTN MoMo -->
+<label class="cursor-pointer relative flex flex-col p-3 rounded-xl bg-[#fff9e6] hover:bg-[#fff3cc] transition-all operator-card active-operator shadow-sm" data-operator="mtn">
+<input checked="" class="sr-only" name="mobile_operator" onchange="selectOperator('mtn')" type="radio" value="mtn"/>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<!-- Logo Badge MTN -->
+<span class="w-8 h-8 rounded-lg bg-[#ffcc00] flex items-center justify-center font-bold text-black text-[13px] shadow-sm tracking-tighter">
+                      MoMo
+                    </span>
+<span class="font-label-lg text-label-lg text-black font-bold">MTN MoMo</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-[#ffcc00] flex items-center justify-center operator-check">
+<span class="material-symbols-outlined text-black text-[14px] font-bold">check</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-[#4d3e00]">Validation USSD via *126#</span>
+</label>
+<!-- Option 2: Orange Money -->
+<label class="cursor-pointer relative flex flex-col p-3 rounded-xl bg-surface-container-low hover:bg-[#fff2e8] transition-all operator-card" data-operator="orange">
+<input class="sr-only" name="mobile_operator" onchange="selectOperator('orange')" type="radio" value="orange"/>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<!-- Logo Badge Orange -->
+<span class="w-8 h-8 rounded-lg bg-[#ff7900] flex items-center justify-center font-bold text-white text-[13px] shadow-sm tracking-tighter">
+                      OM
+                    </span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Orange Money</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center operator-check opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">radio_button_unchecked</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validation USSD via #150#</span>
+</label>
+</div>
+</div>
+<!-- Saisie Numéro Mobile Money -->
+<div class="mt-space-md">
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="momo-phone">
+              Numéro Mobile Money (6XX XX XX XX) *
+            </label>
+<div class="relative flex">
+<span class="inline-flex items-center gap-1 px-3 rounded-l-xl bg-surface-container text-on-surface font-label-md text-label-md">
+<span>🇨🇲</span>
+<span class="font-bold">+237</span>
+</span>
+<input class="w-full px-3.5 py-3 rounded-r-xl bg-surface-container-low text-on-surface font-headline-sm text-headline-sm font-semibold tracking-wide border-0 focus:ring-2 focus:ring-primary focus:outline-none placeholder:text-outline/60" id="momo-phone" placeholder="677 12 34 56" type="tel" value="677 45 88 12"/>
+</div>
+<p class="font-body-sm text-body-sm text-[#006e2f] mt-1.5 flex items-center gap-1" id="operator-hint">
+<span class="material-symbols-outlined text-[15px]">info</span>
+<span>Numéro éligible pour le push automatique MTN MoMo</span>
+</p>
+</div>
+<!-- Guide Pas à Pas -->
+<div class="mt-space-md p-3.5 rounded-xl bg-surface-container-low">
+<span class="font-label-md text-label-md text-on-surface block mb-2">Comment se déroule le paiement ?</span>
+<ol class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="font-label-md text-label-md text-primary bg-surface-container-lowest w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+<span>Cliquez sur le bouton <strong>Payer 8 000 FCFA</strong> ci-dessous.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="font-label-md text-label-md text-primary bg-surface-container-lowest w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+<span>Une notification push s'affichera directement sur votre téléphone.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="font-label-md text-label-md text-primary bg-surface-container-lowest w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+<span>Composez votre code secret Mobile Money pour autoriser le prélèvement.</span>
+</li>
+</ol>
+</div>
+<!-- CTA Bouton Vert Imposant -->
+<button class="w-full mt-space-md py-4 px-6 rounded-xl bg-primary hover:bg-primary-container active:bg-[#14532d] text-on-primary font-label-lg text-headline-sm font-bold flex items-center justify-center gap-3 shadow-[0px_4px_20px_-2px_rgba(20,83,45,0.2)] transition-all" id="pay-button" onclick="handlePayment()" type="button">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+<span id="btn-pay-text">Payer 8 000 FCFA</span>
+</button>
+<!-- Label Sécurité & Réglementation -->
+<div class="mt-3.5 text-center flex flex-col items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center justify-center gap-1.5 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">security</span>
+<span>Chiffrement Bancaire SSL 256-bit</span>
+</div>
+<p class="text-outline">
+              Réf : <strong class="text-on-surface">PAY-DLA-8492</strong> · Conforme aux normes GIMAC / BEAC
+            </p>
+</div>
+</section>
+<!-- ENCARTS DE RÉASSURANCE ET SUPPORT -->
+<div class="flex flex-col gap-3">
+<!-- Carte MINSANTE / Officine -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#dcfce9] text-[#14532d] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">health_and_safety</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Garantie Traçabilité MINSANTE</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Vos médicaments sont préparés, vérifiés et scellés sous la supervision directe du pharmacien titulaire de la <strong>Pharmacie du Centre</strong> (Licence MINSANTE N° 441/DLA).
+              </p>
+</div>
+</div>
+<!-- Carte Assistance Locale WhatsApp -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">support_agent</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Besoin d'aide pour régler ?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Support Douala : <strong class="text-primary">+237 670 00 00 00</strong></p>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-xl bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm hover:bg-[#bbf7d0] transition-colors flex items-center gap-1 flex-shrink-0" href="https://wa.me/237670000000" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal de confirmation de transaction en attente (Simulation) -->
+<div class="fixed inset-0 z-50 bg-[rgba(30,41,59,0.4)] flex items-center justify-center p-4 hidden" id="payment-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-space-lg shadow-xl text-center">
+<div class="w-16 h-16 rounded-full bg-[#dcfce9] text-primary flex items-center justify-center mx-auto mb-space-md animate-bounce">
+<span class="material-symbols-outlined text-[36px]">cell_tower</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Demande envoyée au téléphone</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+        Consultez l'écran de votre smartphone. Saisissez votre code secret pour valider le montant de <strong class="text-on-surface">8 000 FCFA</strong>.
+      </p>
+<div class="mt-space-md p-3 rounded-xl bg-surface-container-low flex items-center justify-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-md text-label-md text-on-surface">En attente de votre validation USSD...</span>
+</div>
+<div class="mt-space-lg flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="closeModal()" type="button">
+          Annuler
+        </button>
+<button class="flex-1 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors" onclick="fakeSuccess()" type="button">
+          J'ai validé le code
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Pricing states
+  const prices = {
+    1: 2000,
+    2: 2100,
+    3: 900
+  };
+  const quantities = {
+    1: 2,
+    2: 1,
+    3: 1
+  };
+  const deliveryFee = 1000;
+
+  function updateQty(id, delta) {
+    const current = quantities[id] || 0;
+    const next = Math.max(1, current + delta);
+    quantities[id] = next;
+    
+    const qtyElem = document.getElementById('qty-' + id);
+    if (qtyElem) qtyElem.innerText = next;
+
+    const subtotal = next * prices[id];
+    const subtotalElem = document.getElementById('subtotal-' + id);
+    if (subtotalElem) {
+      subtotalElem.innerText = formatFCFA(subtotal);
+    }
+    recalcTotal();
+  }
+
+  function removeItem(elementId) {
+    const item = document.getElementById(elementId);
+    if (item) {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(-6px)';
+      item.style.transition = 'all 0.2s ease-out';
+      setTimeout(() => {
+        item.remove();
+        if (elementId === 'cart-item-1') quantities[1] = 0;
+        if (elementId === 'cart-item-2') quantities[2] = 0;
+        if (elementId === 'cart-item-3') quantities[3] = 0;
+        recalcTotal();
+      }, 200);
+    }
+  }
+
+  function recalcTotal() {
+    let articlesTotal = 0;
+    for (let k in quantities) {
+      articlesTotal += quantities[k] * prices[k];
+    }
+    const grandTotal = articlesTotal + deliveryFee;
+
+    const totalArticlesElem = document.getElementById('total-articles');
+    if (totalArticlesElem) totalArticlesElem.innerText = formatFCFA(articlesTotal);
+
+    const grandTotalElem = document.getElementById('grand-total');
+    if (grandTotalElem) grandTotalElem.innerText = formatFCFA(grandTotal);
+
+    const btnText = document.getElementById('btn-pay-text');
+    if (btnText) btnText.innerText = 'Payer ' + formatFCFA(grandTotal);
+  }
+
+  function formatFCFA(val) {
+    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " FCFA";
+  }
+
+  // Operator selector logic
+  function selectOperator(type) {
+    const cards = document.querySelectorAll('.operator-card');
+    cards.forEach(card => {
+      const isCurrent = card.getAttribute('data-operator') === type;
+      const checkCircle = card.querySelector('.operator-check');
+      if (isCurrent) {
+        if (type === 'mtn') {
+          card.className = 'cursor-pointer relative flex flex-col p-3 rounded-xl bg-[#fff9e6] hover:bg-[#fff3cc] transition-all operator-card shadow-sm ring-2 ring-[#ffcc00]';
+          if (checkCircle) {
+            checkCircle.className = 'w-5 h-5 rounded-full bg-[#ffcc00] flex items-center justify-center operator-check';
+            checkCircle.innerHTML = '<span class="material-symbols-outlined text-black text-[14px] font-bold">check</span>';
+          }
+          document.getElementById('operator-hint').innerHTML = '<span class="material-symbols-outlined text-[15px]">info</span><span>Numéro éligible pour le push automatique MTN MoMo</span>';
+        } else {
+          card.className = 'cursor-pointer relative flex flex-col p-3 rounded-xl bg-[#fff2e8] hover:bg-[#ffe5d1] transition-all operator-card shadow-sm ring-2 ring-[#ff7900]';
+          if (checkCircle) {
+            checkCircle.className = 'w-5 h-5 rounded-full bg-[#ff7900] flex items-center justify-center operator-check';
+            checkCircle.innerHTML = '<span class="material-symbols-outlined text-white text-[14px] font-bold">check</span>';
+          }
+          document.getElementById('operator-hint').innerHTML = '<span class="material-symbols-outlined text-[15px]">info</span><span>Numéro éligible pour Orange Money (Validez par #150# si le push tarde)</span>';
+        }
+      } else {
+        card.className = 'cursor-pointer relative flex flex-col p-3 rounded-xl bg-surface-container-low transition-all operator-card opacity-80 hover:opacity-100';
+        if (checkCircle) {
+          checkCircle.className = 'w-5 h-5 rounded-full bg-surface-container flex items-center justify-center operator-check opacity-40';
+          checkCircle.innerHTML = '<span class="material-symbols-outlined text-on-surface-variant text-[14px]">radio_button_unchecked</span>';
+        }
+      }
+    });
+  }
+
+  // Position GPS Simulation
+  function simulateGps() {
+    const addr = document.getElementById('delivery-address');
+    if (addr) {
+      addr.value = "Position GPS fixée : Akwa Nord, face Collège De La Salle, Portail vert";
+      addr.classList.add('bg-[#dcfce9]');
+      setTimeout(() => {
+        addr.classList.remove('bg-[#dcfce9]');
+      }, 1200);
+    }
+  }
+
+  // Payment micro interaction
+  function handlePayment() {
+    const modal = document.getElementById('payment-modal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('payment-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function fakeSuccess() {
+    alert("Succès ! Votre paiement a été confirmé par l'opérateur. La Pharmacie du Centre commence la préparation de vos médicaments.");
+    closeModal();
+  }
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-[#e2e8f0] pt-space-xl pb-space-lg"><div class="max-w-[1280px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-desktop mb-space-xl"><div class="lg:col-span-2 space-y-space-md pr-space-md"><div class="flex items-center gap-space-sm"><img alt="PharmaConnect Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdB6pbk4p5JA3WtXZFjA8YnAZKbn0Xw2oHJ_aqQXUQIjJToc_PAdGVDqeAP69oi-KQrWZrKloyAq6Mdsg13ZlQvq6jqDK9M_PIDEBYCEu8NYaAImt_vQ9J3o9FjlETJhc4CoAbhEDuKKVJYw1OtpCDYoYTAV1k8gUmJ5fy8NLhzLpBpirn49yXsYc7gPjY3keik-kawl6iLR0cC6RF4ynj-tpFiRW9v1zrb7Iq6WLpDI7Rbl9SP2ADlvl"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PharmaConnect</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Plateforme numérique sécurisée pour l'accès aux médicaments homologués, pharmacies de garde et services d'officine au Cameroun.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="inline-flex items-center gap-2 px-space-md py-1.5 rounded-full bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>Officines Agréées MINSANTE</span></div></div></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Plateforme</h4><ul class="space-y-space-sm"><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="a-propos" href="#">À propos</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="pharmacies-partenaires" href="#">Pharmacies partenaires</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="televerser-une-ordonnance" href="#">Téléverser une ordonnance</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="faq-et-aide" href="#">FAQ &amp; Aide</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Légal &amp; Sécurité</h4><ul class="space-y-space-sm"><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="conditions-generales" href="#">Conditions Générales</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="politique-de-confidentialite" href="#">Politique de confidentialité</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="mentions-legales" href="#">Mentions Légales</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="deontologie-pharmaceutique" href="#">Ordre des Pharmaciens</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Assistance locale</h4><div class="space-y-space-sm font-body-md text-body-md text-on-surface-variant"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">support_agent</span><div><p class="font-label-lg text-label-lg text-on-surface">Support Douala</p><p>+237 690 00 00 00</p></div></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">chat</span><div><p class="font-label-lg text-label-lg text-on-surface">WhatsApp Officiel</p><p>+237 670 00 00 00</p></div></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">schedule</span><p>Lun - Sam : 07h30 - 21h00</p></div></div></div></div><div class="pt-space-md border-t border-[#e2e8f0] flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 PharmaConnect Cameroun. Tous droits réservés. Conforme aux directives de l'Ordre National des Pharmaciens du Cameroun (ONPC).</p><div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm"><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>Données Médicales Protégées</span><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">local_shipping</span>Livraison Sécurisée Douala &amp; Yaoundé</span></div></div></div></footer></body></html>

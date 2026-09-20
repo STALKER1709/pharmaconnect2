@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>PharmaConnect - Santé &amp; Médicaments au Cameroun</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { 'colors': { 'on-secondary-fixed-variant': '#005321', 'on-secondary-container': '#007432', 'surface-container-low': '#f0f3ff', 'on-surface-variant': '#3e4a3d', 'error-container': '#ffdad6', 'on-primary': '#ffffff', 'on-tertiary-fixed-variant': '#8a143c', 'inverse-primary': '#62df7d', 'on-primary-fixed': '#002109', 'secondary-fixed': '#6bff8f', 'secondary-fixed-dim': '#4ae176', 'error': '#ba1a1a', 'tertiary-fixed-dim': '#ffb2bf', 'on-primary-fixed-variant': '#005320', 'inverse-surface': '#263143', 'surface-container-highest': '#d8e3fb', 'surface-bright': '#f9f9ff', 'outline': '#6e7b6c', 'on-secondary': '#ffffff', 'on-error-container': '#93000a', 'inverse-on-surface': '#ecf1ff', 'background': '#f9f9ff', 'secondary-container': '#6bff8f', 'primary': '#006b2c', 'surface': '#f9f9ff', 'primary-container': '#00873a', 'surface-container': '#e7eeff', 'primary-fixed': '#7ffc97', 'surface-container-high': '#dee8ff', 'outline-variant': '#bdcaba', 'on-error': '#ffffff', 'on-primary-container': '#f7fff2', 'on-tertiary-fixed': '#3f0016', 'on-surface': '#111c2d', 'on-tertiary': '#ffffff', 'surface-container-lowest': '#ffffff', 'tertiary-container': '#c74668', 'on-secondary-fixed': '#002109', 'secondary': '#006e2f', 'on-background': '#111c2d', 'surface-variant': '#d8e3fb', 'surface-dim': '#cfdaf2', 'surface-tint': '#006e2d', 'on-tertiary-container': '#fffbff', 'tertiary': '#a72d51', 'tertiary-fixed': '#ffd9de', 'primary-fixed-dim': '#62df7d' }, 'borderRadius': { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, 'spacing': { 'margin': '1rem', 'space-sm': '0.5rem', 'space-xl': '2.5rem', 'space-lg': '1.5rem', 'gutter': '1rem', 'space-xs': '0.25rem', 'space-md': '1rem', 'margin-desktop': '2.5rem', 'gutter-desktop': '1.5rem' }, 'fontFamily': { 'body-lg': ['Inter'], 'headline-lg-mobile': ['Plus Jakarta Sans'], 'label-lg': ['Inter'], 'label-md': ['Inter'], 'body-md': ['Inter'], 'headline-lg': ['Plus Jakarta Sans'], 'currency-display': ['Plus Jakarta Sans'], 'headline-md': ['Plus Jakarta Sans'], 'headline-xl': ['Plus Jakarta Sans'], 'label-sm': ['Inter'], 'headline-sm': ['Plus Jakarta Sans'], 'headline-xl-mobile': ['Plus Jakarta Sans'], 'body-sm': ['Inter'] }, 'fontSize': { 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'headline-lg-mobile': ['24px', { 'lineHeight': '32px', 'fontWeight': '600' }], 'label-lg': ['14px', { 'lineHeight': '20px', 'fontWeight': '600' }], 'label-md': ['12px', { 'lineHeight': '16px', 'fontWeight': '600' }], 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }], 'headline-lg': ['32px', { 'lineHeight': '40px', 'fontWeight': '600' }], 'currency-display': ['20px', { 'lineHeight': '24px', 'fontWeight': '700' }], 'headline-md': ['22px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'headline-xl': ['40px', { 'lineHeight': '48px', 'fontWeight': '700' }], 'label-sm': ['11px', { 'lineHeight': '14px', 'fontWeight': '500' }], 'headline-sm': ['18px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'headline-xl-mobile': ['30px', { 'lineHeight': '38px', 'fontWeight': '700' }], 'body-sm': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }] } } } }</script></head><body class="bg-[#f0fdf6] font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-[#e2e8f0]"><div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-space-sm focus:outline-none" data-path="accueil" href="#"><img alt="PharmaConnect Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdB6pbk4p5JA3WtXZFjA8YnAZKbn0Xw2oHJ_aqQXUQIjJToc_PAdGVDqeAP69oi-KQrWZrKloyAq6Mdsg13ZlQvq6jqDK9M_PIDEBYCEu8NYaAImt_vQ9J3o9FjlETJhc4CoAbhEDuKKVJYw1OtpCDYoYTAV1k8gUmJ5fy8NLhzLpBpirn49yXsYc7gPjY3keik-kawl6iLR0cC6RF4ynj-tpFiRW9v1zrb7Iq6WLpDI7Rbl9SP2ADlvl"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PharmaConnect</span></a></div><nav class="hidden lg:flex items-center gap-space-xs p-1" data-active-classes="bg-surface-container-high text-on-surface font-label-lg rounded-xl"><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="medicaments" href="#">Médicaments</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="pharmacies-de-garde" href="#">Pharmacies de garde</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="ordonnances" href="#">Ordonnances</a><a class="px-space-md py-2 text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all rounded-xl" data-path="comment-ca-marche" href="#">Comment ça marche</a></nav><div class="flex items-center gap-space-sm"><div class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-full bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span><span>Douala</span></div><a class="hidden sm:inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-surface-container-lowest border border-[#bbf7d0] text-primary font-label-lg text-label-lg hover:bg-[#f0fdf6] transition-colors" data-path="connexion" href="#">Connexion</a><a class="inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors shadow-[0px_4px_20px_-2px_rgba(20,83,45,0.05)]" data-path="creer-un-compte" href="#">Créer un compte</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-[#f0fdf6] min-h-[calc(100vh-20rem)]"><div class="flex flex-col w-full">
+<!-- Top Notification Pill Bar -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop pt-space-lg pb-space-xs">
+<div class="flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dcfce7] border border-[#bbf7d0] text-[#15803d] font-label-md text-label-md shadow-sm transition-all hover:bg-[#d1fae5]">
+<span class="inline-block w-2 h-2 rounded-full bg-[#16a34a] animate-pulse"></span>
+<span>Service pharmaceutique certifié à Douala &amp; Yaoundé</span>
+<span class="text-xs text-[#16a34a] font-medium hidden sm:inline">• Agréé ONPC N° 2024/CMR</span>
+</div>
+</div>
+</section>
+<!-- 1. HERO SECTION -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop py-space-md md:py-space-lg">
+<div class="text-center max-w-3xl mx-auto">
+<h1 class="font-headline-xl text-headline-xl md:text-[48px] md:leading-[54px] font-bold text-slate-900 tracking-tight">
+        Vos médicaments, livrés à <span class="text-primary underline decoration-[#86efac] decoration-wavy decoration-2 underline-offset-8">Douala</span>
+</h1>
+<p class="mt-4 font-body-lg text-body-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Commandez directement auprès des pharmacies agréées de votre quartier. Livraison rapide et sécurisée en moins de 45 minutes avec suivi sous chaîne du froid.
+      </p>
+<!-- Prominent Search Container -->
+<div class="mt-8 bg-surface-container-lowest rounded-2xl p-2.5 border border-slate-200 shadow-[0_10px_30px_-5px_rgba(20,83,45,0.08)] flex flex-col md:flex-row items-stretch md:items-center gap-2">
+<div class="flex items-center flex-1 px-3 py-2 text-slate-400">
+<svg class="w-5 h-5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<input class="w-full bg-transparent px-3 font-body-md text-body-md text-slate-800 placeholder:text-slate-400 focus:outline-none" id="searchInput" placeholder="Rechercher un médicament, une molécule ou un symptôme..." type="text"/>
+</div>
+<div class="h-6 w-px bg-slate-200 hidden md:block"></div>
+<!-- District Selector -->
+<div class="flex items-center px-3 py-2 bg-slate-50 md:bg-transparent rounded-xl md:rounded-none">
+<span class="text-primary text-[18px] mr-1.5 flex-shrink-0 material-symbols-outlined">location_on</span>
+<select class="bg-transparent font-label-md text-label-md text-slate-700 focus:outline-none cursor-pointer">
+<option value="douala-all">Douala (Tout le Grand Douala)</option>
+<option value="akwa">Akwa • Boulevard Liberté</option>
+<option value="bonanjo">Bonanjo • Plateau administratif</option>
+<option value="bali">Bali • Koumassi</option>
+<option value="bonapriso">Bonapriso • Armée de l'Air</option>
+<option value="deido">Deido • Grand Moulin / Rond-Point</option>
+<option value="makepe">Makèpè • Rhône Poulenc</option>
+<option value="bepanda">Bépanda • Omnisports</option>
+</select>
+</div>
+<!-- Primary Submit Button -->
+<button class="px-6 py-3.5 bg-[#16a34a] hover:bg-[#15803d] text-white font-label-lg text-label-lg rounded-[12px] flex items-center justify-center gap-2 transition-colors shadow-sm" type="button">
+<span>Trouver en officine</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Quick Search Chips -->
+<div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-slate-500 font-label-sm text-label-sm">
+<span class="font-medium text-slate-600">Recherches fréquentes :</span>
+<button class="px-2.5 py-1 rounded-full bg-white border border-slate-200 hover:border-[#16a34a] hover:text-[#16a34a] transition-all" onclick="document.getElementById('searchInput').value='Paracétamol'" type="button">Paracétamol</button>
+<button class="px-2.5 py-1 rounded-full bg-white border border-slate-200 hover:border-[#16a34a] hover:text-[#16a34a] transition-all" onclick="document.getElementById('searchInput').value='Coartem'" type="button">Coartem</button>
+<button class="px-2.5 py-1 rounded-full bg-white border border-slate-200 hover:border-[#16a34a] hover:text-[#16a34a] transition-all" onclick="document.getElementById('searchInput').value='Amoxicilline'" type="button">Amoxicilline</button>
+<button class="px-2.5 py-1 rounded-full bg-white border border-slate-200 hover:border-[#16a34a] hover:text-[#16a34a] transition-all" onclick="document.getElementById('searchInput').value='Vitamine C'" type="button">Vitamine C</button>
+<button class="px-2.5 py-1 rounded-full bg-white border border-slate-200 hover:border-[#16a34a] hover:text-[#16a34a] transition-all" onclick="document.getElementById('searchInput').value='Spasfon'" type="button">Spasfon</button>
+<button class="px-2.5 py-1 rounded-full bg-white border border-slate-200 hover:border-[#16a34a] hover:text-[#16a34a] transition-all" onclick="document.getElementById('searchInput').value='Sérum physiologique'" type="button">Sérum physiologique</button>
+</div>
+<!-- Mobile Money Payment Badges -->
+<div class="mt-6 pt-5 border-t border-[#dcfce7] flex flex-col sm:flex-row items-center justify-center gap-3">
+<span class="font-label-sm text-label-sm text-slate-600 font-medium">Règlement instantané et sans contact certifié :</span>
+<div class="flex items-center flex-wrap justify-center gap-2">
+<!-- MTN MoMo -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#fef08a] border border-[#fde047] text-[#713f12] rounded-full font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="w-2 h-2 rounded-full bg-[#eab308]"></span>
+<span>MTN MoMo (*126#)</span>
+</div>
+<!-- Orange Money -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ffedd5] border border-[#fed7aa] text-[#9a3412] rounded-full font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="w-2 h-2 rounded-full bg-[#f97316]"></span>
+<span>Orange Money (#150*)</span>
+</div>
+<!-- Cash à la livraison -->
+<div class="inline-flex items-center gap-1 px-3 py-1 bg-white border border-slate-200 text-slate-700 rounded-full font-label-sm text-label-sm shadow-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">payments</span>
+<span>Espèces à la livraison</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. TRUST BADGES BAR -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop py-space-sm">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex items-start gap-3.5 transition-transform hover:-translate-y-0.5">
+<div class="w-12 h-12 rounded-xl bg-[#dcfce7] flex items-center justify-center text-[#15803d] flex-shrink-0">
+<span class="material-symbols-outlined text-[26px]">verified_user</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-semibold">Pharmacies agréées</h3>
+<p class="mt-1 font-body-sm text-body-sm text-slate-600 leading-snug">100% de médicaments authentiques issus de pharmaciens certifiés par l'Ordre National (ONPC).</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex items-start gap-3.5 transition-transform hover:-translate-y-0.5">
+<div class="w-12 h-12 rounded-xl bg-[#e0f2fe] flex items-center justify-center text-[#0369a1] flex-shrink-0">
+<span class="material-symbols-outlined text-[26px]">phonelink_ring</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-semibold">Paiement Mobile Money</h3>
+<p class="mt-1 font-body-sm text-body-sm text-slate-600 leading-snug">Paiement direct sans frais additionnels via MTN MoMo ou Orange Money à la commande ou à réception.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex items-start gap-3.5 transition-transform hover:-translate-y-0.5">
+<div class="w-12 h-12 rounded-xl bg-[#fef3c7] flex items-center justify-center text-[#b45309] flex-shrink-0">
+<span class="material-symbols-outlined text-[26px]">electric_moped</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-semibold">Livraison express &lt; 45 min</h3>
+<p class="mt-1 font-body-sm text-body-sm text-slate-600 leading-snug">Coursiers formés et équipés de sacs isothermes garantissant le respect strict de la chaîne du froid.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. SECTION: MÉDICAMENTS LES PLUS DEMANDÉS -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop py-space-xl">
+<!-- Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<div class="inline-flex items-center gap-1.5 font-label-md text-label-md font-semibold text-primary uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">medication</span>
+<span>Officine numérique Douala</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-slate-900">Médicaments disponibles en officine</h2>
+<p class="mt-1 font-body-md text-body-md text-slate-600">Prix transparents réglementés en FCFA, délivrés selon les normes pharmaceutiques nationales.</p>
+</div>
+<a class="inline-flex items-center gap-1.5 font-label-lg text-label-lg text-primary hover:text-[#15803d] font-semibold transition-colors pb-1" href="#">
+<span>Voir tout le catalogue (1 420+)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- 8 Medication Cards Bento-like Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Card 1: Paracétamol -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<!-- Visual Box & Category Header -->
+<div class="w-full h-36 rounded-xl bg-[#f8fafc] border border-slate-100 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 font-label-sm text-label-sm font-medium">Douleur &amp; Fièvre</span>
+<!-- In-Stock Badge -->
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>En stock
+            </span>
+<!-- Pack Mock SVG -->
+<svg class="w-20 h-20 text-[#0284c7]" fill="currentColor" viewbox="0 0 64 64">
+<rect fill="#bae6fd" height="36" rx="4" stroke="#0284c7" stroke-width="2" width="40" x="12" y="14"></rect>
+<path d="M12 26h40" stroke="#0284c7" stroke-width="2"></path>
+<circle cx="32" cy="38" fill="#ffffff" r="7" stroke="#0284c7" stroke-width="1.5"></circle>
+<text fill="#0369a1" font-size="8" font-weight="bold" text-anchor="middle" x="32" y="41">1g</text>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009360</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Paracétamol Biogaran 1g</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Boîte de 8 comprimés sécables</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">1 200 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-[14px] text-primary">store</span>
+              Pharmacie d'Akwa
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Ajouter au panier</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Coartem -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="w-full h-36 rounded-xl bg-[#fefce8] border border-amber-100 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-label-sm text-label-sm font-medium">Antipaludique</span>
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>En stock
+            </span>
+<!-- Coartem Blister Pack SVG -->
+<svg class="w-20 h-20 text-amber-600" fill="currentColor" viewbox="0 0 64 64">
+<rect fill="#fef08a" height="32" rx="3" stroke="#d97706" stroke-width="2" width="44" x="10" y="16"></rect>
+<circle cx="20" cy="26" fill="#ffffff" r="4" stroke="#d97706" stroke-width="1.5"></circle>
+<circle cx="32" cy="26" fill="#ffffff" r="4" stroke="#d97706" stroke-width="1.5"></circle>
+<circle cx="44" cy="26" fill="#ffffff" r="4" stroke="#d97706" stroke-width="1.5"></circle>
+<circle cx="20" cy="38" fill="#ffffff" r="4" stroke="#d97706" stroke-width="1.5"></circle>
+<circle cx="32" cy="38" fill="#ffffff" r="4" stroke="#d97706" stroke-width="1.5"></circle>
+<circle cx="44" cy="38" fill="#ffffff" r="4" stroke="#d97706" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009712</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Coartem 80/480mg</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Comprimés dispersibles (6 comprimés)</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">3 500 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-[14px] text-primary">store</span>
+              Pharma Rond-Point
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Ajouter au panier</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Amoxicilline -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="w-full h-36 rounded-xl bg-[#f0fdf4] border border-green-100 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] font-label-sm text-label-sm font-medium">Antibiotique</span>
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>En stock
+            </span>
+<!-- Gélule Pack SVG -->
+<svg class="w-20 h-20 text-[#16a34a]" fill="currentColor" viewbox="0 0 64 64">
+<rect fill="#bbf7d0" height="36" rx="4" stroke="#16a34a" stroke-width="2" width="36" x="14" y="14"></rect>
+<path d="M22 32h20" stroke="#16a34a" stroke-width="3"></path>
+<rect fill="#16a34a" height="16" rx="8" width="16" x="24" y="24"></rect>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009455</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Amoxicilline 500mg</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Sandoz • Boîte de 16 gélules</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">2 800 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-[14px] text-primary">store</span>
+              Pharmacie Bonanjo
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Ajouter au panier</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Vitamine C -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="w-full h-36 rounded-xl bg-[#fff7ed] border border-orange-100 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 font-label-sm text-label-sm font-medium">Forme &amp; Tonus</span>
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>En stock
+            </span>
+<!-- Effervescent Tube SVG -->
+<svg class="w-16 h-20 text-[#ea580c]" fill="currentColor" viewbox="0 0 64 64">
+<rect fill="#fed7aa" height="44" rx="4" stroke="#ea580c" stroke-width="2" width="20" x="22" y="10"></rect>
+<rect fill="#ea580c" height="6" rx="2" width="24" x="20" y="8"></rect>
+<circle cx="32" cy="24" fill="#ffffff" r="3"></circle>
+<circle cx="32" cy="34" fill="#ffffff" r="3"></circle>
+<circle cx="32" cy="44" fill="#ffffff" r="3"></circle>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009890</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Vitamine C 1000mg</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Tube de 20 comprimés effervescents</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">2 500 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-[14px] text-primary">store</span>
+              Pharmacie Saint-Pierre
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Ajouter au panier</span>
+</button>
+</div>
+</div>
+<!-- Card 5: Spasfon -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="w-full h-36 rounded-xl bg-[#fdf2f8] border border-pink-100 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-pink-100 text-pink-800 font-label-sm text-label-sm font-medium">Antispasmodique</span>
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>En stock
+            </span>
+<svg class="w-20 h-20 text-[#db2777]" fill="currentColor" viewbox="0 0 64 64">
+<rect fill="#fbcfe8" height="36" rx="4" stroke="#db2777" stroke-width="2" width="36" x="14" y="14"></rect>
+<circle cx="26" cy="32" fill="#ffffff" r="5" stroke="#db2777" stroke-width="1"></circle>
+<circle cx="38" cy="32" fill="#ffffff" r="5" stroke="#db2777" stroke-width="1"></circle>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009230</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Spasfon Lyoc 80mg</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">10 lyophilisats oraux sans eau</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">3 200 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-[14px] text-primary">store</span>
+              Pharma des Nations
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Ajouter au panier</span>
+</button>
+</div>
+</div>
+<!-- Card 6: Artéméther injectable -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="w-full h-36 rounded-xl bg-[#eff6ff] border border-blue-100 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 font-label-sm text-label-sm font-medium">Urgence Palu</span>
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>En stock
+            </span>
+<!-- Ampoule SVG -->
+<svg class="w-16 h-20 text-[#2563eb]" fill="currentColor" viewbox="0 0 64 64">
+<path d="M30 8h4v8l3 4v28a3 3 0 01-3 3h-4a3 3 0 01-3-3V20l3-4V8z" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"></path>
+<line stroke="#2563eb" stroke-width="2" x1="28" x2="36" y1="34" y2="34"></line>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009119</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Artéméther 80mg/ml</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Solution injectable • Boîte de 6 ampoules</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">4 800 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-[14px] text-primary">store</span>
+              Pharma de l'Aéroport
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Ajouter au panier</span>
+</button>
+</div>
+</div>
+<!-- Card 7: Sérum Physiologique -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="w-full h-36 rounded-xl bg-[#f0fdfa] border border-teal-100 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-label-sm text-label-sm font-medium">Soins &amp; Hygiène</span>
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>En stock
+            </span>
+<svg class="w-16 h-20 text-[#0d9488]" fill="currentColor" viewbox="0 0 64 64">
+<rect fill="#99f6e4" height="34" rx="4" stroke="#0d9488" stroke-width="2" width="24" x="20" y="16"></rect>
+<path d="M28 10h8v6h-8z" fill="#0d9488"></path>
+<circle cx="32" cy="32" fill="#ffffff" r="3"></circle>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009664</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Sérum Physiologique</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Gilbert 5ml • Boîte de 30 unidoses</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">2 100 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-[14px] text-primary">store</span>
+              Pharmacie du Centre
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Ajouter au panier</span>
+</button>
+</div>
+</div>
+<!-- Card 8: Ventoline (Rupture) -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)] opacity-95">
+<div>
+<div class="w-full h-36 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center relative p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 font-label-sm text-label-sm font-medium">Voies respiratoires</span>
+<!-- Out of stock badge -->
+<span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>Rupture
+            </span>
+<!-- Inhaler Spray SVG -->
+<svg class="w-16 h-20 text-slate-400" fill="currentColor" viewbox="0 0 64 64">
+<path d="M22 14h16v24l6 6v6H20v-6l2-2V14z" fill="#cbd5e1" stroke="#64748b" stroke-width="2"></path>
+<rect fill="#64748b" height="6" width="12" x="24" y="8"></rect>
+</svg>
+</div>
+<div class="mt-4">
+<span class="text-xs text-slate-400 font-mono">CIP: 34009581</span>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold leading-tight mt-0.5">Ventoline 100 µg/dose</h3>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Spray Inhalateur • 200 doses</p>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<span class="font-currency-display text-currency-display font-bold text-slate-900">5 400 FCFA</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-rose-600">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+              Non disponible
+            </span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-[12px] bg-slate-100 hover:bg-slate-200 text-slate-700 font-label-md text-label-md font-medium flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-slate-500">notifications_active</span>
+<span>M'alerter du retour</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. SECTION: 6 PHARMACIES PARTENAIRES À DOUALA -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop py-space-xl">
+<!-- Section Header & Filter Tabs -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+<div>
+<div class="inline-flex items-center gap-1.5 font-label-md text-label-md font-semibold text-primary uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">local_pharmacy</span>
+<span>Réseau conventionné</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-slate-900">Pharmacies partenaires à Douala</h2>
+<p class="mt-1 font-body-md text-body-md text-slate-600">Commandez auprès des officines de référence certifiées avec dispensiation sous la responsabilité du titulaire.</p>
+</div>
+<!-- Quartier Filter Pills -->
+<div class="flex items-center flex-wrap gap-1.5 bg-surface-container-lowest p-1.5 rounded-2xl border border-slate-200">
+<button class="px-3.5 py-1.5 rounded-xl bg-[#16a34a] text-white font-label-sm text-label-sm font-semibold transition-all" type="button">Toutes (6)</button>
+<button class="px-3 py-1.5 rounded-xl text-slate-600 hover:bg-slate-100 font-label-sm text-label-sm font-medium transition-all" type="button">Akwa</button>
+<button class="px-3 py-1.5 rounded-xl text-slate-600 hover:bg-slate-100 font-label-sm text-label-sm font-medium transition-all" type="button">Bonanjo</button>
+<button class="px-3 py-1.5 rounded-xl text-slate-600 hover:bg-slate-100 font-label-sm text-label-sm font-medium transition-all" type="button">Bali</button>
+<button class="px-3 py-1.5 rounded-xl text-slate-600 hover:bg-slate-100 font-label-sm text-label-sm font-medium transition-all" type="button">Deido</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 font-label-sm text-label-sm font-semibold hover:bg-amber-100 transition-all" type="button">
+<span>🌙 De garde ce soir</span>
+</button>
+</div>
+</div>
+<!-- 6 Pharmacy Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Pharmacy 1: Pharmacie du Centre Akwa -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="flex items-start justify-between gap-3">
+<div class="w-12 h-12 rounded-2xl bg-[#dcfce7] border border-[#bbf7d0] flex items-center justify-center text-[#15803d] flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
+</div>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Ouvert maintenant
+            </span>
+</div>
+<h3 class="mt-4 font-headline-sm text-headline-sm font-bold text-slate-900">Pharmacie du Centre Akwa</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-slate-400">pin_drop</span>
+            Boulevard de la Liberté, Akwa, Douala
+          </p>
+<!-- Delivery time & Rating -->
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 font-body-sm text-body-sm">
+<div class="flex items-center gap-1 text-amber-500 font-medium">
+<span>★ 4.9</span>
+<span class="text-slate-400">(214 avis)</span>
+</div>
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-medium">
+<span>⏱️ 25-35 min</span>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<a class="w-full py-2.5 px-4 rounded-[12px] bg-white border border-[#bbf7d0] text-[#16a34a] hover:bg-[#f0fdf6] hover:border-[#16a34a] font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all" href="#">
+<span>Consulter l'officine</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Pharmacy 2: Pharmacie de la Liberté - Bonanjo (Garde 24h) -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#bbf7d0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)] relative">
+<div>
+<div class="flex items-start justify-between gap-3">
+<div class="w-12 h-12 rounded-2xl bg-[#dcfce7] border border-[#bbf7d0] flex items-center justify-center text-[#15803d] flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
+</div>
+<!-- Garde Badge -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 font-label-sm text-label-sm font-bold animate-pulse">
+<span>🌙 Garde 24h/24</span>
+</span>
+</div>
+<h3 class="mt-4 font-headline-sm text-headline-sm font-bold text-slate-900">Pharmacie de la Liberté</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-slate-400">pin_drop</span>
+            Rue Joss, Quartier Administratif, Bonanjo
+          </p>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 font-body-sm text-body-sm">
+<div class="flex items-center gap-1 text-amber-500 font-medium">
+<span>★ 5.0</span>
+<span class="text-slate-400">(312 avis)</span>
+</div>
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-medium">
+<span>⏱️ 30-40 min</span>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<a class="w-full py-2.5 px-4 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-sm" href="#">
+<span>Consulter l'officine</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Pharmacy 3: Pharmacie Saint-Pierre - Bali -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="flex items-start justify-between gap-3">
+<div class="w-12 h-12 rounded-2xl bg-[#dcfce7] border border-[#bbf7d0] flex items-center justify-center text-[#15803d] flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Ouvert maintenant
+            </span>
+</div>
+<h3 class="mt-4 font-headline-sm text-headline-sm font-bold text-slate-900">Pharmacie Saint-Pierre</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-slate-400">pin_drop</span>
+            Avenue des Cocotiers, Bali, Douala
+          </p>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 font-body-sm text-body-sm">
+<div class="flex items-center gap-1 text-amber-500 font-medium">
+<span>★ 4.8</span>
+<span class="text-slate-400">(156 avis)</span>
+</div>
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-medium">
+<span>⏱️ 35-45 min</span>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<a class="w-full py-2.5 px-4 rounded-[12px] bg-white border border-[#bbf7d0] text-[#16a34a] hover:bg-[#f0fdf6] hover:border-[#16a34a] font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all" href="#">
+<span>Consulter l'officine</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Pharmacy 4: Pharmacie des Nations - Deido -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="flex items-start justify-between gap-3">
+<div class="w-12 h-12 rounded-2xl bg-[#dcfce7] border border-[#bbf7d0] flex items-center justify-center text-[#15803d] flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Ouvert jusqu'à 22h
+            </span>
+</div>
+<h3 class="mt-4 font-headline-sm text-headline-sm font-bold text-slate-900">Pharmacie des Nations</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-slate-400">pin_drop</span>
+            Rue Deido Plage, Deido, Douala
+          </p>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 font-body-sm text-body-sm">
+<div class="flex items-center gap-1 text-amber-500 font-medium">
+<span>★ 4.7</span>
+<span class="text-slate-400">(98 avis)</span>
+</div>
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-medium">
+<span>⏱️ 20-30 min</span>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<a class="w-full py-2.5 px-4 rounded-[12px] bg-white border border-[#bbf7d0] text-[#16a34a] hover:bg-[#f0fdf6] hover:border-[#16a34a] font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all" href="#">
+<span>Consulter l'officine</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Pharmacy 5: Pharmacie de l'Aéroport - Bonapriso (Garde) -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#bbf7d0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="flex items-start justify-between gap-3">
+<div class="w-12 h-12 rounded-2xl bg-[#dcfce7] border border-[#bbf7d0] flex items-center justify-center text-[#15803d] flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 font-label-sm text-label-sm font-bold">
+<span>🌙 Garde 24h/24</span>
+</span>
+</div>
+<h3 class="mt-4 font-headline-sm text-headline-sm font-bold text-slate-900">Pharmacie de l'Aéroport</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-slate-400">pin_drop</span>
+            Avenue Général de Gaulle, Bonapriso
+          </p>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 font-body-sm text-body-sm">
+<div class="flex items-center gap-1 text-amber-500 font-medium">
+<span>★ 4.9</span>
+<span class="text-slate-400">(420 avis)</span>
+</div>
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-medium">
+<span>⏱️ 25-35 min</span>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<a class="w-full py-2.5 px-4 rounded-[12px] bg-[#16a34a] hover:bg-[#15803d] text-white font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-sm" href="#">
+<span>Consulter l'officine</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Pharmacy 6: Pharmacie Principale Rond-Point Deido -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-[0_10px_25px_-4px_rgba(20,83,45,0.08)]">
+<div>
+<div class="flex items-start justify-between gap-3">
+<div class="w-12 h-12 rounded-2xl bg-[#dcfce7] border border-[#bbf7d0] flex items-center justify-center text-[#15803d] flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Ouvert maintenant
+            </span>
+</div>
+<h3 class="mt-4 font-headline-sm text-headline-sm font-bold text-slate-900">Pharmacie du Rond-Point</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-slate-400">pin_drop</span>
+            Rond-Point Deido, Carrefour des fleurs, Douala
+          </p>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 font-body-sm text-body-sm">
+<div class="flex items-center gap-1 text-amber-500 font-medium">
+<span>★ 4.6</span>
+<span class="text-slate-400">(189 avis)</span>
+</div>
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-medium">
+<span>⏱️ 30-45 min</span>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<a class="w-full py-2.5 px-4 rounded-[12px] bg-white border border-[#bbf7d0] text-[#16a34a] hover:bg-[#f0fdf6] hover:border-[#16a34a] font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all" href="#">
+<span>Consulter l'officine</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. SECTION ORDONNANCE (BANNER EXPRESS) -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop py-space-md">
+<div class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 border border-[#bbf7d0] shadow-[0_10px_35px_-5px_rgba(20,83,45,0.08)] flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
+<!-- Ambient foliage background accents -->
+<div class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-[#dcfce7] opacity-40 pointer-events-none"></div>
+<div class="max-w-2xl relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dcfce7] text-[#15803d] font-label-sm text-label-sm font-semibold mb-3">
+<span class="material-symbols-outlined text-[16px]">document_scanner</span>
+<span>Traitement express 10 minutes</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg md:text-[34px] font-bold text-slate-900 leading-tight">
+          Vous avez une ordonnance manuscrite ?
+        </h2>
+<p class="mt-3 font-body-lg text-body-lg text-slate-600 leading-relaxed">
+          Prenez-la simplement en photo avec votre smartphone. Notre pharmacien partenaire certifié déchiffre la posologie, prépare votre paquet scellé et vous envoie le devis Mobile Money instantanément.
+        </p>
+<div class="mt-6 flex flex-wrap items-center gap-4">
+<button class="px-6 py-3.5 bg-[#16a34a] hover:bg-[#15803d] text-white font-label-lg text-label-lg rounded-[12px] flex items-center gap-2 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+<span>Téléverser mon ordonnance 📄</span>
+</button>
+<button class="px-6 py-3.5 bg-white border border-[#bbf7d0] text-[#16a34a] hover:bg-[#f0fdf6] font-label-lg text-label-lg rounded-[12px] transition-all" type="button">
+            En savoir plus
+          </button>
+</div>
+<div class="mt-5 flex items-center gap-6 text-slate-500 font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">lock</span>Confidentialité médicale garantie</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>Validation pharmacien ONPC</span>
+</div>
+</div>
+<!-- Visual Card Mockup -->
+<div class="w-full lg:w-80 flex-shrink-0 relative z-10">
+<div class="bg-[#f0fdf6] rounded-2xl p-5 border border-[#bbf7d0] shadow-sm">
+<div class="flex items-center gap-3 border-b border-green-200/60 pb-3">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-slate-900">Devis ordonnance express</p>
+<p class="text-xs text-slate-500">Estimé en &lt; 10 min</p>
+</div>
+</div>
+<div class="py-3 space-y-2 text-xs text-slate-600 font-body-sm">
+<div class="flex justify-between">
+<span>3 produits identifiés</span>
+<span class="font-bold text-slate-800">Conforme</span>
+</div>
+<div class="flex justify-between">
+<span>Livraison Bonapriso</span>
+<span class="font-bold text-primary">Inclus</span>
+</div>
+<div class="flex justify-between border-t border-green-200/60 pt-2 font-bold text-slate-900 text-sm">
+<span>Total devis :</span>
+<span class="text-primary font-currency-display text-[16px]">7 100 FCFA</span>
+</div>
+</div>
+<div class="mt-2 w-full py-2 bg-white rounded-lg text-center font-label-sm text-primary font-bold border border-green-200 text-xs">
+            Validation immédiate par SMS / WhatsApp
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. TESTIMONIALS / LOCAL PROOF -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-desktop py-space-xl mb- space-lg">
+<div class="text-center max-w-2xl mx-auto mb-10">
+<div class="inline-flex items-center gap-1.5 font-label-md text-label-md font-semibold text-primary uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">recommend</span>
+<span>Avis de nos concitoyens</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-slate-900">Ils font confiance à PharmaConnect</h2>
+<p class="mt-1 font-body-md text-body-md text-slate-600">Des patients, médecins et pharmaciens engagés pour un accès sain et garanti aux soins à Douala.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div>
+<div class="flex items-center text-amber-500 mb-3">
+<span>★★★★★</span>
+<span class="ml-2 text-xs font-semibold text-slate-400">Vérifié</span>
+</div>
+<p class="font-body-md text-body-md text-slate-700 italic">
+            "En pleine crise de paludisme à 23h à Bonapriso, impossible de me déplacer. J'ai trouvé la pharmacie de garde sur le site, payé via Orange Money et le livreur était là en 35 minutes chrono."
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#dcfce7] flex items-center justify-center font-bold text-[#15803d]">CM</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-slate-900">Carine M.</h4>
+<p class="text-xs text-slate-500">Patiente • Bonapriso, Douala</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div>
+<div class="flex items-center text-amber-500 mb-3">
+<span>★★★★★</span>
+<span class="ml-2 text-xs font-semibold text-slate-400">Médecin Praticien</span>
+</div>
+<p class="font-body-md text-body-md text-slate-700 italic">
+            "Le risque des faux médicaments est réel dans notre région. Avec PharmaConnect, j'ai la certitude que mes patients reçoivent des spécialités homologuées directement délivrées par des officines certifiées."
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700">ET</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-slate-900">Dr. Emmanuel T.</h4>
+<p class="text-xs text-slate-500">Médecin Généraliste • Clinique d'Akwa</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#e2e8f0] shadow-[0_4px_20px_-2px_rgba(22,163,74,0.06),0_2px_6px_-1px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div>
+<div class="flex items-center text-amber-500 mb-3">
+<span>★★★★★</span>
+<span class="ml-2 text-xs font-semibold text-slate-400">Vérifié</span>
+</div>
+<p class="font-body-md text-body-md text-slate-700 italic">
+            "Le service photo d'ordonnance est d'une simplicité redoutable pour mes parents âgés à Deido. Je valide le panier par MTN MoMo depuis mon bureau et ils sont livrés sans stress."
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-800">PK</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-slate-900">Patrick K.</h4>
+<p class="text-xs text-slate-500">Client régulier • Deido, Douala</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive toast notification simulation -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="cartToast">
+<div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-400 text-[20px]">check_circle</span>
+<span class="font-body-sm text-body-sm" id="toastMessage">Produit ajouté à votre panier</span>
+</div>
+</div>
+<script>
+    // Simple micro-interactions: add to cart toast simulation
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent.includes('Ajouter au panier')) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const card = this.closest('.bg-surface-container-lowest');
+          const title = card ? card.querySelector('h3').innerText : 'Médicament';
+          const toast = document.getElementById('cartToast');
+          const msg = document.getElementById('toastMessage');
+          msg.textContent = `${title} ajouté au panier`;
+          toast.classList.remove('translate-y-24', 'opacity-0');
+          toast.classList.add('translate-y-0', 'opacity-100');
+          setTimeout(() => {
+            toast.classList.add('translate-y-24', 'opacity-0');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+          }, 3000);
+        });
+      }
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-[#e2e8f0] pt-space-xl pb-space-lg"><div class="max-w-[1280px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-desktop mb-space-xl"><div class="lg:col-span-2 space-y-space-md pr-space-md"><div class="flex items-center gap-space-sm"><img alt="PharmaConnect Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VrdB6pbk4p5JA3WtXZFjA8YnAZKbn0Xw2oHJ_aqQXUQIjJToc_PAdGVDqeAP69oi-KQrWZrKloyAq6Mdsg13ZlQvq6jqDK9M_PIDEBYCEu8NYaAImt_vQ9J3o9FjlETJhc4CoAbhEDuKKVJYw1OtpCDYoYTAV1k8gUmJ5fy8NLhzLpBpirn49yXsYc7gPjY3keik-kawl6iLR0cC6RF4ynj-tpFiRW9v1zrb7Iq6WLpDI7Rbl9SP2ADlvl"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PharmaConnect</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Plateforme numérique sécurisée pour l'accès aux médicaments homologués, pharmacies de garde et services d'officine au Cameroun.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="inline-flex items-center gap-2 px-space-md py-1.5 rounded-full bg-[#dcfce9] text-[#14532d] font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>Officines Agréées MINSANTE</span></div></div></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Plateforme</h4><ul class="space-y-space-sm"><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="a-propos" href="#">À propos</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="pharmacies-partenaires" href="#">Pharmacies partenaires</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="televerser-une-ordonnance" href="#">Téléverser une ordonnance</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="faq-et-aide" href="#">FAQ &amp; Aide</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Légal &amp; Sécurité</h4><ul class="space-y-space-sm"><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="conditions-generales" href="#">Conditions Générales</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="politique-de-confidentialite" href="#">Politique de confidentialité</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="mentions-legales" href="#">Mentions Légales</a></li><li class="nav-item"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="deontologie-pharmaceutique" href="#">Ordre des Pharmaciens</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Assistance locale</h4><div class="space-y-space-sm font-body-md text-body-md text-on-surface-variant"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">support_agent</span><div><p class="font-label-lg text-label-lg text-on-surface">Support Douala</p><p>+237 690 00 00 00</p></div></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">chat</span><div><p class="font-label-lg text-label-lg text-on-surface">WhatsApp Officiel</p><p>+237 670 00 00 00</p></div></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[20px] mt-0.5">schedule</span><p>Lun - Sam : 07h30 - 21h00</p></div></div></div></div><div class="pt-space-md border-t border-[#e2e8f0] flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 PharmaConnect Cameroun. Tous droits réservés. Conforme aux directives de l'Ordre National des Pharmaciens du Cameroun (ONPC).</p><div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm"><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>Données Médicales Protégées</span><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">local_shipping</span>Livraison Sécurisée Douala &amp; Yaoundé</span></div></div></div></footer></body></html>

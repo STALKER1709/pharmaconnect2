@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-container":"#c74668","primary-container":"#00873a","inverse-surface":"#263143","tertiary-fixed":"#ffd9de","secondary":"#006e2f","inverse-on-surface":"#ecf1ff","tertiary-fixed-dim":"#ffb2bf","on-primary-container":"#f7fff2","surface-container-high":"#dee8ff","on-tertiary":"#ffffff","secondary-fixed-dim":"#4ae176","on-primary-fixed-variant":"#005320","on-secondary-container":"#007432","surface-tint":"#006e2d","on-tertiary-container":"#fffbff","on-background":"#111c2d","on-surface-variant":"#3e4a3d","on-primary":"#ffffff","on-error-container":"#93000a","on-tertiary-fixed-variant":"#8a143c","primary-fixed":"#7ffc97","outline-variant":"#bdcaba","outline":"#6e7b6c","error-container":"#ffdad6","tertiary":"#a72d51","primary-fixed-dim":"#62df7d","on-primary-fixed":"#002109","on-surface":"#111c2d","surface-container-lowest":"#ffffff","primary":"#006b2c","on-tertiary-fixed":"#3f0016","on-error":"#ffffff","secondary-container":"#6bff8f","error":"#ba1a1a","background":"#f9f9ff","surface-container":"#e7eeff","on-secondary-fixed":"#002109","inverse-primary":"#62df7d","surface-container-low":"#f0f3ff","surface-bright":"#f9f9ff","surface":"#f9f9ff","surface-dim":"#cfdaf2","on-secondary":"#ffffff","surface-variant":"#d8e3fb","on-secondary-fixed-variant":"#005321","surface-container-highest":"#d8e3fb","secondary-fixed":"#6bff8f"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"2.5rem","space-xl":"2.5rem","space-sm":"0.5rem","space-md":"1rem","space-xs":"0.25rem","margin":"1rem","gutter-desktop":"1.5rem","gutter":"1rem","space-lg":"1.5rem"},"fontFamily":{"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"currency-display":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"headline-xl-mobile":["30px",{"lineHeight":"38px","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","fontWeight":"500"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"currency-display":["20px",{"lineHeight":"24px","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(20,83,45,0.06)]"><div class="h-20 max-w-7xl mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">local_pharmacy</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">PharmaConnect</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Douala Santé Express</span></div></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-3 py-1.5 rounded-full"><span class="material-symbols-outlined text-primary text-[16px]">two_wheeler</span><span class="font-label-sm text-label-sm text-on-surface font-medium">Espace Coursier Express Douala</span></div><div class="flex items-center gap-2 bg-secondary-container/40 px-3 py-1 rounded-full"><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span></span><span class="font-label-md text-label-md text-on-secondary-container">En ligne</span></div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg px-3 py-2"><a aria-current="page" class="transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg px-3 py-2" data-path="missions-en-direct" href="#">Missions en direct</a><a class="text-on-surface-variant hover:text-on-surface px-3 py-2 rounded-lg font-label-lg text-label-lg transition-colors" data-path="historique-des-courses" href="#">Historique des courses</a><a class="text-on-surface-variant hover:text-on-surface px-3 py-2 rounded-lg font-label-lg text-label-lg transition-colors" data-path="mes-gains" href="#">Mes gains</a><a class="text-on-surface-variant hover:text-on-surface px-3 py-2 rounded-lg font-label-lg text-label-lg transition-colors" data-path="mon-vehicule" href="#">Mon véhicule</a><a class="text-on-surface-variant hover:text-on-surface px-3 py-2 rounded-lg font-label-lg text-label-lg transition-colors" data-path="support-coursier" href="#">Support coursier</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-md bg-surface-container-low px-4 py-2 rounded-xl"><div class="flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface-variant">Gains du jour</span><span class="font-currency-display text-currency-display text-primary leading-none">15 000 FCFA</span></div><div class="h-6 w-px bg-outline-variant/60"></div><div class="flex items-center gap-1.5 text-on-surface"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span><span class="font-label-md text-label-md">6 courses</span></div></div><div class="hidden sm:flex items-center gap-2 px-2.5 py-1.5 bg-surface-container-lowest rounded-lg shadow-[0_2px_8px_rgba(20,83,45,0.04)]"><div class="flex items-center gap-1 text-primary" title="Signal GPS Akwa Actif"><span class="material-symbols-outlined text-[16px]">near_me</span><span class="font-label-sm text-label-sm font-medium">GPS</span></div><span class="text-outline-variant text-xs">•</span><div class="flex items-center gap-1 text-on-surface-variant" title="Batterie terminal: 88%"><span class="material-symbols-outlined text-[16px] text-primary">battery_charging_90</span><span class="font-label-sm text-label-sm font-medium">88%</span></div></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden xl:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Paul Nguemo</span><span class="font-label-sm text-label-sm text-on-surface-variant">Yamaha YBR • LT 482-AD</span></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Courier Notification Toast (Simulated Live Dispatch) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-inverse-surface text-inverse-on-surface px-5 py-3.5 rounded-xl shadow-xl flex items-center gap-3" id="quick-toast">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">notifications_active</span>
+<span class="font-label-md text-label-md" id="toast-text">Course acceptée avec succès</span>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop py-space-md w-full flex flex-col gap-space-lg">
+<!-- 1. Top Banner / Header Controls & Courier Status Bar -->
+<div class="w-full bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Identity & Vehicle Info -->
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">two_wheeler</span>
+</div>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Bonjour Paul Nguemo</h1>
+<span class="text-xl">👋</span>
+<span class="inline-flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded-full text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> 4,9
+              </span>
+</div>
+<div class="flex flex-wrap items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sports_motorsports</span>
+                Yamaha YBR 125
+              </span>
+<span>•</span>
+<span class="font-medium text-on-surface">LT 482-AD</span>
+<span>•</span>
+<span class="text-primary font-medium">Zone active : Douala 1er & 2e</span>
+</div>
+</div>
+</div>
+<!-- Controls: Toggle & GPS Status -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Real-time GPS Indicator -->
+<div class="flex items-center gap-2 bg-surface-container-low px-3.5 py-2 rounded-xl">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                Position GPS active
+                <span class="text-[10px] text-primary font-normal">(< 5m)</span>
+</span>
+<span class="text-[10px] text-on-surface-variant leading-none">Synchro il y a 8s</span>
+</div>
+</div>
+<!-- Availability Switch Toggle -->
+<div class="flex items-center gap-3 bg-secondary-container/20 px-4 py-2 rounded-xl">
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm font-bold text-on-secondary-container">Disponibilité</span>
+<span class="text-[11px] text-on-surface-variant hidden sm:inline">Bonanjo & Akwa</span>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full transition-colors duration-200 ease-in-out bg-primary" id="toggle-dispo" onclick="toggleOnlineStatus()" role="switch">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out my-0.5" id="toggle-circle"></span>
+</button>
+<span class="font-label-md text-label-md text-primary font-bold" id="status-badge-text">En ligne</span>
+</div>
+</div>
+</div>
+<!-- 4 Key Metrics Stat Cards -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-space-sm pt-2">
+<!-- Metric 1: Gains du jour -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Gains du jour</span>
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">15 000 FCFA</span>
+<div class="flex items-center gap-1.5 mt-1 font-label-sm text-label-sm">
+<span class="text-primary font-semibold flex items-center">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +3 500 FCFA
+              </span>
+<span class="text-on-surface-variant">· 6 courses</span>
+</div>
+</div>
+</div>
+<!-- Metric 2: Pourboires & Bonus -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Pourboires & Bonus</span>
+<span class="material-symbols-outlined text-primary text-[18px]">savings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">2 500 FCFA</span>
+<div class="flex items-center gap-1 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span>MTN MoMo instantané</span>
+</div>
+</div>
+</div>
+<!-- Metric 3: Distance & Carburant -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Distance totale</span>
+<span class="material-symbols-outlined text-primary text-[18px]">route</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">28,4 km</span>
+<div class="flex items-center gap-1 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">local_gas_station</span>
+<span>Conso est. ~1,2 L (Super)</span>
+</div>
+</div>
+</div>
+<!-- Metric 4: Note de service & Qualité -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Note de service</span>
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">4,9</span>
+<span class="font-label-md text-label-md text-primary font-bold">/ 5.0</span>
+</div>
+<div class="flex items-center gap-1 mt-1 font-label-sm text-label-sm text-on-surface-variant truncate">
+<span class="text-primary font-semibold">96% accept.</span>
+<span>· Froid 100%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Main Layout (Two Unequal Columns: 65% Active Mission vs 35% Opportunities) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg w-full items-start">
+<!-- LEFT COLUMN: Ma livraison en cours (Active Mission - 65% / 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Active Delivery Box -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col gap-space-md relative overflow-hidden">
+<!-- Card Header & Badge -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2">
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-full font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">priority_high</span>
+                MISSION EN COURS · Priorité Médicale Haute
+              </span>
+<span class="font-label-md text-label-md text-on-surface-variant bg-surface-container px-2.5 py-0.5 rounded-md font-mono">
+                #CMD-2026-0042
+              </span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-xl text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rémunération :</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">+1 800 FCFA</span>
+<span class="text-[11px] text-on-surface-variant hidden md:inline">(Course 1 500 + Tip 300)</span>
+</div>
+</div>
+<!-- Interactive Delivery Timeline Stepper -->
+<div class="w-full bg-surface-container-low rounded-xl p-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-3 relative">
+<!-- Step 1: Prise en charge (DONE) -->
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-primary">1. Officine</span>
+<span class="text-[11px] text-on-surface font-medium truncate">Pharmacie du Centre</span>
+<span class="text-[10px] text-on-surface-variant">Validé à 14h25</span>
+</div>
+</div>
+<!-- Step 2: En transit (ACTIVE) -->
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 relative">
+<span class="animate-ping absolute inset-0 rounded-full bg-primary/40"></span>
+<span class="material-symbols-outlined text-[16px]">motorcycle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-bold text-primary">2. En transit</span>
+<span class="text-[11px] text-on-surface font-medium truncate">Vers Bonapriso</span>
+<span class="text-[10px] text-primary font-semibold">34 km/h · Est. 14h42</span>
+</div>
+</div>
+<!-- Step 3: Arrivé sur place (PENDING) -->
+<div class="flex items-start gap-3 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">3. Arrivé client</span>
+<span class="text-[11px] text-on-surface-variant truncate">Rue des Palmiers</span>
+<span class="text-[10px] text-on-surface-variant">À venir</span>
+</div>
+</div>
+<!-- Step 4: Remise finale (PENDING) -->
+<div class="flex items-start gap-3 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">inventory</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">4. Remise sac</span>
+<span class="text-[11px] text-on-surface-variant truncate">Scan OTP patient</span>
+<span class="text-[10px] text-on-surface-variant">Clôture course</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Vector Map Representation (OpenStreetMap / Mapbox Aesthetic of Douala) -->
+<div class="relative w-full h-80 rounded-xl overflow-hidden bg-surface-container-high shadow-inner">
+<!-- Simulated Map Canvas with Douala Geolocation -->
+<div class="w-full h-full bg-cover bg-center" data-alt="Stylized modern GPS navigation map vector view of Douala Cameroon displaying avenues of Bonanjo and Bonapriso with marked green medical delivery path, clean cartography and soft mint accents" data-location="Douala, Bonanjo, Bonapriso, Cameroon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnodm6YbExPD91GhE9nTpEfNiBZN1zCB41RbmvcwxeMQP5CzjJL7gB7lF3UtD9wQJi2hlYskxIolpBPjYe7D8CNUZeHyNVmUEpuz1QLnJHkQwBRY4o2c29tb39CbDC4RQoWnR8k4wJ20ivHmWzDxYjeyogYaTtUxK1NZiOawisbB2YBj0hkseppBEpkW7XdH_cdR4VFwl50PPG4aTeYN8gWEi86C9GRxn3XaQdqAokM95Clsos8K1rMw')"></div>
+<!-- Stylized Floating Path & Markers Overlay -->
+<div class="absolute inset-0 pointer-events-none p-4 flex flex-col justify-between">
+<!-- Floating Map Telemetry Bar -->
+<div class="flex items-center justify-between w-full flex-wrap gap-2">
+<div class="bg-surface/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-md flex items-center gap-3">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">navigation</span>
+<span class="font-label-md text-label-md font-bold">1,4 km restants</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface">~5 min restantes</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Douala 30°C ☀️</span>
+</div>
+<!-- Cold-Chain Isothermal Box Sensor Indicator -->
+<div class="bg-surface/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">ac_unit</span>
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Sacoche isotherme:</span>
+<span class="font-label-md text-label-md font-bold text-primary">19°C</span>
+<span class="text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded font-semibold">Optimal</span>
+</div>
+</div>
+</div>
+<!-- Map Pin Markers (Aesthetic Representation) -->
+<div class="relative w-full h-32 my-auto">
+<!-- Origin Pin (Bonanjo) -->
+<div class="absolute left-10 top-6 bg-surface-container-lowest px-2 py-1 rounded-lg shadow-md flex items-center gap-1.5 text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">local_pharmacy</span>
+                  Pharmacie du Centre
+                </div>
+<!-- Courier Moto Pin (Midway) -->
+<div class="absolute left-1/2 top-10 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary shadow-lg flex items-center justify-center ring-4 ring-on-primary">
+<span class="material-symbols-outlined text-[20px]">two_wheeler</span>
+</div>
+<span class="bg-inverse-surface text-inverse-on-surface px-2 py-0.5 rounded text-[10px] font-medium mt-1">
+                    Paul (34 km/h)
+                  </span>
+</div>
+<!-- Destination Pin (Bonapriso) -->
+<div class="absolute right-10 bottom-4 bg-surface-container-lowest px-2.5 py-1 rounded-lg shadow-md flex items-center gap-1.5 text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-tertiary-container text-[16px]">home_pin</span>
+                  Rue des Palmiers (Portail blanc)
+                </div>
+</div>
+<!-- Bottom Map Footer Status -->
+<div class="flex items-center justify-between">
+<div class="bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-[11px] text-on-surface-variant font-mono">
+                  Cap: Sud-Est · Trajet optimisé trafic Akwa-Bonanjo
+                </div>
+<div class="bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-[11px] text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">sensors</span>
+                  Balise GPS v4.2
+                </div>
+</div>
+</div>
+</div>
+<!-- Progressive Action Buttons Bar (Crucial Dispatch Stepper) -->
+<div class="flex flex-col gap-3 pt-1">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<!-- Button 1: Démarré (Passed State) -->
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-surface-container text-on-surface-variant font-label-md text-label-md cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+                Démarré à 14h28
+              </button>
+<!-- Button 2: Arrivé sur place (Primary Action Next) -->
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 shadow-md" id="btn-arrived" onclick="triggerArrived()">
+<span class="material-symbols-outlined text-[18px] animate-bounce">location_on</span>
+                Arrivé sur place
+              </button>
+<!-- Button 3: Marquer livrée (Secondary Action Next) -->
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg transition-colors hover:bg-surface-container shadow-sm" id="btn-delivered" onclick="triggerDeliveryConfirm()">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                Marquer livrée
+              </button>
+</div>
+<!-- Quick Contacts and Incident Reporting Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+<div class="flex flex-wrap items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md" href="tel:+237699458812">
+<span class="material-symbols-outlined text-primary text-[16px]">call</span>
+                  Appeler le client (699 45 88 12)
+                </a>
+<a class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md" href="https://wa.me/237699458812" target="_blank">
+<span class="material-symbols-outlined text-primary text-[16px]">chat</span>
+                  WhatsApp
+                </a>
+</div>
+<!-- Incident Button -->
+<button class="inline-flex items-center gap-1 text-tertiary hover:underline font-label-sm text-label-sm" onclick="reportIncident()">
+<span class="material-symbols-outlined text-[16px]">report_problem</span>
+                Signaler un embouteillage / incident
+              </button>
+</div>
+</div>
+<!-- Specific Order Details Accordion / Summary -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Détails de l'acheminement médical</span>
+<span class="text-primary font-label-sm text-label-sm font-semibold">Pochette scellée intacte</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-body-md text-on-surface">
+<!-- Pharmacy Pickup Point -->
+<div class="flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary mt-0.5">
+<span class="material-symbols-outlined text-[15px]">apartment</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Lieu de retrait</span>
+<span class="font-semibold text-on-surface">Pharmacie du Centre (Bonanjo)</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">Avenue de Gaulle, en face Trésor Public</span>
+</div>
+</div>
+<!-- Patient Delivery Address -->
+<div class="flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-tertiary-container mt-0.5">
+<span class="material-symbols-outlined text-[15px]">pin_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Adresse de remise patient</span>
+<span class="font-semibold text-on-surface">Marc-Aurèle Tchounkeu</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">Bonapriso, Rue des Palmiers (Face Clinique de l'Aéroport, Portail blanc)</span>
+</div>
+</div>
+</div>
+<!-- Medical Sealed Bag Details -->
+<div class="flex items-center gap-3 pt-2 bg-surface-container-lowest p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px]">medical_services</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Sacoche sécurisée #SEC-99214</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">Paracétamol Biogaran 1g · Sérum Physiologique 500ml · Vitamine C UPSA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Livraisons disponibles (3 Opportunités) - 35% / 4 cols -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Feed Container Header -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">radar</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Courses disponibles</h2>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold">
+              3 nouvelles
+            </span>
+</div>
+<!-- Alert sound & Filter controls -->
+<div class="flex items-center justify-between pt-1">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors" id="toggle-audio" onclick="toggleAudio()">
+<span class="material-symbols-outlined text-primary text-[16px]" id="audio-icon">volume_up</span>
+<span id="audio-label">Alertes sonores actives</span>
+</button>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">filter_list</span>
+<span>Rayon < 5 km</span>
+</div>
+</div>
+<!-- OPPORTUNITY 1: Urgent Pediatric -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-3 transition-all hover:bg-surface-container duration-200" id="card-opp-1">
+<!-- Header Tag -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                Urgent · Pédiatrique
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Il y a 3 min</span>
+</div>
+<!-- Route Details -->
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">local_pharmacy</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Pharmacie de la Liberté</span>
+<span class="text-[11px] text-on-surface-variant">Akwa, Bvd de la Liberté</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] mt-0.5">home</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Deïdo, Rond-Point 4 Étages</span>
+<span class="text-[11px] text-on-surface-variant">Livraison prioritaire à domicile</span>
+</div>
+</div>
+</div>
+<!-- Distance & Compensation -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">straighten</span>
+<span>3,2 km • ~12 min</span>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">1 500 FCFA</span>
+<span class="block text-[10px] text-on-surface-variant">MoMo Garanti</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<button class="col-span-2 py-2.5 px-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold transition-transform hover:-translate-y-0.5 shadow-sm text-center" onclick="acceptCourse('card-opp-1', '1 500 FCFA - Akwa vers Deïdo')">
+                Accepter
+              </button>
+<button class="py-2.5 px-3 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-error hover:bg-error-container/20 font-label-md text-label-md text-center transition-colors" onclick="refuseCourse('card-opp-1')">
+                Refuser
+              </button>
+</div>
+</div>
+<!-- OPPORTUNITY 2: Standard Prescription -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-3 transition-all hover:bg-surface-container duration-200" id="card-opp-2">
+<!-- Header Tag -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px] text-primary">description</span>
+                Ordonnance validée
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Il y a 7 min</span>
+</div>
+<!-- Route Details -->
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">local_pharmacy</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Pharmacie Saint-Pierre</span>
+<span class="text-[11px] text-on-surface-variant">Bali, Carrefour Koumassi</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] mt-0.5">home</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Bonapriso, Rue Tokoto</span>
+<span class="text-[11px] text-on-surface-variant">Résidence Les Bougainvilliers</span>
+</div>
+</div>
+</div>
+<!-- Distance & Compensation -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">straighten</span>
+<span>2,4 km • ~8 min</span>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">1 200 FCFA</span>
+<span class="block text-[10px] text-on-surface-variant">MoMo Garanti</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<button class="col-span-2 py-2.5 px-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold transition-transform hover:-translate-y-0.5 shadow-sm text-center" onclick="acceptCourse('card-opp-2', '1 200 FCFA - Bali vers Bonapriso')">
+                Accepter
+              </button>
+<button class="py-2.5 px-3 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-error hover:bg-error-container/20 font-label-md text-label-md text-center transition-colors" onclick="refuseCourse('card-opp-2')">
+                Refuser
+              </button>
+</div>
+</div>
+<!-- OPPORTUNITY 3: Night Duty Special Payout -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-3 transition-all hover:bg-surface-container duration-200" id="card-opp-3">
+<!-- Header Tag -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 bg-surface-variant text-on-surface font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px] text-primary">nightlight</span>
+                Garde réservée
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Il y a 11 min</span>
+</div>
+<!-- Route Details -->
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">local_pharmacy</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Pharmacie de l'Aéroport</span>
+<span class="text-[11px] text-on-surface-variant">Bonapriso</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] mt-0.5">home</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Youpwé, Cité des Cadres</span>
+<span class="text-[11px] text-on-surface-variant">Zone Pêcheurs</span>
+</div>
+</div>
+</div>
+<!-- Distance & Compensation -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">straighten</span>
+<span>4,8 km • ~16 min</span>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">2 100 FCFA</span>
+<span class="block text-[10px] text-primary font-semibold">+Majoration nuit</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<button class="col-span-2 py-2.5 px-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold transition-transform hover:-translate-y-0.5 shadow-sm text-center" onclick="acceptCourse('card-opp-3', '2 100 FCFA - Bonapriso vers Youpwé')">
+                Accepter
+              </button>
+<button class="py-2.5 px-3 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-error hover:bg-error-container/20 font-label-md text-label-md text-center transition-colors" onclick="refuseCourse('card-opp-3')">
+                Refuser
+              </button>
+</div>
+</div>
+</div>
+<!-- Safety Checklist Reminder Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/40 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Protocole Froid & Sécurité</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">Vérifiez toujours le thermo-indicateur avant d'ouvrir le sac scellé devant le patient.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Bottom Regulatory & Astreinte Support Banner -->
+<div class="w-full bg-surface-container-lowest rounded-2xl p-5 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Transport Médicalisé Homologué ONPC / MINSANTE</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Agrément officiel délivré sous le matricule TR-2025-014 pour la région du Littoral (Douala).</span>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<span class="text-[12px] text-on-surface-variant font-medium">Astreinte Dispatch 24/7 :</span>
+<a class="font-label-md text-label-md font-bold text-primary hover:underline flex items-center gap-1" href="tel:+237670000000">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+          +237 670 00 00 00
+        </a>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Logic (Status Toggle, Course Acceptance & Toasts) -->
+<script>
+    let isOnline = true;
+    let audioMuted = false;
+
+    function toggleOnlineStatus() {
+      isOnline = !isOnline;
+      const toggle = document.getElementById('toggle-dispo');
+      const circle = document.getElementById('toggle-circle');
+      const label = document.getElementById('status-badge-text');
+
+      if (isOnline) {
+        toggle.classList.remove('bg-surface-variant');
+        toggle.classList.add('bg-primary');
+        circle.classList.remove('translate-x-1');
+        circle.classList.add('translate-x-5');
+        label.textContent = "En ligne";
+        label.classList.remove('text-on-surface-variant');
+        label.classList.add('text-primary');
+        showToast("Statut mis à jour : Prêt à recevoir des courses à Douala");
+      } else {
+        toggle.classList.remove('bg-primary');
+        toggle.classList.add('bg-surface-variant');
+        circle.classList.remove('translate-x-5');
+        circle.classList.add('translate-x-1');
+        label.textContent = "Hors ligne";
+        label.classList.remove('text-primary');
+        label.classList.add('text-on-surface-variant');
+        showToast("Vous êtes maintenant hors ligne. Aucune nouvelle course ne sera affectée.");
+      }
+    }
+
+    function toggleAudio() {
+      audioMuted = !audioMuted;
+      const icon = document.getElementById('audio-icon');
+      const label = document.getElementById('audio-label');
+      if (audioMuted) {
+        icon.textContent = 'volume_off';
+        label.textContent = 'Alertes sonores en sourdine';
+        showToast("Alertes sonores désactivées");
+      } else {
+        icon.textContent = 'volume_up';
+        label.textContent = 'Alertes sonores actives';
+        showToast("Alertes sonores réactivées");
+      }
+    }
+
+    function acceptCourse(cardId, summary) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.style.opacity = '0.5';
+        card.style.pointerEvents = 'none';
+        showToast("Course retenue : " + summary);
+      }
+    }
+
+    function refuseCourse(cardId) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.style.display = 'none';
+        showToast("Course refusée. Recherche de nouvelles options...");
+      }
+    }
+
+    function triggerArrived() {
+      const btn = document.getElementById('btn-arrived');
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span> Confirmé sur place';
+      btn.classList.remove('bg-primary');
+      btn.classList.add('bg-surface-container', 'text-primary');
+      
+      const btnDelivered = document.getElementById('btn-delivered');
+      btnDelivered.classList.remove('bg-surface-container-lowest', 'text-primary');
+      btnDelivered.classList.add('bg-primary', 'text-on-primary', 'shadow-md');
+      showToast("Arrivée confirmée à Bonapriso Rue des Palmiers. Vous pouvez sonner le patient.");
+    }
+
+    function triggerDeliveryConfirm() {
+      showToast("Remise scellée validée par code OTP patient ! Course #CMD-2026-0042 clôturée.");
+    }
+
+    function reportIncident() {
+      showToast("Signalement transmis au dispatch central PharmaConnect Bonanjo.");
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('quick-toast');
+      const toastText = document.getElementById('toast-text');
+      toastText.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(20,83,45,0.03)] py-8"><div class="max-w-7xl mx-auto px-margin-desktop flex flex-col sm:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[20px]">verified</span><span class="font-body-sm text-body-sm">PharmaConnect Logistique Santé Cameroun • Douala • Yaoundé • Bafoussam</span></div><div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">emergency</span>Urgence médicale: 8100 (Gratuit)</span><span>© 2024 PharmaConnect Express</span></div></div></footer></body></html>

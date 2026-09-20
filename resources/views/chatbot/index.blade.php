@@ -3,7 +3,7 @@
 @section('titre', 'Assistant santé')
 
 @section('contenu')
-<div class="mx-auto max-w-2xl space-y-4"
+<div style="max-width:760px; margin:0 auto;"
      x-data="{
          ouvert: true,
          enCours: false,
@@ -42,30 +42,34 @@
          },
      }">
 
-    <h1 class="text-2xl font-black">🤖 Assistant santé PharmaConnect</h1>
-    <p class="text-sm text-slate-500">Conseils généraux (mode local, ne remplace pas un médecin).</p>
+    <h1 class="titre-page">🤖 Assistant santé PharmaConnect</h1>
+    <p class="sous-titre mb-4">Conseils généraux (mode local, ne remplace pas un médecin).</p>
 
-    <div class="card flex h-[65vh] flex-col">
-        <div id="fil-chatbot" class="flex-1 space-y-3 overflow-y-auto p-5">
+    <div class="carte" style="display:flex; flex-direction:column; height:65vh;">
+        <div id="fil-chatbot" style="flex:1; overflow-y:auto; padding:20px; display:grid; gap:12px; align-content:start;">
             <template x-if="reponses.length === 0">
                 <div class="bulle-autre">Bonjour 👋 Je suis votre assistant santé. Posez-moi vos questions : fièvre, palu, posologie, paiement, livraison…</div>
             </template>
             <template x-for="(r, i) in reponses" :key="i">
                 <div :class="r.role === 'user' ? 'bulle-moi' : 'bulle-autre'" x-text="r.contenu"></div>
             </template>
-            <div x-show="enCours" class="bulle-autre animate-pulse">…</div>
+            <div x-show="enCours" class="bulle-autre" style="animation:pulse 1.2s infinite;">…</div>
         </div>
 
-        <div class="flex flex-wrap gap-2 border-t border-menthe-100 px-4 pt-3">
+        <div class="rangée" style="padding:12px 16px 0; border-top:1px solid var(--vert-100);">
             <template x-for="s in suggestions" :key="s">
-                <button @click="envoyer(s)" class="rounded-full border border-menthe-200 px-3 py-1 text-xs text-menthe-800 hover:bg-menthe-50" x-text="s"></button>
+                <button type="button" @click="envoyer(s)" class="puce-recherche" x-text="s"></button>
             </template>
         </div>
 
-        <form @submit.prevent="envoyer()" class="flex gap-2 p-3">
-            <input x-model="message" :disabled="enCours" placeholder="Votre question…" class="input flex-1" autocomplete="off">
-            <button class="btn-primary" :disabled="enCours">Envoyer</button>
+        <form @submit.prevent="envoyer()" class="rangée" style="padding:12px;">
+            <input x-model="message" :disabled="enCours" placeholder="Votre question…" class="champ" style="flex:1;" autocomplete="off">
+            <button class="btn btn-primaire" :disabled="enCours">Envoyer</button>
         </form>
+    </div>
+
+    <div class="alerte alerte-ambre mt-4">
+        ⚠️ PharmaBot donne des conseils généraux et ne remplace pas l'avis d'un professionnel de santé.
     </div>
 </div>
 @endsection

@@ -3,43 +3,43 @@
 @section('titre', 'Horaires et statut')
 
 @section('contenu')
-<div class="mx-auto max-w-2xl space-y-6">
-    <h1 class="text-2xl font-black">🕐 Horaires d'ouverture</h1>
+<div style="max-width:680px; margin:0 auto;">
+    <h1 class="titre-page mb-6">🕐 Horaires d'ouverture</h1>
 
-    <form action="{{ route('pharmacie.horaires.update') }}" method="POST" class="card space-y-4 p-5">
+    <form action="{{ route('pharmacie.horaires.update') }}" method="POST" class="carte carte-corps mb-6" style="display:grid; gap:12px;">
         @csrf
         @method('PUT')
 
         @foreach($jours as $numero => $nom)
             @php $horaire = $pharmacie->horaireDuJour($numero); @endphp
-            <div class="flex flex-wrap items-center gap-3 rounded-xl border border-menthe-50 p-3">
-                <label class="flex w-36 items-center gap-2 text-sm font-semibold">
+            <div class="rangée" style="border:1px solid var(--bord); border-radius:12px; padding:12px;">
+                <label class="rangée texte-petit" style="width:150px; gap:8px; font-weight:600;">
                     <input type="hidden" name="jours[{{ $numero }}][ouvert]" value="0">
                     <input type="checkbox" name="jours[{{ $numero }}][ouvert]" value="1"
-                           class="h-4 w-4 rounded text-menthe-600" @checked($horaire?->ouvert ?? false)>
+                           class="case-a-cocher" @checked($horaire?->ouvert ?? false)>
                     {{ $nom }}
                 </label>
-                <div class="flex items-center gap-2 text-sm">
+                <div class="rangée texte-petit">
                     <input type="time" name="jours[{{ $numero }}][heure_ouverture]"
-                           value="{{ $horaire?->heure_ouverture?->format('H:i') ?? '08:00' }}" class="input w-28">
-                    <span class="text-slate-400">→</span>
+                           value="{{ $horaire?->heure_ouverture?->format('H:i') ?? '08:00' }}" class="champ" style="width:120px;">
+                    <span class="texte-doux">→</span>
                     <input type="time" name="jours[{{ $numero }}][heure_fermeture]"
-                           value="{{ $horaire?->heure_fermeture?->format('H:i') ?? '20:00' }}" class="input w-28">
+                           value="{{ $horaire?->heure_fermeture?->format('H:i') ?? '20:00' }}" class="champ" style="width:120px;">
                 </div>
             </div>
         @endforeach
 
-        <label class="flex items-center gap-2 text-sm">
-            <input type="checkbox" name="on_livraison" value="1" class="h-4 w-4 rounded text-menthe-600" @checked($pharmacie->on_livraison)>
+        <label class="rangée texte-petit" style="gap:8px;">
+            <input type="checkbox" name="on_livraison" value="1" class="case-a-cocher" @checked($pharmacie->on_livraison)>
             Proposer la livraison à domicile
         </label>
 
-        <button class="btn-primary">Enregistrer les horaires</button>
+        <button class="btn btn-primaire" style="justify-self:start;">Enregistrer les horaires</button>
     </form>
 
-    <div class="card p-5 text-sm">
-        <p class="font-semibold">Statut actuel :</p>
-        <p class="mt-1">{{ $pharmacie->statutOuverture() }} — calculé automatiquement selon vos horaires (heure de Douala).</p>
+    <div class="alerte alerte-info">
+        <span style="font-weight:600;">Statut actuel :</span>
+        {{ $pharmacie->statutOuverture() }} — calculé automatiquement selon vos horaires (heure de Douala).
     </div>
 </div>
 @endsection

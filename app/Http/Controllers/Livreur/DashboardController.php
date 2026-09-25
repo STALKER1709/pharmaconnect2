@@ -26,8 +26,14 @@ class DashboardController extends Controller
         // Mes livraisons actives
         $actives = Livraison::where('livreur_id', $livreur->id)
             ->whereIn('statut', [LivraisonStatut::Assignee, LivraisonStatut::Acceptee, LivraisonStatut::EnRoute, LivraisonStatut::Arrivee])
-            ->with(['commande.pharmacie', 'commande.client.user'])
+            ->with(['commande.pharmacie.user', 'commande.client.user', 'commande.lignes'])
             ->orderBy('created_at')
+            ->get();
+
+        $livreesDuJour = Livraison::where('livreur_id', $livreur->id)
+            ->where('statut', 'livree')
+            ->whereDate('livree_at', today())
+            ->with('commande:id,frais_livraison')
             ->get();
 
         // Historique
@@ -43,7 +49,9 @@ class DashboardController extends Controller
             'actives' => $actives,
             'terminees' => $terminees,
             'totalLivrees' => Livraison::where('livreur_id', $livreur->id)->where('statut', 'livree')->count(),
-            'aujourdhui' => Livraison::where('livreur_id', $livreur->id)->whereDate('livree_at', today())->count(),
+            'aujourdhui' => $livreesDuJour->count(),
+            'gainsDuJour' => (int) $livreesDuJour->sum(fn ($l) => $l->commande?->frais_livraison ?? 0),
+            'distanceDuJour' => (float) $livreesDuJour->sum('distance_km'),
         ]);
     }
 }

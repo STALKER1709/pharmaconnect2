@@ -36,10 +36,17 @@ Object.assign(window.PharmaConnect = window.PharmaConnect || {}, {
         return map;
     },
 
-    pin(carte, lat, lng, texte = '') {
-        return L.marker([lat, lng], { className: 'pharma-marker' })
-            .addTo(carte)
-            .bindPopup(texte);
+    pin(carte, lat, lng, texte = '', html = null, taille = 40) {
+        const options = { className: 'pharma-marker' };
+
+        // Marqueur HTML (pastilles des maquettes) plutôt que l'épingle Leaflet par défaut
+        if (html) {
+            options.icon = L.divIcon({ html, className: '', iconSize: [taille, taille], iconAnchor: [taille / 2, taille / 2] });
+        }
+
+        const marqueur = L.marker([lat, lng], options).addTo(carte);
+
+        return texte ? marqueur.bindPopup(texte) : marqueur;
     },
 
     geolocaliser(cb, erreur = null) {

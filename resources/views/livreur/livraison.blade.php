@@ -1,93 +1,47 @@
-@extends('layouts.app')
+@extends('layouts.livreur')
 
-@section('titre', 'Livraison '.$livraison->commande?->numero)
+@section('titre', 'Course '.$livraison->commande?->numero)
 
 @section('contenu')
-<div style="max-width:820px; margin:0 auto;"
-     x-data="PharmaConnect.suivi({
-         commandeId: {{ $livraison->commande?->id ?? 0 }},
-         statut: '{{ $livraison->statut->value }}',
-         statutLabel: '{{ $livraison->statut->label() }}',
-         statutLivraison: '{{ $livraison->statut->value }}',
-         estLivreur: true,
-         latitude: {{ $livraison->commande?->pharmacie?->latitude ?? 4.0511 }},
-         longitude: {{ $livraison->commande?->pharmacie?->longitude ?? 9.7679 }},
-         pharmacie: @json($livraison->commande?->pharmacie ? ['lat' => (float) $livraison->commande->pharmacie->latitude, 'lng' => (float) $livraison->commande->pharmacie->longitude, 'nom' => $livraison->commande->pharmacie->nom] : null),
-         arrivee: @json($livraison->latitude_arrivee ? ['lat' => (float) $livraison->latitude_arrivee, 'lng' => (float) $livraison->longitude_arrivee] : null),
-         csrf: '{{ csrf_token() }}',
-         urls: {
-             position: '#',
-             partager: '#',
-             signalerPosition: '{{ route('livreur.livraisons.position', $livraison) }}',
-         },
-     })"
-     x-init="init()" @beforeunload.window="destroy()">
-
-    <div class="rangee-entre mb-6">
-        <div>
-            <h1 class="titre-page">Course {{ $livraison->commande?->numero }}</h1>
-            <p class="sous-titre">🏥 {{ $livraison->commande?->pharmacie?->nom }} → 📍 {{ $livraison->commande?->adresse_livraison }}</p>
+<div class="flex flex-col w-full">
+    <div class="max-w-7xl mx-auto px-margin md:px-margin-desktop py-space-md w-full flex flex-col gap-space-lg">
+        <nav class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+            <a href="{{ route('livreur.dashboard') }}" class="hover:text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">arrow_back</span>Missions en direct</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span class="text-on-surface font-semibold">Course #{{ $livraison->commande?->numero }}</span>
+        </nav>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+            <div class="lg:col-span-8">
+                @include('livreur.partials.mission', ['livraison' => $livraison])
+            </div>
+            <div class="lg:col-span-4 flex flex-col gap-space-md">
+                <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">receipt_long</span>
+                        <h2 class="font-headline-sm text-headline-sm text-on-surface">Articles à livrer</h2>
+                    </div>
+                    @foreach ($livraison->commande?->lignes ?? [] as $ligne)
+                        <div class="flex items-center justify-between py-1.5 border-b border-surface-container last:border-0 font-body-sm text-body-sm">
+                            <span class="flex items-center gap-2 text-on-surface font-medium"><span class="material-symbols-outlined text-[16px] text-primary">medication</span>{{ $ligne->nom_medicament }}</span>
+                            <span class="text-on-surface-variant font-semibold">× {{ $ligne->quantite }}</span>
+                        </div>
+                    @endforeach
+                    <div class="flex items-center justify-between pt-2 font-label-lg text-label-lg">
+                        <span class="text-on-surface-variant">Montant réglé (MoMo)</span>
+                        <span class="text-primary">{{ format_fcfa($livraison->commande?->total) }}</span>
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-secondary-container/40 flex items-center justify-center text-primary shrink-0">
+                        <span class="material-symbols-outlined text-[24px]">verified_user</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md font-bold text-on-surface">Protocole Froid &amp; Sécurité</span>
+                        <span class="text-body-sm text-on-surface-variant">Vérifiez toujours le thermo-indicateur avant d'ouvrir le sac scellé devant le patient.</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span class="badge badge-bleu" style="font-size:14px; padding:6px 14px;" x-text="statutLabel"></span>
     </div>
-
-    <div class="carte mb-6" style="overflow:hidden;">
-        <div id="carte-suivi" class="carte-carte" style="height:320px;"></div>
-    </div>
-
-    <div class="carte carte-corps mb-6">
-        <h2 class="carte-titre" style="font-size:16px;">Articles à livrer</h2>
-        <ul style="list-style:none; margin:8px 0 0; padding:0; font-size:14px;">
-            @foreach($livraison->commande?->lignes ?? [] as $ligne)
-                <li class="rangee-entre" style="padding:6px 0;">
-                    <span>{{ $ligne->nom_medicament }} × {{ $ligne->quantite }}</span>
-                </li>
-            @endforeach
-        </ul>
-        @if($livraison->commande?->notes)
-            <div class="alerte alerte-ambre mt-4">📝 {{ $livraison->commande->notes }}</div>
-        @endif
-    </div>
-
-    {{-- Flux d'actions --}}
-    <div class="carte carte-corps mb-6" style="display:grid; gap:12px;">
-        <h2 class="carte-titre" style="font-size:16px;">Actions</h2>
-
-        @if($livraison->statut === \App\Enums\LivraisonStatut::Assignee)
-            <form action="{{ route('livreur.livraisons.accepter', $livraison) }}" method="POST">
-                @csrf
-                <button class="btn btn-primaire" style="width:100%;">✓ Accepter cette course</button>
-            </form>
-        @elseif($livraison->statut === \App\Enums\LivraisonStatut::Acceptee)
-            <form action="{{ route('livreur.livraisons.demarrer', $livraison) }}" method="POST">
-                @csrf
-                <button class="btn btn-primaire" style="width:100%;">🛵 Démarrer la livraison (partage GPS activé)</button>
-            </form>
-        @elseif($livraison->statut === \App\Enums\LivraisonStatut::EnRoute)
-            <div class="alerte alerte-info">📡 Position partagée automatiquement toutes les 10 s.</div>
-            <form action="{{ route('livreur.livraisons.arrivee', $livraison) }}" method="POST">
-                @csrf
-                <button class="btn btn-primaire" style="width:100%;">📍 Je suis arrivé sur place</button>
-            </form>
-        @elseif($livraison->statut === \App\Enums\LivraisonStatut::Arrivee)
-            <form action="{{ route('livreur.livraisons.livrer', $livraison) }}" method="POST">
-                @csrf
-                <button class="btn btn-primaire" style="width:100%;">✅ Colis remis au client</button>
-            </form>
-        @elseif($livraison->statut === \App\Enums\LivraisonStatut::Livree)
-            <p style="color:var(--vert-700); font-weight:600;">✅ Livrée — en attente de la confirmation du client.</p>
-        @endif
-    </div>
-
-    @auth
-        <div class="rangée">
-            @if($livraison->commande?->pharmacie?->user)
-                <a href="{{ route('messagerie.demarrer', $livraison->commande->pharmacie->user) }}" class="btn btn-secondaire btn-petit">💬 Pharmacien</a>
-            @endif
-            @if($livraison->commande?->client?->user)
-                <a href="{{ route('messagerie.demarrer', $livraison->commande->client->user) }}" class="btn btn-secondaire btn-petit">💬 Client</a>
-            @endif
-        </div>
-    @endauth
 </div>
 @endsection

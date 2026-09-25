@@ -42,6 +42,32 @@ class Medicament extends Model
             ->withTimestamps();
     }
 
+    /** Lignes de stock (une par pharmacie). */
+    public function stocks(): HasMany
+    {
+        return $this->hasMany(PharmacieMedicament::class);
+    }
+
+    /**
+     * Offre en stock la moins chère parmi les pharmacies actives
+     * (utilise la relation stocks.pharmacie si elle est déjà chargée).
+     */
+    public function meilleureOffre(): ?PharmacieMedicament
+    {
+        return $this->stocks
+            ->filter(fn (PharmacieMedicament $s) => $s->estEnStock() && $s->pharmacie?->statut === 'actif')
+            ->sortBy('prix')
+            ->first();
+    }
+
+    /** Nombre de pharmacies actives ayant ce médicament en stock. */
+    public function nbPharmaciesEnStock(): int
+    {
+        return $this->stocks
+            ->filter(fn (PharmacieMedicament $s) => $s->estEnStock() && $s->pharmacie?->statut === 'actif')
+            ->count();
+    }
+
     public function lignes(): HasMany
     {
         return $this->hasMany(CommandeLigne::class);

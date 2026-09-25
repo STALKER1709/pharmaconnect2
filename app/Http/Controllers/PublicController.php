@@ -34,18 +34,30 @@ class PublicController extends Controller
     {
         abort_unless($pharmacie->statut === 'actif', 404);
 
-        $pharmacie->load(['user', 'horaires', 'avis' => fn ($q) => $q->latest()->take(5), 'avis.client.user']);
+        $pharmacie->load(['user', 'horaires']);
 
-        $medicaments = $pharmacie->stocks()
+        $stocks = $pharmacie->stocks()
             ->where('quantite', '>', 0)
+            ->where(fn ($d) => $d->whereNull('date_peremption')->orWhereDate('date_peremption', '>', now()))
+            ->whereHas('medicament', fn ($m) => $m->actif())
             ->with('medicament.categorie')
-            ->paginate(12);
+            ->get()
+            ->sortBy(fn ($s) => $s->medicament->nom)
+            ->values();
+
+        $avis = $pharmacie->avis()->with('client.user')->latest()->get();
+        $repartition = collect([5, 4, 3, 2, 1])->mapWithKeys(fn ($n) => [
+            $n => $avis->isEmpty() ? 0 : (int) round($avis->where('note', $n)->count() * 100 / $avis->count()),
+        ]);
 
         return view('public.pharmacie', [
             'pharmacie' => $pharmacie,
-            'stocks' => $medicaments,
+            'stocks' => $stocks,
             'jours' => \App\Models\Horaire::jours(),
-            'noteMoyenne' => round((float) $pharmacie->avis()->avg('note'), 1),
+            'avis' => $avis->take(4),
+            'nbAvis' => $avis->count(),
+            'repartition' => $repartition,
+            'noteMoyenne' => round((float) $avis->avg('note'), 1),
         ]);
     }
 
@@ -53,28 +65,65 @@ class PublicController extends Controller
     public function medicaments(Request $request): View
     {
         $q = trim((string) $request->query('q', ''));
-        $categorieId = $request->query('categorie');
         $ordonnance = $request->query('ordonnance');
+        $quartier = trim((string) $request->query('quartier', ''));
+        $forme = trim((string) $request->query('forme', ''));
+        $enStock = $request->boolean('en_stock');
+        $prixMax = (int) $request->query('prix_max', 0);
+        $tri = (string) $request->query('tri', 'pertinence');
+
+        // Catégories : sélection multiple (categories[]) ou unique (categorie) pour compatibilité
+        $categoriesIds = collect((array) $request->query('categories', []))
+            ->push($request->query('categorie'))
+            ->filter()->map(fn ($id) => (int) $id)->unique()->values();
+
+        $enStockActif = fn ($s) => $s->where('quantite', '>', 0)
+            ->where(fn ($d) => $d->whereNull('date_peremption')->orWhereDate('date_peremption', '>', now()))
+            ->whereHas('pharmacie', fn ($p) => $p->where('statut', 'actif'));
 
         $medicaments = Medicament::query()
             ->actif()
-            ->with('categorie')
+            ->with(['categorie', 'stocks.pharmacie'])
+            ->withMin(['stocks as prix_min' => $enStockActif], 'prix')
             ->when($q !== '', fn ($query) => $query->where(fn ($w) => $w
                 ->where('nom', 'like', "%{$q}%")
                 ->orWhere('fabricant', 'like', "%{$q}%")
                 ->orWhere('reference', 'like', "%{$q}%")))
-            ->when($categorieId, fn ($query) => $query->where('categorie_id', $categorieId))
+            ->when($categoriesIds->isNotEmpty(), fn ($query) => $query->whereIn('categorie_id', $categoriesIds))
             ->when($ordonnance !== null && $ordonnance !== '', fn ($query) => $query->where('ordonnance_obligatoire', $ordonnance === '1'))
+            ->when($forme !== '', fn ($query) => $query->where('forme', 'like', "{$forme}%"))
+            ->when($enStock, fn ($query) => $query->whereHas('stocks', $enStockActif))
+            ->when($prixMax > 0, fn ($query) => $query->whereHas('stocks', fn ($s) => $enStockActif($s)->where('prix', '<=', $prixMax)))
+            ->when($quartier !== '', fn ($query) => $query->whereHas('stocks', fn ($s) => $enStockActif($s)
+                ->whereHas('pharmacie', fn ($p) => $p->where('quartier', $quartier))))
+            ->when($tri === 'prix_asc', fn ($query) => $query->orderByRaw('prix_min is null')->orderBy('prix_min'))
+            ->when($tri === 'prix_desc', fn ($query) => $query->orderByDesc('prix_min'))
             ->orderBy('nom')
-            ->paginate(12)
+            ->paginate(9)
             ->withQueryString();
+
+        $bornesPrix = \App\Models\PharmacieMedicament::query()
+            ->where('quantite', '>', 0)
+            ->selectRaw('min(prix) as min, max(prix) as max')
+            ->first();
 
         return view('public.medicaments', [
             'medicaments' => $medicaments,
-            'categories' => Categorie::orderBy('nom')->get(),
+            'categories' => Categorie::withCount(['medicaments' => fn ($m) => $m->actif()])->orderBy('nom')->get(),
+            'formes' => Medicament::actif()->whereNotNull('forme')->distinct()->orderBy('forme')->pluck('forme'),
+            'nbPharmacies' => Pharmacie::where('statut', 'actif')->count(),
+            'quartiers' => Pharmacie::where('statut', 'actif')->whereNotNull('quartier')->distinct()->orderBy('quartier')->pluck('quartier'),
+            'prixMinGlobal' => (int) ($bornesPrix->min ?? 0),
+            'prixMaxGlobal' => (int) ($bornesPrix->max ?? 0),
             'q' => $q,
-            'categorieId' => $categorieId,
+            'categoriesIds' => $categoriesIds,
+            'categorieId' => $categoriesIds->first(),
             'ordonnance' => $ordonnance,
+            'forme' => $forme,
+            'enStock' => $enStock,
+            'prixMax' => $prixMax,
+            'tri' => $tri,
+            'quartier' => $quartier,
         ]);
     }
 
@@ -83,24 +132,27 @@ class PublicController extends Controller
     {
         abort_unless($medicament->actif, 404);
 
-        $stocks = $medicament->pharmacies()
-            ->where('pharmacies.statut', 'actif')
-            ->withPivot(['quantite', 'prix', 'date_peremption', 'seuil_stock_bas', 'pharmacie_id', 'medicament_id'])
-            ->get()
-            ->map(function ($pharmacie) {
-                $pivot = $pharmacie->pivot;
-                $pivot->est_en_stock = $pivot->quantite > 0
-                    && ($pivot->date_peremption === null || \Illuminate\Support\Carbon::parse($pivot->date_peremption)->isFuture());
+        // Lignes de stock des pharmacies actives, en stock et non périmées, du moins cher au plus cher
+        $stocks = $medicament->stocks()
+            ->with(['pharmacie.user', 'pharmacie.horaires'])
+            ->whereHas('pharmacie', fn ($p) => $p->where('statut', 'actif'))
+            ->where('quantite', '>', 0)
+            ->where(fn ($d) => $d->whereNull('date_peremption')->orWhereDate('date_peremption', '>', now()))
+            ->orderBy('prix')
+            ->get();
 
-                return $pharmacie;
-            })
-            ->filter(fn ($p) => $p->pivot->est_en_stock)
-            ->sortBy(fn ($p) => $p->pivot->prix)
-            ->values();
+        $avis = $medicament->avis()->with(['client.user', 'pharmacie'])->latest()->get();
+        $repartition = collect([5, 4, 3, 2, 1])->mapWithKeys(fn ($n) => [
+            $n => $avis->isEmpty() ? 0 : (int) round($avis->where('note', $n)->count() * 100 / $avis->count()),
+        ]);
 
         return view('public.medicament', [
             'medicament' => $medicament->load('categorie'),
             'stocks' => $stocks,
+            'offre' => $stocks->first(),
+            'avis' => $avis->take(3),
+            'nbAvis' => $avis->count(),
+            'repartition' => $repartition,
             'noteMoyenne' => $medicament->noteMoyenne(),
         ]);
     }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <rect width="46" height="46" x="4" y="7" rx="12" fill="#16a34a"/>
+  <!-- Pharmacy cross with medical leaf symbol -->
+  <path d="M27 17v26M14 30h26" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="27" cy="30" r="3" fill="#ffffff"/>
+  <text x="60" y="37" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="800" fill="#0f172a" letter-spacing="-0.5">Pharma<tspan fill="#16a34a">Connect</tspan></text>
+</svg>

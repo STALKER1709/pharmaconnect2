@@ -16,7 +16,16 @@ class ChatbotController extends Controller
             ->take(50)
             ->get();
 
-        return view('chatbot.index', compact('messages'));
+        // Officines ouvertes en ce moment (encart « Gardes à proximité »)
+        $pharmaciesOuvertes = \App\Models\Pharmacie::where('statut', 'actif')
+            ->with(['horaires', 'user'])
+            ->orderByDesc('note_moyenne')
+            ->get()
+            ->filter(fn ($p) => $p->estOuverte())
+            ->take(2)
+            ->values();
+
+        return view('chatbot.index', compact('messages', 'pharmaciesOuvertes'));
     }
 
     /** Pose une question au chatbot (mock local par défaut). */

@@ -68,6 +68,11 @@ class CartController extends Controller
         $panier['items'] = $items->values()->all();
         $request->session()->put('panier', $panier);
 
+        // « Paiement 1-clic » de la fiche médicament : on enchaîne directement sur la validation
+        if ($request->input('suite') === 'commande') {
+            return redirect()->route('commande.create');
+        }
+
         return back()->with('succes', 'Ajouté au panier ✓');
     }
 

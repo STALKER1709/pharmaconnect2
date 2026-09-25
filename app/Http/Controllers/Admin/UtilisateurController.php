@@ -13,22 +13,51 @@ class UtilisateurController extends Controller
 {
     public function index(Request $request): View
     {
-        $statut = $request->query('statut', 'en_attente');
-        $role = $request->query('role');
+        $type = $request->query('type');           // demandes : pharmacie | livreur
+        $statut = $request->query('statut');       // répertoire : actif | suspendu
+        $q = trim((string) $request->query('q', ''));
 
-        $users = User::query()
-            ->whereIn('role', ['pharmacie', 'livreur', 'client'])
-            ->when($statut, fn ($q) => $q->where('statut', $statut))
-            ->when($role, fn ($q) => $q->where('role', $role))
+        $recherche = fn ($query) => $query->when($q !== '', fn ($w) => $w->where(fn ($x) => $x
+            ->where('name', 'like', "%{$q}%")
+            ->orWhere('email', 'like', "%{$q}%")
+            ->orWhere('telephone', 'like', "%{$q}%")
+            ->orWhereHas('pharmacie', fn ($p) => $p->where('nom', 'like', "%{$q}%")->orWhere('quartier', 'like', "%{$q}%"))));
+
+        // Demandes d'inscription en attente (pharmacies et livreurs)
+        $demandes = User::query()
+            ->whereIn('role', ['pharmacie', 'livreur'])
+            ->where('statut', 'en_attente')
+            ->when(in_array($type, ['pharmacie', 'livreur'], true), fn ($query) => $query->where('role', $type))
+            ->tap($recherche)
             ->with(['pharmacie', 'livreur'])
-            ->latest()
-            ->paginate(20)
+            ->oldest()
+            ->paginate(10, ['*'], 'demandes')
             ->withQueryString();
 
+        // Répertoire des comptes accrédités (actifs ou suspendus)
+        $repertoire = User::query()
+            ->whereIn('role', ['pharmacie', 'livreur', 'client'])
+            ->whereIn('statut', in_array($statut, ['actif', 'suspendu'], true) ? [$statut] : ['actif', 'suspendu'])
+            ->tap($recherche)
+            ->with(['pharmacie', 'livreur'])
+            ->orderByRaw("statut = 'suspendu' desc")
+            ->latest()
+            ->paginate(10, ['*'], 'page')
+            ->withQueryString();
+
+        $compter = fn (array $conditions) => User::whereIn('role', ['pharmacie', 'livreur', 'client'])->where($conditions)->count();
+
         return view('admin.utilisateurs', [
-            'users' => $users,
+            'demandes' => $demandes,
+            'repertoire' => $repertoire,
+            'type' => $type,
             'statut' => $statut,
-            'role' => $role,
+            'q' => $q,
+            'nbPharmaciesAttente' => $compter([['role', 'pharmacie'], ['statut', 'en_attente']]),
+            'nbLivreursAttente' => $compter([['role', 'livreur'], ['statut', 'en_attente']]),
+            'nbActifs' => $compter([['statut', 'actif']]),
+            'nbSuspendus' => $compter([['statut', 'suspendu']]),
+            'nbActifsMois' => User::whereIn('role', ['pharmacie', 'livreur', 'client'])->where('statut', 'actif')->where('created_at', '>=', now()->startOfMonth())->count(),
         ]);
     }
 

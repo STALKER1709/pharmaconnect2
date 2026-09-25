@@ -1,38 +1,27 @@
-@extends('layouts.app')
+@extends(layout_espace())
 
 @section('titre', 'Messagerie')
+@section('classe_main', 'w-full pt-20 bg-background')
 
 @section('contenu')
-<h1 class="titre-page mb-6">💬 Messagerie</h1>
-
-<div class="carte" style="overflow:hidden;">
-    @forelse($conversations as $conversation)
-        @php $interlocuteur = $conversation->interlocuteurPour(auth()->id()); @endphp
-        <a href="{{ route('messagerie.show', $conversation) }}" class="rangée" style="padding:16px 20px; border-bottom:1px solid var(--bord); gap:16px; align-items:center; transition:background-color .15s;"
-           onmouseover="this.style.background='var(--vert-50)'" onmouseout="this.style.background=''">
-            <span class="avatar" style="background:var(--vert-100); color:var(--vert-700); width:44px; height:44px;">
-                {{ mb_substr($interlocuteur?->name ?? '?', 0, 1) }}
-            </span>
-            <span style="flex:1; min-width:0;">
-                <span class="rangee-entre" style="display:flex;">
-                    <span style="font-weight:700; color:var(--encre);">{{ $interlocuteur?->name ?? 'Utilisateur' }}</span>
-                    <span class="texte-petit texte-doux">{{ $conversation->dernier_message_at?->format('d/m H:i') }}</span>
-                </span>
-                @if($conversation->commande)
-                    <span class="texte-petit" style="color:var(--vert-700); display:block;">📦 Commande {{ $conversation->commande->numero }}</span>
-                @endif
-                <span class="texte-petit texte-doux" style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $conversation->messages->first()?->contenu ?? 'Nouvelle conversation' }}</span>
-            </span>
-        </a>
-    @empty
-        <div class="vide">
-            Aucune conversation.<br>
-            @if(auth()->user()->estClient())
-                Écrivez à une pharmacie depuis <a href="{{ route('public.pharmacies') }}" style="color:var(--vert-700); font-weight:600;">sa fiche</a>.
-            @endif
+<div class="flex flex-col w-full">
+    <div class="max-w-[1280px] w-full mx-auto {{ auth()->user()->estPharmacie() || auth()->user()->estAdmin() ? 'py-space-md' : 'px-gutter md:px-gutter-desktop py-space-sm md:py-space-md' }}">
+        @include('messagerie.partials.cadre')
+        <div class="w-full bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col lg:flex-row lg:h-[calc(100vh-165px)] lg:min-h-[640px] overflow-hidden">
+            @include('messagerie.partials.liste')
+            <div class="hidden lg:flex flex-1 flex-col items-center justify-center bg-surface-bright text-center p-space-xl">
+                <div class="w-16 h-16 rounded-2xl bg-surface-container-highest text-primary flex items-center justify-center mb-space-md">
+                    <span class="material-symbols-outlined text-[34px]">forum</span>
+                </div>
+                <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Sélectionnez une discussion</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-sm">Échangez en direct avec votre officine ou votre coursier : posologie, allergies, précisions de livraison.</p>
+                <div class="mt-space-md max-w-xl bg-surface-container-lowest/90 px-space-md py-space-xs rounded-xl shadow-sm flex items-center gap-space-xs text-on-surface-variant">
+                    <span class="material-symbols-outlined text-primary text-[16px] flex-shrink-0">lock</span>
+                    <span class="font-body-sm text-body-sm text-[12px]">Échange médical sécurisé conforme à l'Ordre National des Pharmaciens du Cameroun (ONPC)</span>
+                </div>
+            </div>
         </div>
-    @endforelse
+        @include('messagerie.partials.pied')
+    </div>
 </div>
-
-{{ $conversations->links() }}
 @endsection

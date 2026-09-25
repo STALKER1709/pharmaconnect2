@@ -16,7 +16,7 @@ class WelcomeController extends Controller
 
         $pharmacies = Pharmacie::query()
             ->where('statut', 'actif')
-            ->with('user')
+            ->with(['user', 'horaires'])
             ->when($recherche !== '', fn ($q) => $q->where(fn ($w) => $w
                 ->where('nom', 'like', "%{$recherche}%")
                 ->orWhere('quartier', 'like', "%{$recherche}%")
@@ -27,7 +27,7 @@ class WelcomeController extends Controller
 
         $medicaments = Medicament::query()
             ->actif()
-            ->with('categorie')
+            ->with(['categorie', 'stocks.pharmacie'])
             ->when($recherche !== '', fn ($q) => $q->where('nom', 'like', "%{$recherche}%"))
             ->when($categorieId, fn ($q) => $q->where('categorie_id', $categorieId))
             ->latest()
@@ -42,6 +42,7 @@ class WelcomeController extends Controller
             'nbPharmacies' => Pharmacie::where('statut', 'actif')->count(),
             'nbMedicaments' => Medicament::actif()->count(),
             'nbCommandes' => \App\Models\Commande::count(),
+            'quartiers' => Pharmacie::where('statut', 'actif')->whereNotNull('quartier')->distinct()->orderBy('quartier')->pluck('quartier'),
         ]);
     }
 }

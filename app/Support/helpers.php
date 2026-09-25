@@ -52,3 +52,29 @@ if (! function_exists('initiales_sexe')) {
         };
     }
 }
+
+if (! function_exists('initiales')) {
+    /** « Marc-Aurèle Tchounkeu » -> « MT » (avatars des maquettes). */
+    function initiales(?string $nom): string
+    {
+        $mots = preg_split('/[\s\-]+/u', trim((string) $nom), -1, PREG_SPLIT_NO_EMPTY) ?: ['?'];
+        $lettres = count($mots) > 1 ? [reset($mots), end($mots)] : [$mots[0]];
+
+        return mb_strtoupper(implode('', array_map(fn ($m) => mb_substr($m, 0, 1), $lettres)));
+    }
+}
+
+if (! function_exists('layout_espace')) {
+    /** Gabarit Blade de l'espace de l'utilisateur connecté (pages partagées : messagerie, profil…). */
+    function layout_espace(): string
+    {
+        $user = auth()->user();
+
+        return match (true) {
+            $user?->estPharmacie() => 'layouts.pharmacie',
+            $user?->estAdmin() => 'layouts.admin',
+            $user?->estLivreur() => 'layouts.livreur',
+            default => 'layouts.app',
+        };
+    }
+}

@@ -51,12 +51,17 @@ class CheckoutController extends Controller
             return redirect()->route('panier.index');
         }
 
+        // « 677 45 88 12 » -> « 677458812 » (saisie avec espaces comme sur la maquette)
+        $request->merge(['numero_mobile_money' => preg_replace('/\D/', '', (string) $request->input('numero_mobile_money'))]);
+
         $validated = $request->validate([
             'adresse_livraison' => ['required', 'string', 'max:255'],
             'ville_livraison' => ['required', 'string', 'max:120'],
             'latitude' => ['nullable', 'numeric', 'between:-90,90'],
             'longitude' => ['nullable', 'numeric', 'between:-180,180'],
             'notes' => ['nullable', 'string', 'max:1000'],
+            'destinataire' => ['nullable', 'string', 'max:120'],
+            'telephone_contact' => ['nullable', 'string', 'max:30'],
             'operateur' => ['required', 'in:mtn_momo,orange_money'],
             'numero_mobile_money' => ['required', 'string', 'regex:/^(237)?6\d{8}$/'],
         ], [
@@ -66,6 +71,13 @@ class CheckoutController extends Controller
         $pharmacie = Pharmacie::findOrFail($panier['pharmacie_id']);
         $client = $request->user()->client;
         $operateur = OperateurMobileMoney::from($validated['operateur']);
+
+        // Destinataire et téléphone du coursier (formulaire de livraison) conservés dans les notes
+        $contact = collect([
+            filled($validated['destinataire'] ?? null) ? 'Destinataire : '.$validated['destinataire'] : null,
+            filled($validated['telephone_contact'] ?? null) ? 'Tél. : +237 '.$validated['telephone_contact'] : null,
+        ])->filter()->implode(' — ');
+        $validated['notes'] = collect([$contact, $validated['notes'] ?? null])->filter()->implode("\n") ?: null;
 
         $commande = DB::transaction(function () use ($panier, $pharmacie, $client, $validated, $operateur) {
             $items = collect($panier['items']);

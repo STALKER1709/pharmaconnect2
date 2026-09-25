@@ -15,24 +15,17 @@ class MessagerieController extends Controller
 {
     public function index(Request $request): View
     {
-        $user = $request->user();
-
-        $conversations = Conversation::query()
-            ->where(fn ($q) => $q->where('client_id', $user->id)
-                ->orWhere('pharmacie_user_id', $user->id)
-                ->orWhere('livreur_user_id', $user->id))
-            ->with(['client', 'pharmacie', 'livreur', 'commande', 'messages' => fn ($q) => $q->latest()->take(1)])
-            ->orderByDesc('dernier_message_at')
-            ->paginate(15);
-
-        return view('messagerie.index', compact('conversations'));
+        return view('messagerie.index', [
+            'conversations' => $this->conversationsDe($request->user()),
+            'monId' => $request->user()->id,
+        ]);
     }
 
     public function show(Request $request, Conversation $conversation): View
     {
         abort_unless($conversation->implique($request->user()->id), 403);
 
-        $conversation->load(['client', 'pharmacie', 'livreur', 'commande.pharmacie']);
+        $conversation->load(['client', 'pharmacie.pharmacie', 'livreur.livreur', 'commande.pharmacie']);
 
         $messages = $conversation->messages()->with('expediteur')->oldest()->get();
 
@@ -42,10 +35,24 @@ class MessagerieController extends Controller
 
         return view('messagerie.show', [
             'conversation' => $conversation,
+            'conversations' => $this->conversationsDe($request->user()),
             'messages' => $messages,
             'interlocuteur' => $conversation->interlocuteurPour($request->user()->id),
             'monId' => $request->user()->id,
         ]);
+    }
+
+    /** Conversations de l'utilisateur, avec dernier message et nombre de non-lus. */
+    protected function conversationsDe(\App\Models\User $user)
+    {
+        return Conversation::query()
+            ->where(fn ($q) => $q->where('client_id', $user->id)
+                ->orWhere('pharmacie_user_id', $user->id)
+                ->orWhere('livreur_user_id', $user->id))
+            ->with(['client', 'pharmacie.pharmacie', 'livreur.livreur', 'commande', 'messages' => fn ($q) => $q->latest()->take(1)])
+            ->withCount(['messages as non_lus_count' => fn ($q) => $q->whereNull('lu_at')->where('expediteur_id', '!=', $user->id)])
+            ->orderByDesc('dernier_message_at')
+            ->get();
     }
 
     /** Envoyer un message (broadcast Reverb + notification). */

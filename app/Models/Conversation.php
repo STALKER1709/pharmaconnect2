@@ -68,4 +68,45 @@ class Conversation extends Model
 
         return null;
     }
+
+    /**
+     * Carte d'identité de l'interlocuteur (liste et en-tête de la messagerie) :
+     * nom affiché, sous-titre, icône Material Symbols et type.
+     *
+     * @return array{nom: string, sous_titre: string, icone: string, type: string, user: ?User}
+     */
+    public function carteInterlocuteur(int $userId): array
+    {
+        if ($this->pharmacie_user_id && $this->pharmacie_user_id !== $userId) {
+            $profil = $this->pharmacie?->pharmacie;
+
+            return [
+                'nom' => $profil?->nom ?? $this->pharmacie?->name ?? 'Officine',
+                'sous_titre' => collect([$profil?->quartier, $profil?->adresse])->filter()->unique()->implode(', ') ?: 'Officine partenaire',
+                'icone' => 'local_pharmacy',
+                'type' => 'Officine',
+                'user' => $this->pharmacie,
+            ];
+        }
+
+        if ($this->livreur_user_id && $this->livreur_user_id !== $userId) {
+            $profil = $this->livreur?->livreur;
+
+            return [
+                'nom' => $this->livreur?->name ?? 'Coursier',
+                'sous_titre' => collect([$profil?->vehicule ? ucfirst($profil->vehicule) : null, $profil?->immatriculation])->filter()->implode(' · ') ?: 'Coursier PharmaConnect',
+                'icone' => 'two_wheeler',
+                'type' => 'Coursier',
+                'user' => $this->livreur,
+            ];
+        }
+
+        return [
+            'nom' => $this->client?->name ?? 'Patient',
+            'sous_titre' => $this->commande ? 'Commande '.$this->commande->numero : 'Patient PharmaConnect',
+            'icone' => 'person',
+            'type' => 'Patient',
+            'user' => $this->client,
+        ];
+    }
 }

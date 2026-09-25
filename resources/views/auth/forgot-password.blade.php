@@ -3,22 +3,17 @@
 @section('titre', 'Mot de passe oublié')
 
 @section('contenu')
-<div class="carte auth-carte">
-    <h1 class="titre-page" style="font-size:24px;">Mot de passe oublié ?</h1>
-    <p class="sous-titre">Indiquez votre e-mail — le lien de réinitialisation est écrit dans <code>storage/logs/laravel.log</code> (mode local).</p>
+    @include('auth.partials.entete', ['icone' => 'key', 'titre' => 'Mot de passe oublié ?', 'sousTitre' => 'Indiquez votre e-mail : nous vous envoyons un lien de réinitialisation.'])
 
-    <form method="POST" action="{{ route('password.email') }}" class="mt-6" style="display:grid; gap:16px;">
+    @if (session('status'))
+        <div class="mb-space-md p-3 rounded-xl bg-[#dcfce9] text-[#14532d] font-body-sm text-body-sm flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">mark_email_read</span>{{ __(session('status')) }}</div>
+    @endif
+
+    <form method="POST" action="{{ route('password.email') }}" class="flex flex-col gap-space-md">
         @csrf
-        <div>
-            <label for="email" class="champ-label">E-mail</label>
-            <input id="email" name="email" type="email" value="{{ old('email') }}" required class="champ">
-            @error('email') <p class="erreur-texte">{{ $message }}</p> @enderror
-        </div>
-        <button class="btn btn-primaire" style="width:100%;">Envoyer le lien</button>
+        <x-champ label="Adresse e-mail" name="email" type="email" icone="mail" required autofocus/>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">En local (MAIL_MAILER=log), le lien est écrit dans <code>storage/logs/laravel.log</code>.</p>
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm transition-colors"><span class="material-symbols-outlined text-[20px]">send</span>Envoyer le lien</button>
     </form>
-
-    <p class="mt-6" style="text-align:center;">
-        <a href="{{ route('login') }}" style="color:var(--vert-700); font-weight:600;">← Retour à la connexion</a>
-    </p>
-</div>
+    <p class="mt-space-lg text-center"><a href="{{ route('login') }}" class="inline-flex items-center gap-1 font-label-lg text-label-lg text-primary hover:underline"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Retour à la connexion</a></p>
 @endsection

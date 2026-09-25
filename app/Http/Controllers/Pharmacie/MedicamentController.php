@@ -21,14 +21,21 @@ class MedicamentController extends Controller
 
         $stocks = $pharmacie->stocks()->with(['medicament.categorie'])
             ->when($request->query('q'), fn ($q, $v) => $q->whereHas('medicament', fn ($m) => $m->where('nom', 'like', "%{$v}%")))
+            // Filtre « Stocks » de la barre latérale : stocks sous le seuil d'alerte
+            ->when($request->query('stock') === 'bas', fn ($q) => $q->whereRaw('quantite <= seuil_stock_bas'))
             ->orderBy('quantite')
-            ->paginate(15);
+            ->paginate(15)
+            ->withQueryString();
 
         return view('pharmacie.medicaments', [
             'pharmacie' => $pharmacie,
             'stocks' => $stocks,
             'categories' => Categorie::orderBy('nom')->get(),
             'q' => $request->query('q', ''),
+            'filtreStock' => $request->query('stock'),
+            'nbReferences' => $pharmacie->stocks()->count(),
+            'nbStockBas' => $pharmacie->stocks()->whereRaw('quantite <= seuil_stock_bas')->count(),
+            'valeurStock' => (int) $pharmacie->stocks()->selectRaw('SUM(quantite * prix) as v')->value('v'),
         ]);
     }
 

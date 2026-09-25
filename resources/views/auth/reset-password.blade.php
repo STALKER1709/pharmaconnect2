@@ -3,31 +3,14 @@
 @section('titre', 'Nouveau mot de passe')
 
 @section('contenu')
-<div class="carte auth-carte">
-    <h1 class="titre-page" style="font-size:24px;">Nouveau mot de passe</h1>
+    @include('auth.partials.entete', ['icone' => 'lock_reset', 'titre' => 'Nouveau mot de passe', 'sousTitre' => 'Choisissez un mot de passe robuste pour sécuriser votre compte.'])
 
-    <form method="POST" action="{{ route('password.store') }}" class="mt-6" style="display:grid; gap:16px;">
+    <form method="POST" action="{{ route('password.store') }}" class="flex flex-col gap-space-md">
         @csrf
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
-        <div>
-            <label for="email" class="champ-label">E-mail</label>
-            <input id="email" name="email" type="email" value="{{ old('email') }}" required class="champ">
-            @error('email') <p class="erreur-texte">{{ $message }}</p> @enderror
-        </div>
-
-        <div>
-            <label for="password" class="champ-label">Nouveau mot de passe</label>
-            <input id="password" name="password" type="password" required class="champ">
-            @error('password') <p class="erreur-texte">{{ $message }}</p> @enderror
-        </div>
-
-        <div>
-            <label for="password_confirmation" class="champ-label">Confirmer</label>
-            <input id="password_confirmation" name="password_confirmation" type="password" required class="champ">
-        </div>
-
-        <button class="btn btn-primaire" style="width:100%;">Réinitialiser</button>
+        <x-champ label="Adresse e-mail" name="email" type="email" icone="mail" :value="$request->email" required autofocus/>
+        <x-champ label="Nouveau mot de passe" name="password" type="password" icone="lock" required autocomplete="new-password"/>
+        <x-champ label="Confirmer le mot de passe" name="password_confirmation" type="password" icone="lock" required autocomplete="new-password"/>
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm transition-colors"><span class="material-symbols-outlined text-[20px]">check</span>Réinitialiser</button>
     </form>
-</div>
 @endsection

@@ -1,6 +1,11 @@
+import Chart from 'chart.js/auto';
+
 /**
- * Graphiques Chart.js des dashboards pharmacie et admin.
+ * Graphiques Chart.js des dashboards pharmacie et admin
+ * (palette des maquettes Stitch : vert #00873a, bleus surface #d8e3fb).
  */
+Chart.defaults.font.family = 'Inter, sans-serif';
+Chart.defaults.color = '#6e7b6c';
 window.PharmaConnect = window.PharmaConnect || {};
 
 PharmaConnect.graphiqueCA = (el, labels, data) => {
@@ -13,12 +18,15 @@ PharmaConnect.graphiqueCA = (el, labels, data) => {
             datasets: [{
                 label: 'Chiffre d\'affaires (FCFA)',
                 data,
-                borderColor: '#16a34a',
-                backgroundColor: 'rgba(22, 163, 74, 0.12)',
+                borderColor: '#00873a',
+                backgroundColor: 'rgba(0, 135, 58, 0.14)',
                 fill: true,
                 tension: 0.35,
-                borderWidth: 2,
-                pointRadius: 3,
+                borderWidth: 3,
+                pointRadius: 4,
+                pointBackgroundColor: '#ffffff',
+                pointBorderColor: '#006b2c',
+                pointBorderWidth: 2,
             }],
         },
         options: {
@@ -41,7 +49,8 @@ PharmaConnect.graphiqueStatuts = (el, labels, data) => {
             labels,
             datasets: [{
                 data,
-                backgroundColor: ['#f59e0b', '#0ea5e9', '#6366f1', '#06b6d4', '#22c55e', '#94a3b8', '#ef4444'],
+                backgroundColor: ['#ffd9de', '#d8e3fb', '#62df7d', '#00873a', '#006b2c', '#bdcaba', '#ba1a1a'],
+                borderWidth: 0,
             }],
         },
         options: {
@@ -62,8 +71,8 @@ PharmaConnect.graphiqueBarres = (el, labels, data) => {
             datasets: [{
                 label: 'Quantité vendue',
                 data,
-                backgroundColor: '#22c76a',
-                borderRadius: 6,
+                backgroundColor: '#00873a',
+                borderRadius: 8,
             }],
         },
         options: {

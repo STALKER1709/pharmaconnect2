@@ -20,16 +20,25 @@ class CommandeController extends Controller
     {
         $pharmacie = $request->user()->pharmacie;
 
+        $statut = CommandeStatut::tryFrom((string) $request->query('statut'));
+
         $commandes = Commande::where('pharmacie_id', $pharmacie->id)
             ->with(['client.user', 'livreur.user', 'lignes', 'paiement', 'livraison'])
+            ->when($statut, fn ($q) => $q->where('statut', $statut))
             ->latest()
-            ->paginate(15);
+            ->paginate(15)
+            ->withQueryString();
 
-        $enAttente = (clone $commandes)->getCollection()->filter(fn ($c) => $c->statut === CommandeStatut::EnAttente);
+        $compteurs = Commande::where('pharmacie_id', $pharmacie->id)
+            ->selectRaw('statut, count(*) as total')
+            ->groupBy('statut')
+            ->pluck('total', 'statut');
 
         return view('pharmacie.commandes', [
             'pharmacie' => $pharmacie,
             'commandes' => $commandes,
+            'statut' => $statut,
+            'compteurs' => $compteurs,
             'livreursDisponibles' => Livreur::where('statut', 'actif')->where('disponibilite', 'disponible')->with('user')->get(),
         ]);
     }

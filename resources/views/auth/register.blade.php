@@ -3,94 +3,62 @@
 @section('titre', 'Créer un compte')
 
 @section('contenu')
-<div class="carte auth-carte"
-     x-data="{ role: '{{ old('role', 'client') }}' }">
-    <h1 class="titre-page" style="font-size:24px;">Créer un compte</h1>
-    <p class="sous-titre">Rejoignez PharmaConnect — gratuit.</p>
+<div x-data="{ role: '{{ old('role', request('role', 'client')) }}' }">
+    @include('auth.partials.entete', ['icone' => 'person_add', 'titre' => 'Créer un compte', 'sousTitre' => 'Rejoignez PharmaConnect gratuitement.'])
 
-    <form method="POST" action="{{ route('register') }}" class="mt-6" style="display:grid; gap:16px;">
+    <form method="POST" action="{{ route('register') }}" class="flex flex-col gap-space-md">
         @csrf
-
-        {{-- Choix du rôle --}}
         <div>
-            <div class="role-grille">
-                @foreach(['client' => '👤 Client', 'pharmacie' => '🏥 Pharmacie', 'livreur' => '🛵 Livreur'] as $valeur => $libelle)
-                    <label class="role-option">
-                        <input type="radio" name="role" value="{{ $valeur }}" @checked(old('role', 'client') === $valeur) x-model="role">
-                        <span>{{ $libelle }}</span>
+            <span class="block font-label-md text-label-md text-on-surface mb-1.5">Je suis</span>
+            <div class="grid grid-cols-3 gap-2">
+                @foreach (['client' => ['person', 'Patient'], 'pharmacie' => ['local_pharmacy', 'Pharmacie'], 'livreur' => ['two_wheeler', 'Coursier']] as $valeur => [$icone, $libelle])
+                    <label class="cursor-pointer">
+                        <input type="radio" name="role" value="{{ $valeur }}" x-model="role" class="sr-only" @checked(old('role', request('role', 'client')) === $valeur)>
+                        <span class="flex flex-col items-center gap-1 p-3 rounded-xl transition-all font-label-md text-label-md"
+                              :class="role === '{{ $valeur }}' ? 'bg-[#dcfce9] text-[#14532d] ring-2 ring-primary shadow-sm' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container'">
+                            <span class="material-symbols-outlined text-[24px]">{{ $icone }}</span>
+                            {{ $libelle }}
+                        </span>
                     </label>
                 @endforeach
             </div>
-            <p class="texte-petit texte-doux mt-2">Les comptes pharmacie et livreur sont activés après validation par l'administrateur.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5" x-show="role !== 'client'" x-cloak>Les comptes pharmacie et coursier sont activés après validation par l'administrateur.</p>
         </div>
 
-        <div>
-            <label for="name" class="champ-label">Nom complet</label>
-            <input id="name" name="name" value="{{ old('name') }}" required class="champ">
-            @error('name') <p class="erreur-texte">{{ $message }}</p> @enderror
+        <x-champ label="Nom complet" name="name" icone="person" required autofocus autocomplete="name"/>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <x-champ label="E-mail" name="email" type="email" icone="mail" required autocomplete="username"/>
+            <x-champ label="Téléphone (Cameroun)" name="telephone" type="tel" icone="call" placeholder="690123456" required/>
         </div>
 
-        <div class="role-grille-2">
-            <div>
-                <label for="email" class="champ-label">E-mail</label>
-                <input id="email" name="email" type="email" value="{{ old('email') }}" required class="champ">
-                @error('email') <p class="erreur-texte">{{ $message }}</p> @enderror
-            </div>
-            <div>
-                <label for="telephone" class="champ-label">Téléphone (Cameroun)</label>
-                <input id="telephone" name="telephone" value="{{ old('telephone') }}" placeholder="690123456" required class="champ">
-                @error('telephone') <p class="erreur-texte">{{ $message }}</p> @enderror
-            </div>
+        <div x-show="role === 'pharmacie'" x-cloak class="p-4 rounded-xl bg-surface-container-low/60 flex flex-col gap-space-md">
+            <p class="font-label-md text-label-md text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">local_pharmacy</span>Votre officine</p>
+            <x-champ label="Nom de la pharmacie" name="nom_pharmacie" icone="storefront"/>
+            <x-champ label="Adresse de la pharmacie" name="adresse_pharmacie" icone="pin_drop" placeholder="Quartier, rue, repère"/>
         </div>
 
-        {{-- Champs pharmacie --}}
-        <div x-show="role === 'pharmacie'" x-cloak class="bloc-role">
-            <div>
-                <label for="nom_pharmacie" class="champ-label">Nom de la pharmacie</label>
-                <input id="nom_pharmacie" name="nom_pharmacie" value="{{ old('nom_pharmacie') }}" class="champ">
-                @error('nom_pharmacie') <p class="erreur-texte">{{ $message }}</p> @enderror
-            </div>
-            <div>
-                <label for="adresse_pharmacie" class="champ-label">Adresse de la pharmacie</label>
-                <input id="adresse_pharmacie" name="adresse_pharmacie" value="{{ old('adresse_pharmacie') }}" class="champ">
-                @error('adresse_pharmacie') <p class="erreur-texte">{{ $message }}</p> @enderror
-            </div>
+        <div x-show="role === 'livreur'" x-cloak class="p-4 rounded-xl bg-surface-container-low/60 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <x-champ label="Véhicule" name="vehicule" type="select" icone="two_wheeler">
+                @foreach (['moto' => 'Moto', 'voiture' => 'Voiture', 'velo' => 'Vélo'] as $valeur => $libelle)
+                    <option value="{{ $valeur }}" @selected(old('vehicule') === $valeur)>{{ $libelle }}</option>
+                @endforeach
+            </x-champ>
+            <x-champ label="Immatriculation (optionnel)" name="immatriculation" icone="badge"/>
         </div>
 
-        {{-- Champs livreur --}}
-        <div x-show="role === 'livreur'" x-cloak class="bloc-role">
-            <div>
-                <label for="vehicule" class="champ-label">Véhicule</label>
-                <select id="vehicule" name="vehicule" class="champ">
-                    <option value="moto" @selected(old('vehicule') === 'moto')>Moto</option>
-                    <option value="voiture" @selected(old('vehicule') === 'voiture')>Voiture</option>
-                    <option value="velo" @selected(old('vehicule') === 'velo')>Vélo</option>
-                </select>
-                @error('vehicule') <p class="erreur-texte">{{ $message }}</p> @enderror
-            </div>
-            <div>
-                <label for="immatriculation" class="champ-label">Immatriculation (optionnel)</label>
-                <input id="immatriculation" name="immatriculation" value="{{ old('immatriculation') }}" class="champ">
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <x-champ label="Mot de passe" name="password" type="password" icone="lock" required autocomplete="new-password"/>
+            <x-champ label="Confirmer" name="password_confirmation" type="password" icone="lock" required autocomplete="new-password"/>
         </div>
 
-        <div class="role-grille-2">
-            <div>
-                <label for="password" class="champ-label">Mot de passe</label>
-                <input id="password" name="password" type="password" required class="champ">
-                @error('password') <p class="erreur-texte">{{ $message }}</p> @enderror
-            </div>
-            <div>
-                <label for="password_confirmation" class="champ-label">Confirmer</label>
-                <input id="password_confirmation" name="password_confirmation" type="password" required class="champ">
-            </div>
-        </div>
-
-        <button class="btn btn-primaire" style="width:100%;">Créer mon compte</button>
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm transition-colors">
+            <span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+            Créer mon compte
+        </button>
     </form>
 
-    <p class="mt-6 texte-petit texte-doux" style="text-align:center;">
-        Déjà inscrit ? <a href="{{ route('login') }}" style="color:var(--vert-700); font-weight:600;">Se connecter</a>
+    <p class="mt-space-lg font-body-md text-body-md text-on-surface-variant text-center">
+        Déjà inscrit ? <a href="{{ route('login') }}" class="text-primary font-semibold hover:underline">Se connecter</a>
     </p>
 </div>
 @endsection

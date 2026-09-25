@@ -3,18 +3,11 @@
 @section('titre', 'Confirmez votre mot de passe')
 
 @section('contenu')
-<div class="carte auth-carte">
-    <h1 class="titre-page" style="font-size:24px;">Confirmation requise</h1>
-    <p class="sous-titre">Saisissez à nouveau votre mot de passe pour continuer.</p>
+    @include('auth.partials.entete', ['icone' => 'shield_lock', 'titre' => 'Confirmation requise', 'sousTitre' => 'Zone sécurisée : saisissez à nouveau votre mot de passe pour continuer.'])
 
-    <form method="POST" action="{{ route('password.confirm') }}" class="mt-6" style="display:grid; gap:16px;">
+    <form method="POST" action="{{ route('password.confirm') }}" class="flex flex-col gap-space-md">
         @csrf
-        <div>
-            <label for="password" class="champ-label">Mot de passe</label>
-            <input id="password" name="password" type="password" required class="champ">
-            @error('password') <p class="erreur-texte">{{ $message }}</p> @enderror
-        </div>
-        <button class="btn btn-primaire" style="width:100%;">Confirmer</button>
+        <x-champ label="Mot de passe" name="password" type="password" icone="lock" required autocomplete="current-password"/>
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm transition-colors">Confirmer</button>
     </form>
-</div>
 @endsection

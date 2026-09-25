@@ -17,7 +17,7 @@ class PublicController extends Controller
 
         $pharmacies = Pharmacie::query()
             ->where('statut', 'actif')
-            ->with('user')
+            ->with(['user', 'horaires'])
             ->when($q !== '', fn ($query) => $query->where(fn ($w) => $w
                 ->where('nom', 'like', "%{$q}%")
                 ->orWhere('quartier', 'like', "%{$q}%")
@@ -26,7 +26,9 @@ class PublicController extends Controller
             ->paginate(12)
             ->withQueryString();
 
-        return view('public.pharmacies', compact('pharmacies', 'q'));
+        $quartiers = Pharmacie::where('statut', 'actif')->whereNotNull('quartier')->distinct()->orderBy('quartier')->pluck('quartier');
+
+        return view('public.pharmacies', compact('pharmacies', 'q', 'quartiers'));
     }
 
     /** Fiche publique d'une pharmacie : horaires, carte, avis, catalogue. */
